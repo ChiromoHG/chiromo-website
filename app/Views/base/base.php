@@ -71,6 +71,7 @@
 <?= $this->renderSection('home-custom-script') ?>
 <?= $this->renderSection('login-content-script') ?>
 <?= $this->renderSection('online-therapy-script') ?>
+<?= $this->renderSection('about-section-script') ?>
 
 <script>
 

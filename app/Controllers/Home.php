@@ -39,4 +39,12 @@ class Home extends BaseController
     public function paymentKYC(){
         return view('main/payment-kyc');
     }
+
+    public function aboutUs(){
+        return view('main/about-us');
+    }
+
+    public function treatments(){
+        return view('main/treatments');
+    }
 }

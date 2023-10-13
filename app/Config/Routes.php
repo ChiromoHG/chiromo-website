@@ -24,6 +24,8 @@ $routes->get("/our-blog", "Home::blog");
 $routes->get("/gift-member", "Home::giftMember");
 $routes->get("gift-member/choose-packages", "Home::choosePackages");
 $routes->get("gift-member/payment-kyc", "Home::paymentKYC");
+$routes->get("about-us", "Home::aboutUs");
+$routes->get("treatments", "Home::treatments");
 
 
 $routes->post("users/auth/loginUser", "Auth::loginUser");

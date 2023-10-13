@@ -58,7 +58,7 @@
                         <h1>
                             WellnessPro,
                             <span>Your comprehensive</span>
-                            mental Wellness Program
+                            mental Wellness Program.
                         </h1>
                         <h5>
                             The program aims to promote mental health awareness in order to

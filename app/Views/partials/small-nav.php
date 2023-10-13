@@ -1,3 +1,4 @@
+<section class="w-full px-4 sm:px-8 lg:px-20 xl:px-20 2xl:px-20">
 <div class="hidden md:flex justify-between items-center py-4 border-b text-sm"
      style="border-color: rgba(255,255,255,.25)">
     <div class="">
@@ -30,3 +31,4 @@
         </ul>
     </div>
 </div>
+</section>
