@@ -1,4 +1,4 @@
-<?= $this->extend('base/base.php') ?>
+<?= $this->extend('Modules\Admin\Views\base\base.php') ?>
 <?= $this->section('content') ?>
 
 
@@ -48,57 +48,38 @@
 
     </div>
 </div>
-
 <?= $this->endSection() ?>
-
-<?= $this->section("login-content-script") ?>
-
+<?= $this->section('login-content-script') ?>
 <script>
     $(document).ready(function () {
-        let emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-
-        $("#signIn").on('click',function (e) {
-
+        $("#signIn").click(function (e) {
             e.preventDefault();
             let email = $("#email").val();
             let password = $("#password").val();
 
             if (email === "") {
                 $('#email').addClass('border-red-500');
-                $('.input-icon').addClass('text-red-500');
-                $('#emailError').text('Email field is required');
+                $('#email').focus();
+                $('#emailError').text('First name is required');
                 return false;
             }else{
                 $('#email').removeClass('border-red-500');
-                $('.input-icon').removeClass('text-red-500')
-                $('#emailError').text('');
-            }
-
-            if(!emailRegex.test(email)){
-                $('#email').addClass('border-red-500');
-                $('.input-icon').addClass('text-red-500');
-                $('#emailError').text('Invalid email address');
-                return false;
-            }else{
-                $('#email').removeClass('border-red-500');
-                $('.input-icon').removeClass('text-red-500')
                 $('#emailError').text('');
             }
 
             if (password === "") {
                 $('#password').addClass('border-red-500');
-                $('.input-icon').addClass('text-red-500');
+                $('#password').focus();
                 $('#passwordError').text('Password is required');
                 return false;
             }else{
                 $('#password').removeClass('border-red-500');
-                $('.input-icon').removeClass('text-red-500')
                 $('#passwordError').text('');
             }
 
             $('#signIn').prop('disabled', true).html(' <span class="loading loading-dots loading-md pl-1"></span>');
             $.ajax({
-                url: "<?= base_url('/api/patient_login') ?>",
+                url: "<?= base_url('admin/auth/user-login') ?>",
                 type: "POST",
                 data: {
                     email: email,
@@ -106,7 +87,7 @@
                 },
                 success: function (response) {
                     if (response.status === 200) {
-                        window.location.href = "<?= base_url('patient/dashboard') ?>";
+                        window.location.href = "<?= base_url('admin/dashboard') ?>";
                     } else if(response.status === 500) {
                         $('#toast-danger').removeClass('hidden');
                         $('#toast-danger #toast-danger-content').text(response.message);
@@ -125,5 +106,4 @@
         });
     });
 </script>
-
 <?= $this->endSection() ?>

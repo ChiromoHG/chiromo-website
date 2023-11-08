@@ -528,3 +528,11 @@ nav.close ~ .dashboard .top{
 .dataTables_wrapper .dataTables_length select{
     padding: 8px !important;
 }
+
+/* client login section*/
+.login_img_section {
+    background-image: linear-gradient(rgba(2,2,2,.7),rgba(0,0,0,.7)),url("../images/carousel/bustani.jpeg");
+    background-position: center;
+    background-size: cover;
+}
+/* end of the login section*/

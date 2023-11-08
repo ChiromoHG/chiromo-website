@@ -299,18 +299,7 @@ span.arrow:hover .arrow_icon svg {
 }
 
 .why-choose-img--container {
-    background: #FFFFFF;
-    background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
-    border-radius: 1.5rem;
-    padding: 2rem;
     filter: drop-shadow(4px 4px 4px rgba(255, 255, 255, 0.3));
-}
-
-@media only screen and (max-width: 600px) {
-    .why-choose-img--container {
-        background: none;
-        margin-top: .5rem;
-    }
 }
 
 .why-choose-img--content:hover .reason-img:not(:hover) {
@@ -366,6 +355,34 @@ span.arrow:hover .arrow_icon svg {
     cursor: pointer;
     outline: .3rem solid #ac8342;
 }
+
+@media only screen and (max-width: 600px) {
+
+    .reason-img1{
+        left: 0;
+        top: -2rem;
+    }
+
+    .reason-img2 {
+        right: 0;
+        top: .5rem;
+    }
+    .reason-img3 {
+        left: 20%;
+        top: 2rem;
+    }
+}
+
+.gift-img{
+    clip-path: ellipse(50% 50% at 50% 50%);
+    cursor: pointer;
+}
+
+.circle{
+    background: linear-gradient(to right bottom, #ac8342 40%, #0060a3 60%);
+    filter: blur(100px);
+}
+
 
 /* end of the section*/
 
@@ -443,24 +460,11 @@ span.arrow:hover .arrow_icon svg {
 /*end*/
 
 /* mental care legacy */
-.legacy-container {
-    height: 90vh;
-    background: #fafafa;
-}
-
 .legacy-container--img {
-    width: 100%;
-    height: 100%;
     position: relative;
     overflow: hidden;
     border-radius: 3rem;
 }
-
-.legacy-container--img img {
-    width: 100%;
-    border-radius: 3rem;
-}
-
 .legacy-container--img span {
     position: absolute;
     top: 50%;
@@ -489,8 +493,20 @@ span.arrow:hover .arrow_icon svg {
     color: transparent;
 }
 
-@media only screen and (min-width: 600px) {
+.steps-border{
+    border-radius: 5px 50px 5px 5px;
+    box-shadow: 1px 1px 1px 1px #0060a3;
+}
 
+
+.steps-border:hover{
+    box-shadow: 2px 2px 2px 2px #0060a3;
+    transition: ease-out 0.3s;
+}
+@media only screen and (max-width: 600px) {
+    .steps-border{
+        border-radius: 5px 20px 5px 5px;
+    }
 }
 
 /* end of mental care legacy */
@@ -921,3 +937,82 @@ span.arrow:hover .arrow_icon svg {
     background-blend-mode: screen;
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 90%);
 }
+.team-container--img img{
+    border-radius: 110px 2px 110px 2px;
+}
+
+/* client login section*/
+.login_img_section {
+    background-image: linear-gradient(rgba(2,2,2,.7),rgba(0,0,0,.7)),url("../images/carousel/bustani.jpeg");
+    background-position: center;
+    background-size: cover;
+}
+/* end of the login section*/
+
+/*leadership section*/
+.leadership{
+    border-radius: 100px 6px 100px 6px;
+}
+/*section end*/
+/*fullCalender css*/
+.fc .fc-button-primary{
+    background-color: #0060a3 !important;
+    border-color: #0060a3 !important;
+}
+
+.fc .fc-button-primary:focus{
+    border: none !important;
+}
+
+.fc .fc-button-primary:hover{
+    background-color: #6e96b2 !important;
+    border-color: #6e96b2 !important;
+}
+
+.fc-button-active{
+    background-color: #6e96b2 !important;
+    border: none !important;
+}
+.fc-col-header{
+    background-color: #e0e2e4;
+    height: 40px !important;
+    text-align: center !important;
+}
+/* on small screens I want to hide the title*/
+
+@media screen and (max-width: 650px) {
+    .fc-toolbar-title {
+        font-size: 14px !important;
+        font-weight: 600 !important;
+    }
+
+}
+
+@media screen and (max-width: 970px) {
+    .fc-toolbar-title {
+        display: none !important;
+    }
+
+    .fc-listMonth-button{
+        display: none !important;
+    }
+
+    .fc-dayGridMonth-button{
+        display: none !important;
+    }
+
+}
+
+.content{
+    display: none;
+}
+.wrapper.active .content{
+    display: block;
+}
+.content-time{
+    display: none;
+}
+.wrapper-time.active .content-time{
+    display: block;
+}
+/*end fullCalender*/

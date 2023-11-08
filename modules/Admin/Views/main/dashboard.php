@@ -7,9 +7,11 @@
 <?= $this->endSection() ?>
 <?= $this->section('dashboard-content-script') ?>
     <script>
-        function updateTime(){
-            date.innerText = moment().format('MMMM Do YYYY, h:mm:ss a');
-        }
-        setInterval(updateTime, 1000);
+        $(document).ready(function () {
+            function updateTime(){
+                date.innerText = moment().format('MMMM Do YYYY, h:mm:ss a');
+            }
+            setInterval(updateTime, 1000);
+        });
     </script>
 <?= $this->endSection() ?>

@@ -161,9 +161,9 @@ class ManageUsers extends BaseController
             }
         }
 
-        //assign user permissions to Therapist role
+        //assign user permissions to Psychologist role
 
-        if($role == 'Therapist') {
+        if($role == 'Psychologist') {
             $permissions = [
                 'view_payment',
                 'view_online_booking',
@@ -190,7 +190,36 @@ class ManageUsers extends BaseController
             }
         }
 
-        //assign user permissions to staff role
+        //assign user permissions to Psychiatric role
+
+        if($role == 'Psychiatric') {
+            $permissions = [
+                'view_payment',
+                'view_online_booking',
+                'edit_online_booking',
+                'edit_assessment',
+                'create_assessment',
+                'delete_assessment',
+                'view_patients',
+                'edit_patients',
+                'update_profile',
+                'time_availability',
+            ];
+
+            foreach($permissions as $permission) {
+                $data = [
+                    'role_permission_uuid' => Uuid::uuid4()->toString(),
+                    'role_uuid' => $role_uuid,
+                    'permission_uuid' => $this->adminModel->getPermissionUuid($permission)
+                ];
+
+                try {
+                    $this->adminModel->assignPermissionAuth($data);
+                } catch (\Exception $e) {
+                    var_dump($e->getMessage());
+                }
+            }
+        }
 
         if($saveRole) {
             $response = [
@@ -288,6 +317,56 @@ class ManageUsers extends BaseController
         }else{
             return $this->response->setJSON(['status' => 500, 'message' => 'Your old password is incorrect.']);
         }
+    }
+
+    public function loginUser()
+    {
+        $adminModel = model(AdminModel::class);
+        $email = $this->request->getPost('email');
+        $password = $this->request->getPost('password');
+
+        $user = $adminModel->getUserByEmail($email);
+        if($user){
+            if(Hash::decrypt($password, $user['password'])) {
+                $logInActivity = [
+                    'user_login_activity_uuid' => Uuid::uuid4()->toString(),
+                    'user_uuid' => $user['user_uuid'],
+                    'login_time' => date('Y-m-d H:i:s'),
+                ];
+
+                $session = [
+                    'user_uuid' => $user['user_uuid'],
+                    'fname' => $user['fname'],
+                    'lname' => $user['lname'],
+                    'role_uuid' => $user['role_uuid'],
+                    'role_name' => $user['role_name'],
+                    'isLoggedIn' => true,
+                ];
+
+                session()->set($session);
+
+                try{
+                    $adminModel->createUserLoginActivity($logInActivity);
+                }catch (\Exception $e) {
+                    var_dump($e->getMessage());
+                }
+                return $this->response->setJSON(['status' => 200, 'message' => 'Login successful.']);
+            }else{
+                return $this->response->setJSON(['status' => 500, 'message' => 'Invalid password, please try again.']);
+            }
+        }else{
+            return $this->response->setJSON(['status' => 500, 'message' => 'Invalid user, please try again.']);
+        }
+    }
+
+    public function logout()
+    {
+        if(session()->has('isLoggedIn')){
+            session()->destroy();
+            return redirect()->to(base_url('admin/auth/login'));
+        }
+
+        return redirect()->to(base_url('admin/auth/login'));
     }
 
 }

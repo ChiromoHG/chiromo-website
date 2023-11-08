@@ -19,11 +19,16 @@
                 </li>
 
                 <li>
-                    <a
-                            class="<?= (current_url() == base_url('admin/dashboard/manage_users/profile')) ? 'active' : ''; ?>"
-                            href="<?= base_url('admin/dashboard/manage_users/profile') ?>">
-                        <i class="uil uil-user-circle"></i>
-                        <span class="link-name">Profile</span>
+                    <a href="">
+                        <i class="uil uil-file-export"></i>
+                        <span class="link-name">Psychologists</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="">
+                        <i class="uil uil-file-export"></i>
+                        <span class="link-name">Psychiatrists</span>
                     </a>
                 </li>
 
@@ -69,6 +74,14 @@
                         <span class="link-name">Reports</span>
                     </a>
                 </li>
+
+                <li>
+                    <a class="<?= (current_url() == base_url('admin/dashboard/manage_users/profile')) ? 'active' : ''; ?>"
+                       href="<?= base_url('admin/dashboard/manage_users/profile') ?>">
+                        <i class="uil uil-user-circle"></i>
+                        <span class="link-name">Profile</span>
+                    </a>
+                </li>
             </ul>
         <?php elseif(session()->get('role_name') == 'Therapist'): ?>
 
@@ -82,10 +95,16 @@
                 </li>
 
                 <li>
-                    <a class="<?= (current_url() == base_url('admin/dashboard/manage_users/profile')) ? 'active' : ''; ?>"
-                        href="<?= base_url('admin/dashboard/manage_users/profile') ?>">
-                        <i class="uil uil-user-circle"></i>
-                        <span class="link-name">Profile</span>
+                    <a href="">
+                        <i class="uil uil-file-export"></i>
+                        <span class="link-name">Psychologists</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="">
+                        <i class="uil uil-file-export"></i>
+                        <span class="link-name">Psychiatrists</span>
                     </a>
                 </li>
 
@@ -123,13 +142,22 @@
                         <span class="link-name">Reports</span>
                     </a>
                 </li>
+
+                <li>
+                    <a class="<?= (current_url() == base_url('admin/dashboard/manage_users/profile')) ? 'active' : ''; ?>"
+                       href="<?= base_url('admin/dashboard/manage_users/profile') ?>">
+                        <i class="uil uil-user-circle"></i>
+                        <span class="link-name">Profile</span>
+                    </a>
+                </li>
+
             </ul>
         <?php endif; ?>
         <?php endif; ?>
 
         <ul class="logout-mode">
             <li>
-                <a href="<?= base_url('users/auth/logoutUser') ?>">
+                <a href="<?= base_url('admin/auth/logout') ?>">
                     <i class="uil uil-sign-out-alt"></i>
                     <span class="link-name">Logout</span>
                 </a>

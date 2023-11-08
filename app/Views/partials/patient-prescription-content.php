@@ -1,0 +1,1 @@
+<?= $this->include('partials/patient-search.php') ?>

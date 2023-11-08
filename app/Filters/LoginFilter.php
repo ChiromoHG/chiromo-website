@@ -12,7 +12,7 @@ class LoginFilter implements FilterInterface
     {
 
         if (!session()->has('user_uuid')) {
-            return redirect()->to('/auth/login');
+            return redirect()->to('/admin/auth/login');
         }
     }
 

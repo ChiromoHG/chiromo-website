@@ -9,7 +9,7 @@
             <div class="h-full relative bg-cover bg-left-top"
                  style="background-image: linear-gradient(to right bottom, rgba(127,161,190,0.33), rgba(0,96,163,0.25)), url('<?= base_url('images/carousel/cover.jpg') ?>')">
                 <div class="h-[75vh]">
-                    <div class="md:absolute md:top-[100px] md:left-[80px] lg:top-[120px] lg:left-[100px] lg:absolute lg:w-3/4 xl:w-2/4">
+                    <div class="absolute top-[70px] left-[20px] md:absolute md:top-[100px] md:left-[80px] lg:top-[120px] lg:left-[100px] lg:absolute lg:w-3/4 xl:w-2/4">
                         <h1 class="text-white text-3xl md:text-4xl xl:text-5xl font-bold leading-snug">
                             Chiromo Hospital Group
                         </h1>
@@ -32,7 +32,7 @@
             <div class="h-full relative bg-cover bg-left-top"
                  style="background-image: linear-gradient(to right bottom, rgba(127,161,190,0.33), rgba(0,96,163,0.25)), url('<?= base_url('images/carousel/cover-bg.jpg') ?>')">
                 <div class="h-[75vh]">
-                    <div class="md:absolute md:top-[180px] md:left-[80px] lg:top-[200px] lg:left-[100px] lg:absolute lg:w-3/4 xl:w-2/4">
+                    <div class="absolute top-[80px] left-[20px] md:absolute md:top-[180px] md:left-[80px] lg:top-[200px] lg:left-[100px] lg:absolute lg:w-3/4 xl:w-2/4">
                         <h1 class="text-white text-3xl md:text-4xl xl:text-5xl font-bold leading-snug">Chiromo
                             Hospital Group
                         </h1>
@@ -52,10 +52,14 @@
     <!-- end hero -->
 
     <!-- start about -->
-    <section class="relative px-4 py-16 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 lg:py-20">
+    <section class="relative px-4 py-8 md:py-16 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 lg:py-20 z-50">
+        <div class="absolute left-1/3 flex justify-center items-center -z-50">
+            <div class="circle w-80 h-80 rounded-full">
+            </div>
+        </div>
         <div class="flex flex-col lg:flex-row lg:-mx-8">
             <div class="w-full lg:w-1/2 lg:px-8">
-                <h2 class="text-3xl leading-tight font-bold mt-4 welcome-custom-text">Welcome to the Chiromo Mental
+                <h2 class="text-xl md:text-3xl leading-tight font-bold welcome-custom-text">Welcome to the Chiromo Mental
                     Health care
                     Hospital.</h2>
                 <p class="text-lg mt-4 font-semibold text-red-400"><span><i
@@ -115,8 +119,8 @@
     <section class="choose-therapy">
 
         <div class="pt-10 flex items-center flex-col justify-center">
-            <h3 class="text-white sm:text-4xl font-semibold">You deserve to be happy.</h3>
-            <h4 class="sm:pt-6 text-slate-600 sm:text-2xl font-medium">
+            <h3 class="text-white text-xl md:text-3xl font-semibold">You deserve to be happy.</h3>
+            <h4 class="pt-4 md:mt-5 text-slate-600 text-lg md:text-xl font-medium text-center">
                 What type of therapy are you looking for?
             </h4>
         </div>
@@ -126,11 +130,11 @@
                 <div class="choose-therapy-individual--container rounded-lg cursor-pointer text-black p-4 transition-all duration-500 transform hover:scale-110">
                     <div class="relative h-60 group-hover:blur-sm hover:!blur-none">
                         <div class="absolute top-0 left-0">
-                            <h4 class="text-2xl font-semibold text-white">Individual Therapy</h4>
-                            <p class="text-slate-600 font-medium text-lg pt-[2rem]">For myself <i class="uil uil-arrow-right"></i></p>
+                            <h4 class="text-xl md:text-2xl font-semibold text-white">Individual Therapy</h4>
+                            <p class="text-slate-600 font-medium text-sm md:text-lg pt-[.4rem] md:pt-[.8rem]">For myself <i class="uil uil-arrow-right"></i></p>
                         </div>
                         <div class="choose-therapy--individual">
-                            <img src="<?= base_url('images/disorders/image-7.jpg') ?>" alt="" class="w-2/4">
+                            <img src="<?= base_url('images/disorders/image-7.jpg') ?>" alt="" class="w-64 md:w-auto">
                         </div>
                     </div>
                 </div>
@@ -138,11 +142,11 @@
                 <div class="choose-therapy-individual--container rounded-lg cursor-pointer text-black p-4 transition-all duration-500 transform hover:scale-110">
                     <div class="relative h-60 group-hover:blur-sm hover:!blur-none">
                         <div class="absolute top-0 left-0">
-                            <h4 class="text-2xl font-semibold text-white">Couples Therapy</h4>
-                            <p class="text-slate-600 font-medium text-lg pt-[2rem]">For me and my partner <i class="uil uil-arrow-right"></i></p>
+                            <h4 class="text-xl md:text-2xl font-semibold text-white">Couples Therapy</h4>
+                            <p class="text-slate-600 font-medium text-sm md:text-lg pt-[.4rem] md:pt-[.8rem]">For me and my partner <i class="uil uil-arrow-right"></i></p>
                         </div>
                         <div class="choose-therapy--individual">
-                            <img src="<?= base_url('images/disorders/image-9.jpg') ?>" alt="" class="w-2/4">
+                            <img src="<?= base_url('images/disorders/image-9.jpg') ?>" alt="" class="w-64 md:w-auto">
                         </div>
                     </div>
                 </div>
@@ -151,11 +155,11 @@
                 <div class="choose-therapy-individual--container rounded-lg cursor-pointer text-black p-4 transition-all duration-500 transform hover:scale-110">
                     <div class="relative h-60 group-hover:blur-sm hover:!blur-none">
                         <div class="absolute top-0 left-0">
-                            <h4 class="text-2xl font-semibold text-white">Teen Therapy</h4>
-                            <p class="text-slate-600 font-medium text-lg pt-[2rem]">For my child <i class="uil uil-arrow-right"></i></p>
+                            <h4 class="text-xl md:text-2xl font-semibold text-white">Teen Therapy</h4>
+                            <p class="text-slate-600 font-medium text-sm md:text-lg pt-[.4rem] md:pt-[.8rem]">For my child <i class="uil uil-arrow-right"></i></p>
                         </div>
                         <div class="choose-therapy--individual">
-                            <img src="<?= base_url('images/disorders/image-8.jpg') ?>" alt="" class="w-2/4">
+                            <img src="<?= base_url('images/disorders/image-8.jpg') ?>" alt="" class="w-64 md:w-auto">
                         </div>
                     </div>
                 </div>
@@ -163,11 +167,11 @@
                 <div class="choose-therapy-individual--container rounded-lg cursor-pointer text-black p-4 transition-all duration-500 transform hover:scale-110">
                     <div class="relative h-60 group-hover:blur-sm hover:!blur-none">
                         <div class="absolute top-0 left-0">
-                            <h4 class="text-2xl font-semibold text-white">Cooperate Therapy</h4>
-                            <p class="text-slate-600 font-medium text-lg pt-[2rem]">For my organization <i class="uil uil-arrow-right"></i></p>
+                            <h4 class="text-xl md:text-2xl font-semibold text-white">Cooperate Therapy</h4>
+                            <p class="text-slate-600 font-medium text-sm md:text-lg pt-[.4rem] md:pt-[.8rem]">For my organization <i class="uil uil-arrow-right"></i></p>
                         </div>
                         <div class="choose-therapy--individual">
-                            <img src="<?= base_url('images/disorders/image-10.jpg') ?>" alt="" class="w-2/4">
+                            <img src="<?= base_url('images/disorders/image-10.jpg') ?>" alt="" class="w-64 md:w-auto">
                         </div>
                     </div>
                 </div>
@@ -179,118 +183,127 @@
 
 
     <!-- how it works section -->
-    <section class="relative px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 py-20">
+    <section class="relative px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 py-10 md:py-20">
         <div class="inline-flex items-center justify-center w-full">
             <hr class="w-64 h-1 my-8 bg-gray-200 border-0 rounded dark:bg-gray-700">
             <div class="absolute px-4 -translate-x-1/2 bg-white left-1/2 dark:bg-gray-900">
-                <span class="font-bold text-slate-500 text-3xl md:text-xl">How It Works</span>
+                <span class="font-bold text-slate-500 text-lg md:text-lg">How It Works</span>
             </div>
         </div>
 
-        <div class="inline-flex items-center justify-center w-full my-6">
-            <span class="text-4xl md:text-xl lg:text-4xl font-semibold inline-block how-it-works">Start Your Journey in Just 4 Steps</span>
+        <div class="inline-flex items-center justify-center w-full my-6 md:my-3">
+            <span class="text-xl text-center md:text-2xl lg:text-4xl font-semibold inline-block how-it-works">Start Your Journey in Just 4 Steps</span>
         </div>
 
-        <div class="md:flex md:flex-wrap mt-10 text-center md:-mx-4">
+        <div class="md:flex md:flex-wrap md:mt-10 mt-4 text-center md:-mx-4">
             <div class="md:w-1/2 md:px-4 lg:w-1/4">
-                <div class="bg-white-600 rounded-lg border border-gray-300 p-4 how-it-works--card">
-                    <img src="<?= base_url('images/icons/assesment.jfif') ?>" alt="" class="h-20 mx-auto">
+                <a href="">
 
-                    <h4 class="text-xl font-bold mt-4 custom-text">Take An Assessment</h4>
-                    <p class="mt-1">Complete our 60-second online assessment.</p>
-                </div>
+                    <div class="bg-white-600 border border-gray-300 p-4 steps-border flex items-center justify-center flex-col">
+
+                        <span class="flex items-center justify-center rounded-full bg-[#0060a3] h-12 w-12 text-white"><i class="uil uil-edit-alt"></i></span>
+
+                        <h4 class="text-lg md:text-xl font-bold mt-4 how-it-works">Take An Assessment</h4>
+                        <p class="mt-4 font-semibold">Complete our 60-second online assessment.</p>
+                    </div>
+                </a>
             </div>
 
 
             <div class="md:w-1/2 md:px-4 mt-4 md:mt-0 lg:w-1/4">
-                <div class="bg-white rounded-lg border border-gray-300 p-4">
-                    <img src="<?= base_url('images/icons/assesement3.PNG') ?>" alt="" class="h-20 mx-auto">
+                <a href="">
+                    <div class="bg-white border border-gray-300 p-4 steps-border flex items-center justify-center flex-col">
 
-                    <h4 class="text-xl font-bold mt-4 custom-text">Find Your Therapist</h4>
-                    <p class="mt-1">Connect with a therapist that fits your needs.</p>
-                </div>
+                        <span class="flex items-center justify-center rounded-full bg-[#0060a3] h-12 w-12 text-white"><i class="uil uil-stethoscope"></i></span>
+
+                        <h4 class="text-lg md:text-xl font-bold mt-4 how-it-works">Find Your Therapist</h4>
+                        <p class="mt-4 font-semibold">Connect with a therapist that fits your needs.</p>
+                    </div>
+                </a>
             </div>
 
             <div class="md:w-1/2 md:px-4 mt-4 md:mt-8 lg:mt-0 lg:w-1/4">
-                <div class="bg-white rounded-lg border border-gray-300 p-4">
-                    <img src="<?= base_url('images/icons/assessment2.PNG') ?>" alt="" class="h-20 mx-auto">
+                <a href="">
+                    <div class="bg-white border border-gray-300 p-4 steps-border flex items-center justify-center flex-col">
 
-                    <h4 class="text-xl font-bold mt-4 custom-text">Pick level of support</h4>
-                    <p class="mt-1">Choose the best plan for your therapy budget.</p>
-                </div>
+                        <span class="flex items-center justify-center rounded-full bg-[#0060a3] h-12 w-12 text-white"><i class="uil uil-transaction"></i></span>
+
+                        <h4 class="text-lg md:text-xl font-bold mt-4 how-it-works">Pick level of support</h4>
+                        <p class="mt-4 font-semibold">Choose the best plan for your therapy budget.</p>
+                    </div>
+                </a>
             </div>
 
             <div class="md:w-1/2 md:px-4 mt-4 md:mt-8 lg:mt-0 lg:w-1/4">
-                <div class="bg-white rounded-lg border border-gray-300 p-4">
-                    <img src="<?= base_url('images/icons/assesment2.jfif') ?>" alt="" class="h-20 mx-auto">
+               <a href="">
+                   <div class="bg-white border border-gray-300 p-4 steps-border flex items-center justify-center flex-col">
 
-                    <h4 class="text-xl font-bold mt-4 custom-text">Start therapy</h4>
-                    <p class="mt-1">Message your therapist and begin your journey today!</p>
-                </div>
+                       <span class="flex items-center justify-center rounded-full bg-[#0060a3] h-12 w-12 text-white"><i class="uil uil-video"></i></span>
+
+                       <h4 class="text-lg md:text-xl font-bold mt-4 how-it-works">Start therapy</h4>
+                       <p class="mt-4 font-semibold">Message your therapist and begin your journey today!</p>
+                   </div>
+               </a>
             </div>
         </div>
     </section>
     <!-- end of how it works -->
 
 
-    <section
-            class="legacy-container md:flex md:justify-center md:items-center sm:flex sm:justify-center sm:items-center">
-        <div class="grid md:grid-cols-2 sm:grid-cols-1 sm:gap-y-4 gap-x-4 px-10">
-            <div class="legacy-container--img">
-                <a href="#" data-modal-target="defaultModal" data-modal-toggle="defaultModal">
-                    <img src="<?= base_url('images/carousel/image1.jpg') ?>" alt="legacy-img"
-                         class="transition-all duration-500 transform hover:scale-150 z-1 opacity-70 md:w-50">
-                    <span class="text-red-400 z-10"><i class="uil uil-video"></i></span>
-                </a>
-            </div>
-            <div class="h-full legacy-container--text ml-[2.5rem]">
-                <h3 class="text-4xl md:text-xl lg:text-4xl font-semibold inline-block">Chiromo Hospital Group since
-                    1966</h3>
-                <p class="sm:pt-10 text-slate-600 sm:text-lg font-medium">
-                    Founded over 25 years ago, Chiromo Hospital Group has established itself as a leading provider
-                    of psychiatric services, offering exceptional care and support to individuals facing mental health
-                    challenges.
-                </p>
-                <div class="md:mt-[2rem] flex items-center space-x-[2rem]">
-
-                    <div class="flex flex-1 flex-row bg-white shadow-md rounded-md p-4">
-                        <div class="flex items-center justify-center flex-shrink-0 h-12 w-12 rounded-xl bg-blue-100 text-blue-500">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                      d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                            </svg>
-                        </div>
-                        <div class="flex flex-col flex-grow ml-4">
-                            <div class="font-bold text-lg">50 +</div>
-                            <div class="text-md text-gray-500">Partners across Africa</div>
-                        </div>
-                    </div>
-
-
-                    <div class="flex flex-1 flex-row bg-white shadow-md rounded-md p-4">
-                        <div class="flex items-center justify-center flex-shrink-0 h-12 w-12 rounded-xl bg-green-100 text-green-500">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                      d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
-                            </svg>
-                        </div>
-                        <div class="flex flex-col flex-grow ml-4">
-                            <div class="font-bold text-lg">6</div>
-                            <div class="text-md text-gray-500">Branches across Africa</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mt-[2rem]">
-                    <a href="<?= base_url('about') ?>"
-                       class="px-10 py-4 text-black rounded-[2.5rem] inline-block mt-8 text-xl font-semibold bg-white border border-slate-300 hover:bg-slate-100 hover:border-transparent transition-all
-                       duration-500 transform hover:scale-110 hover:opacity-50">Learn More about us<i
-                                class="uil uil-arrow-right font-semibold"></i>
+    <section class="bg-[#fafafa] px-4 sm:px-8 lg:px-20 xl:px-20 2xl:px-64 py-10 md:py-20">
+        <div class="grid md:grid-cols-12 gap-10 md:px-10">
+            <div class="grid md:col-span-6">
+                <div class="legacy-container--img">
+                    <a href="#" data-modal-target="defaultModal" data-modal-toggle="defaultModal">
+                        <img  src="<?= base_url('images/carousel/image1.jpg') ?>" alt="legacy-img"
+                             class="transition-all duration-500 transform hover:scale-110 z-1 opacity-70 h-full md:rounded-[3rem]">
+                        <span class="text-red-400 z-10"><i class="uil uil-video"></i></span>
                     </a>
                 </div>
+            </div>
+            <div class="grid md:col-span-6">
+                <div class="h-full legacy-container--text">
+                    <h3 class="text-xl md:text-3xl lg:text-4xl font-semibold inline-block">Chiromo Hospital Group since
+                        1966
+                    </h3>
+                    <p class="pt-8 md:pt-10 text-slate-600 font-medium">
+                        Founded over 25 years ago, Chiromo Hospital Group has established itself as a leading provider
+                        of psychiatric services, offering exceptional care and support to individuals facing mental health
+                        challenges.
+                    </p>
+                    <div class="mt-[1.5rem] md:mt-[2rem] flex flex-col space-y-5 md:flex-row md:items-center md:space-x-[2rem]">
 
+                        <div class="flex flex-1 flex-row bg-white shadow-md rounded-md p-4">
+                            <div class="flex items-center justify-center flex-shrink-0 h-12 w-12 rounded-xl bg-green-100 text-black">
+                                <span><i class="uil uil-user-arrows"></i></span>
+                            </div>
+                            <div class="flex flex-col flex-grow ml-4">
+                                <div class="font-bold text-lg">50 +</div>
+                                <div class="text-md text-gray-500">Partners across Africa</div>
+                            </div>
+                        </div>
+
+
+                        <div class="flex flex-1 flex-row bg-white shadow-md rounded-md p-4">
+                            <div class="flex items-center justify-center flex-shrink-0 h-12 w-12 rounded-xl bg-green-100 text-black">
+                                <span><i class="uil uil-clinic-medical"></i></span>
+                            </div>
+                            <div class="flex flex-col flex-grow ml-4">
+                                <div class="font-bold text-lg">6</div>
+                                <div class="text-md text-gray-500">Branches across Africa</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-[1.5rem] md:mt-[2rem]">
+                        <a href="<?= base_url('about') ?>"
+                           class="px-10 py-4 text-black rounded-[2.5rem] inline-block text-lg md:text-xl font-semibold bg-white border border-slate-300 hover:bg-slate-100 hover:border-transparent transition-all
+                       duration-500 transform hover:scale-75 md:hover:scale-110 hover:opacity-50">Learn More about us<i
+                                    class="uil uil-arrow-right font-semibold"></i>
+                        </a>
+                    </div>
+
+                </div>
             </div>
         </div>
     </section>
@@ -298,7 +311,7 @@
     <!--    youtube video modal-->
     <div id="defaultModal" data-modal-backdrop="static" tabindex="-1" aria-hidden="true"
          class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
-        <div class="relative w-full max-w-7xl max-h-full">
+        <div class="relative w-full max-w-5xl max-h-full">
             <!-- Modal content -->
             <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                 <!-- Modal header -->
@@ -338,63 +351,63 @@
     </div>
     <!-- end of youtube video modal-->
 
-    <section class="why-choose--chiromo h-screen md:flex md:justify-center md:items-center">
-        <div class="grid md:grid-cols-2 sm:gap-y-4 gap-x-4 px-10">
-            <div class="h-full">
-                <h3 class="text-white sm:text-5xl font-semibold">Why choose Chiromo Hospital Group?</h3>
-                <h4 class="sm:pt-10 text-slate-600 sm:text-3xl font-medium">
+    <section class="why-choose--chiromo h-screen flex md:justify-center md:items-center px-4 py-20 md:px-10">
+        <div class="grid md:grid-cols-2 md:gap-10">
+            <div class="grid md:col-span-1">
+                <h3 class="text-white text-xl md:text-4xl font-semibold">Why choose Chiromo Hospital Group?</h3>
+                <h4 class="md:pt-10 sm:block md:inline text-slate-600 text-lg md:text-3xl font-medium">
                     We are always ready for every challenge. You can trust us.
                 </h4>
-                <p class="sm:pt-10 text-slate-600 sm:text-lg font-medium">
+                <p class="md:pt-10 text-slate-600 text-sm md:text-lg font-medium">
                     Our psychiatric facility and wellness centre have been in operation for 26 years,
                     providing quality in and out patient services to individuals from all walks of life.
                 </p>
-                <a href="<?= base_url('gift-member') ?>"
-                   class="px-10 py-4 mt-8 text-black rounded-[2.5rem] inline-block text-xl font-semibold bg-white border border-slate-300 hover:bg-slate-100 hover:border-transparent transition-all duration-500 transform hover:scale-110 hover:opacity-50">Lean
-                    More <i class="uil uil-arrow-right font-semibold"></i></a>
+
+                <div class="md:mt-[2rem] hidden md:block">
+                    <a href=""
+                       class="px-10 py-4 text-black rounded-[2.5rem] inline-block text-lg md:text-xl font-semibold bg-white border border-slate-300 hover:bg-slate-100 hover:border-transparent transition-all
+                       duration-500 transform hover:scale-75 md:hover:scale-110 hover:opacity-50">Learn More<i class="uil uil-arrow-right font-semibold"></i>
+                    </a>
+                </div>
             </div>
-            <div class="why-choose-img--container md:min-h-full">
+            <div class="grid md:col-span-1 why-choose-img--container">
                 <div class="relative why-choose-img--content">
                     <img src="<?= base_url('images/carousel/image1.jpg') ?>" alt="" class="reason-img reason-img1">
-                    <img src="<?= base_url('images/carousel/image5.jpg') ?>" alt="" class="reason-img reason-img2">
-                    <img src="<?= base_url('images/carousel/image6.jpg') ?>" alt="" class="reason-img reason-img3">
+                    <img src="<?= base_url('images/carousel/Image5.jpg') ?>" alt="" class="reason-img reason-img2">
+                    <img src="<?= base_url('images/carousel/Image6.jpg') ?>" alt="" class="reason-img reason-img3">
                 </div>
             </div>
         </div>
     </section>
 
-    <div class="flex flex-col md:flex-row py-20 px-16">
-        <div class="w-full md:w-1/2">
-            <div>
-                <h3 class="text-5xl leading-relaxed"><span class="custom-text"> Give the gift</span> of a Mental Health
-                    Therapy</h3>
-            </div>
-            <div class="pt-10">
-                <p class="leading-snug text-3xl">Therapy is one of the most meaningful gifts you can give to your
-                    friends and loved ones.</p>
-            </div>
-            <div class="pt-10">
-                <a href="<?= base_url('gift-member') ?>"
-                   class="px-10 py-4 text-black rounded-[2.5rem] inline-block mt-8 text-2xl bg-white border border-slate-300 hover:bg-slate-100 hover:border-transparent transition-all duration-500 transform hover:scale-100 hover:opacity-50">Gift
-                    a Membership</a>
+    <section class="flex py-10 md:py-20 px-4 md:px-10">
+        <div class="grid md:grid-cols-2 gap-10">
+            <div class="md:grid col-span-1">
 
+                <div class="w-full">
+                    <div>
+                        <h3 class="text-2xl md:text-5xl leading-relaxed font-semibold"><span class="custom-text"> Give the gift</span> of a Mental Health
+                            Therapy</h3>
+                    </div>
+                    <div class="pt-10">
+                        <p class="leading-snug text-xl md:text-3xl">Therapy is one of the most meaningful gifts you can give to your
+                            friends and loved ones.</p>
+                    </div>
+                    <div class="pt-10">
+                        <a href="<?= base_url('gift-member') ?>"
+                           class="px-10 py-4 text-black rounded-[2.5rem] inline-block mt-8 text-2xl bg-white border border-slate-300 hover:bg-slate-100 hover:border-transparent transition-all duration-500 transform hover:scale-100 hover:opacity-50">Gift
+                            a Membership</a>
+                    </div>
+                </div>
             </div>
+                <div class="md:grid col-span-1">
+                    <div class="">
+                        <img alt="gift photo" src="<?= base_url('images/logo/gift.jpg') ?>" class="gift-img" />
+                    </div>
+                </div>
         </div>
-
-        <div class="w-full md:w-1/2 ml-52">
-            <svg viewBox="0 0 600 600" width="500" height="500">
-                <defs>
-                    <clipPath id="mypath">
-                        <path d="M279.6560599333917 57.48958433506854C219.69102799165992 102.76930464146508 67.94277257987608 289.83224333165055 98.18752355643858 336.51056517002945C128.43227453300108 383.18888700840836 401.15953385103495 382.83923567173844 461.1245657927667 337.55951536534195C521.0895977344985 292.27979505894547 488.2224661833917 111.51056517002952 457.9777152068292 64.83224333165057C427.7329642302667 18.153921493271667 339.62109187512345 12.209864028672058 279.6560599333917 57.48958433506854C219.69102799165992 102.76930464146508 67.94277257987608 289.83224333165055 98.18752355643858 336.51056517002945 "
-                              fill="hsl(340, 45%, 50%)" stroke-width="0" stroke="hsl(340, 45%, 30%)"
-                              transform="matrix(1.4554316627400874,0,0,1.4554316627400874,-131.69078941871908,-27.40547753418491)"></path>
-                    </clipPath>
-                </defs>
-                <image class="svg-image" x="0" y="0" xlink:href="<?= base_url('images/logo/gift.JPG') ?>"/>
-            </svg>
-        </div>
-    </div>
-    <div class="flex justify-between items-center py-10 px-16">
+    </section>
+    <div class="flex justify-between flex-col md:flex-row space-y-6 items-center py-10 px-16">
         <p class="text-lg leading-snug">
             If you are in a crisis or any other person may be in danger - don't use this site. <br><a href="" class="custom-text">
                 These resources</a>
@@ -413,7 +426,7 @@
 <!-- stories section-->
 <section class="top-stories">
     <div class="py-10 px-16">
-        <div class="flex justify-between">
+        <div class="flex justify-between flex-col md:flex-row space-y-6">
             <h4 class="font-semibold text-2xl">Top Stories and News</h4>
             <a href="" class="font-semibold text-2xl text-[#0060a3]">All Stories and News</a>
         </div>
@@ -508,27 +521,6 @@
 <?= $this->section('home-custom-script'); ?>
     <script>
         AOS.init();
-        // the personalized section
-
-        let imgBx = document.querySelectorAll('.imgBx');
-        let contentBx = document.querySelectorAll('.contentBx');
-
-        for (let i = 0; i < imgBx.length; i++) {
-            imgBx[i].addEventListener('click', function () {
-                for (let j = 0; j < contentBx.length; j++) {
-                    contentBx[j].className = 'contentBx';
-                }
-
-                document.getElementById(this.dataset.id).className = 'contentBx active';
-
-                for (let i = 0; i < imgBx.length; i++) {
-                    imgBx[i].className = 'imgBx';
-                }
-
-                this.className = 'imgBx active';
-            })
-        }
-        // end of the section
 
         //nav section
         $(document).ready(function () {

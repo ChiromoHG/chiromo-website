@@ -40,7 +40,7 @@
                         text: '<i class="uil uil-file-exclamation-alt"></i> Excel',
                         titleAttr: 'Transactions summery excel',
                         exportOptions: {
-                            columns: [0, 1, 2]
+                            columns: [1,2,3]
                         }
                     },
                     {
@@ -48,7 +48,7 @@
                         text: '<i class="uil uil-file-alt"></i> PDF',
                         titleAttr: 'Transactions summery pdf',
                         exportOptions: {
-                            columns: [0, 1, 2]
+                            columns: [1,2,3]
                         }
                     },
                     {
@@ -56,16 +56,7 @@
                         text: '<i class="uil uil-document-info"></i> Print',
                         titleAttr: 'Transactions summery print',
                         exportOptions: {
-                            columns: [0, 1, 2]
-                        }
-                    },
-                    {
-
-                        extend: 'copy',
-                        text: '<i class="uil uil-copy-landscape"></i> Copy',
-                        titleAttr: 'Copy to clipboard',
-                        exportOptions: {
-                            columns: [0, 1, 2]
+                            columns: [1,2,3]
                         }
                     },
                 ],
@@ -78,7 +69,25 @@
                     "emptyTable": "No users available in the table at the moment"
                 },
 
-                "processing": true,
+                rowReorder: {
+                    selector: 'td:nth-child(2)'
+                },
+
+                "responsive": true,
+
+                columnDefs: [
+                    {
+                        orderable: false,
+                        className: 'select-checkbox',
+                        targets: 0
+                    }
+                ],
+
+                select: {
+                    style: 'os',
+                    selector: 'td:first-child'
+                },
+                order: [[1, 'asc']],
 
                 ajax: {
                     url: '<?= base_url('admin/users/getUsers') ?>',
@@ -95,6 +104,13 @@
                 },
 
                 columns: [
+                    {
+                        data: null,
+                        defaultContent: '',
+                        className: 'select-checkbox',
+                        orderable: false
+                    },
+
                     {
                         data: null,
                         render: function (data, type, row) {
@@ -115,7 +131,7 @@
                     {
                         data: null,
                         render: function (data) {
-                            return `<a href="<?= base_url('admin/dashboard/manage_users/edit_user/')?>${data.user_uuid}" class="border border-1 border-slate-500 text-black font-normal py-1 px-2 rounded-md hover:bg-blue-600 hover:border-blue-600 transition-colors">
+                            return `<a href="<?= base_url('admin/dashboard/manage_users/edit_user/')?>${data.user_uuid}" class="border border-1 border-slate-500 text-white font-normal py-1 px-2 rounded-md hover:bg-[#0060a3] hover:border-[#0060a3] transition-colors">
                             <i class="uil uil-edit"></i>
                                 Edit
                             </a>`
@@ -269,15 +285,6 @@
                             columns: [0, 1, 2]
                         }
                     },
-                    {
-
-                        extend: 'copy',
-                        text: '<i class="uil uil-copy-landscape"></i> Copy',
-                        titleAttr: 'Copy to clipboard',
-                        exportOptions: {
-                            columns: [0, 1, 2]
-                        }
-                    },
                 ],
                 scrollCollapse: true,
                 paging: true,
@@ -286,7 +293,26 @@
                     "emptyTable": "No roles available in the table at the moment"
                 },
 
-                "processing": true,
+                "responsive": true,
+
+                rowReorder: {
+                    selector: 'td:nth-child(2)'
+                },
+
+                columnDefs: [
+                    {
+                        orderable: false,
+                        className: 'select-checkbox',
+                        targets: 0
+                    }
+                ],
+
+                select: {
+                    style: 'os',
+                    selector: 'td:first-child'
+                },
+                order: [[1, 'asc']],
+
 
 
                 ajax: {
@@ -299,6 +325,13 @@
                     }
                 },
                 columns: [
+                    {
+                        data: null,
+                        defaultContent: '',
+                        className: 'select-checkbox',
+                        orderable: false
+                    },
+
                     {data: 'role_name'},
                     {data: 'role_description'},
                     {
@@ -313,7 +346,7 @@
                     {
                         data: null,
                         render: function (data) {
-                            return `<a href="<?= base_url('admin/dashboard/manage_users/edit_role/')?>${data.role_uuid}" class="border border-1 border-slate-500 text-black font-normal py-1 px-2 rounded-md hover:bg-blue-600 hover:border-blue-600 transition-colors">
+                            return `<a href="<?= base_url('admin/dashboard/manage_users/edit_role/')?>${data.role_uuid}" class="border border-1 border-slate-500 text-white font-normal py-1 px-2 rounded-md hover:bg-[#0060a3] hover:border-blue-600 transition-colors">
                             <i class="uil uil-edit"></i>
                                 Edit
                             </a>`
@@ -340,10 +373,10 @@
                 $('#roleError').text('');
             }
 
-            if (roleName !== 'Admin' && roleName !== 'Therapist') {
+            if (roleName !== 'Admin' && roleName !== 'Psychologist' && roleName !== 'Psychiatric') {
                 $('#roleName').addClass('border-red-500');
                 $('#roleName').focus();
-                $('#roleError').text('Role name should be Admin, or Therapist');
+                $('#roleError').text('Role name should be Admin, or Psychologist or Psychiatric');
                 return false;
             } else {
                 $('#roleName').removeClass('border-red-500');

@@ -6,11 +6,16 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Chiromo admin - Recovering in Dignity</title>
-    <link rel="stylesheet" href="<?= base_url("css/app.css") ?>">
-    <link rel="stylesheet" href="<?= base_url("css/admin.css") ?>">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
     <link rel="stylesheet" href="<?= base_url('css/jquery.dataTables.min.css') ?>">
     <link rel="stylesheet" href="<?= base_url('css/buttons.dataTables.min.css') ?>">
+
+    <link rel="stylesheet" href="<?= base_url('css/rowReorder.dataTables.min.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('css/responsive.dataTables.min.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('css/select.dataTables.min.css') ?>">
+
+    <link rel="stylesheet" href="<?= base_url("css/app.css") ?>">
+    <link rel="stylesheet" href="<?= base_url("css/admin.css") ?>">
     <!-- Alpine.js -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.3/dist/cdn.min.js"></script>
     <!-- Alpine.js -->
@@ -65,6 +70,13 @@
 <script src="<?= base_url('js/vfs_fonts.js')?>"></script>
 <script src="<?= base_url('js/buttons.html5.min.js')?>"></script>
 <script src="<?= base_url('js/buttons.print.min.js')?>"></script>
+
+<script src="<?= base_url('js/dataTables.rowReorder.min.js')?>"></script>
+<script src="<?= base_url('js/dataTables.responsive.min.js')?>"></script>
+<script src="<?= base_url('js/dataTables.select.min.js')?>"></script>
+<script src="<?= base_url('js/chart.min.js')?>"></script>
+<script src="<?= base_url('js/anime.min.js')?>"></script>
+
 <script type="text/javascript" src="<?= base_url("js/app.js") ?>"></script>
 <script type="text/javascript" src="<?= base_url("js/admin.js") ?>"></script>
 <?php $this->renderSection('manage-users-content-script'); ?>
@@ -72,8 +84,48 @@
 <?php $this->renderSection('edit-role-content-script'); ?>
 <?php $this->renderSection('dashboard-content-script'); ?>
 <?php $this->renderSection('profile-content-script'); ?>
+<?= $this->renderSection('login-content-script') ?>
 <script>
 
+    $(document).ready(function (){
+        const body = document.querySelector('body'),
+            modeToggle = body.querySelector('.mode-toggle');
+        let sidebar = body.querySelector("nav");
+        let sidebarToggle = body.querySelector('.sidebar-toggle')
+
+        const date = document.getElementById('date');
+
+
+        let mode = localStorage.getItem('mode');
+        if(mode && mode === "dark"){
+            body.classList.toggle("dark");
+        }
+
+        let getStatus = localStorage.getItem('status');
+        if(getStatus && getStatus === "close"){
+            sidebar.classList.toggle('close');
+        }
+
+        modeToggle.addEventListener('click', function(){
+            body.classList.toggle('dark')
+            if(body.classList.contains('dark')){
+                localStorage.setItem('mode', 'dark')
+            }else{
+                localStorage.setItem('mode', 'light')
+            }
+        });
+
+        sidebarToggle.addEventListener('click', function(){
+            sidebar.classList.toggle('close');
+            if(sidebar.classList.contains('close')){
+                localStorage.setItem('status', 'close')
+            }else{
+                localStorage.setItem('status', 'open')
+            }
+        })
+
+
+    })
 </script>
 </body>
 </html>

@@ -9,5 +9,9 @@ class Admin extends BaseController
     {
         return view('Modules\Admin\Views\main\dashboard');
     }
-    
+
+    public function login()
+    {
+        return view('Modules\Admin\Views\main\login');
+    }
 }
