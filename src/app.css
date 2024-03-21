@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* Custom Utilities */
+@layer utilities {
+    .border-gradient {
+        border-image: linear-gradient(to right, #4a90e2, #8f48db);
+        border-image-slice: 1;
+    }
+}

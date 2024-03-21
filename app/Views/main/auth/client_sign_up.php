@@ -1,8 +1,10 @@
 <?= $this->extend('base/base.php') ?>
 <?= $this->section('content') ?>
+<?= view_cell('App\Cells\NavbarCell::display') ?>
 
+<div class="load"></div>
 
-<div class="min-w-screen min-h-screen bg-gray-100 flex items-center justify-center px-5 py-5">
+<div class="min-w-screen min-h-screen bg-gray-50 flex items-center justify-center px-5 py-5 md:py-10">
     <div class="bg-white text-gray-500 rounded-3xl shadow-xl w-full overflow-hidden" style="max-width:1000px">
         <div class="md:flex w-full">
             <div class="hidden md:block w-1/2 bg-[#0060a3] py-10 px-10">
@@ -25,71 +27,110 @@
                     <path d="M846.12661,580.70047a10.52561,10.52561,0,0,1,1.50061.70389l44.34832-22.1972.736-12.02551,18.2938-1.26127.98041,27.4126L852.7199,592.93235a10.4958,10.4958,0,1,1-6.59329-12.23188Z" transform="translate(-227.576 -76.46149)" fill="#ffb8b8"/><path id="a6768b0e-63d0-4b31-8462-9b2e0b00f0fd" data-name="Path 101" d="M902.76552,508.41151c10.91151,3.85117,12.83354,45.57369,12.83354,45.57369-12.8367-7.06036-28.24139,4.49318-28.24139,4.49318s-3.20916-10.91154-7.06034-25.03223a24.52987,24.52987,0,0,1,5.13436-23.10625S891.854,504.558,902.76552,508.41151Z" transform="translate(-227.576 -76.46149)" fill="#ffffff"/>
                     <path id="bfd7963f-0cf8-4885-9d3a-2c00bccda2e3" data-name="Path 102" d="M889.99122,467.53052c-3.06-2.44837-7.23517,2.00173-7.23517,2.00173l-2.4484-22.03349s-15.30095,1.8329-25.0935-.61161-11.32255,8.87513-11.32255,8.87513a78.57978,78.57978,0,0,1-.30582-13.77092c.61158-5.50838,8.56838-11.01675,22.6451-14.68932S887.6518,439.543,887.6518,439.543C897.44542,444.43877,893.05121,469.97891,889.99122,467.53052Z" transform="translate(-227.576 -76.46149)" fill="#2f2e41"/></svg>
             </div>
-            <div class="w-full md:w-1/2 py-10 px-5 md:px-10">
-                <div class="text-center mb-10">
-                    <h1 class="font-bold text-3xl text-[#0060a3]">Create an Account</h1>
+            <div class="w-full md:w-1/2 py-5 px-5 md:px-10">
+                <div class="text-center mb-5">
+                    <h1 class="font-bold text-2xl text-[#0060a3]">Create an Account</h1>
                     <p>Enter your information to register</p>
                 </div>
                 <div>
                     <div class="flex -mx-3">
-                        <div class="w-1/2 px-3 mb-5">
+                        <div class="w-1/2 px-3">
                             <label for="" class="text-xs font-semibold px-1">First name</label>
                             <div class="flex">
                                 <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i class="uil uil-user"></i></div>
-                                <input type="text" id="fname" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-[#0060a3]">
+                                <input type="text" id="fname" class="w-full -ml-10 pl-10 pr-3 py-1 rounded-lg border-2 border-gray-200 outline-none focus:border-[#0060a3]">
                             </div>
                             <span id="fnameError" class="text-xs text-red-500 pt-2"></span>
                         </div>
-                        <div class="w-1/2 px-3 mb-5">
+                        <div class="w-1/2 px-3">
                             <label for="" class="text-xs font-semibold px-1">Last name</label>
                             <div class="flex">
                                 <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i class="uil uil-user"></i></div>
-                                <input type="text" id="lname" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-[#0060a3]">
+                                <input type="text" id="lname" class="w-full -ml-10 pl-10 pr-3 py-1 rounded-lg border-2 border-gray-200 outline-none focus:border-[#0060a3]">
                             </div>
                             <span id="lnameError" class="text-xs text-red-500 pt-2"></span>
                         </div>
                     </div>
                     <div class="flex -mx-3">
-                        <div class="w-full px-3 mb-5">
+                        <div class="w-full px-3">
+                            <label for="dod" class="text-xs font-semibold px-1">Date of Birth</label>
+                            <div class="flex">
+                                <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i class="uil uil-calendar-alt"></i></div>
+                                <input type="text" id="dod" class="w-full -ml-10 pl-10 pr-3 py-1 rounded-lg border-2 border-gray-200 outline-none focus:border-[#0060a3]">
+                            </div>
+                            <span id="dodError" class="text-xs text-red-500 pt-2"></span>
+                        </div>
+                    </div>
+                    <div class="flex -mx-3">
+                        <div class="w-full px-3">
+                            <label for="residence" class="text-xs font-semibold px-1">Residence</label>
+                            <div class="flex">
+                                <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i class="uil uil-location-point"></i></div>
+                                <input type="text" id="residence" class="w-full -ml-10 pl-10 pr-3 py-1 rounded-lg border-2 border-gray-200 outline-none focus:border-[#0060a3]">
+                            </div>
+                            <span id="residenceError" class="text-xs text-red-500 pt-2"></span>
+                        </div>
+                    </div>
+                    <div class="flex -mx-3">
+                        <div class="w-full px-3 pt-3 pb-1">
+                            <div class="flex items-center justify-between">
+                                <label for="residence" class="text-xs font-semibold px-1">Gender</label>
+                                <div class="flex items-center space-x-6">
+                                    <label>
+                                        <input type="radio" id="genderMale" class="form-radio text-[#0060a3] cursor-pointer" value="Male" name="radio" onclick="getRadioValue()"/>
+                                        <span class="text-xs font-semibold px-1">Male</span>
+                                    </label>
+
+                                    <label>
+                                        <input type="radio" id="genderFemale" class="form-radio text-[#0060a3] cursor-pointer" value="Female" name="radio" onclick="getRadioValue()"/>
+                                        <span class="text-xs font-semibold px-1">Female</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <span id="genderError" class="text-xs text-red-500 pt-2"></span>
+                        </div>
+                    </div>
+                    <div class="flex -mx-3">
+                        <div class="w-full px-3">
                             <label for="" class="text-xs font-semibold px-1">Phone</label>
                             <div class="flex">
                                 <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i class="uil uil-mobile-android"></i></div>
-                                <input type="tel" id="phone" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-[#0060a3]">
+                                <input type="tel" id="phone" class="w-full -ml-10 pl-10 pr-3 py-1 rounded-lg border-2 border-gray-200 outline-none focus:border-[#0060a3]">
                             </div>
                             <span id="phoneError" class="text-xs text-red-500 pt-2"></span>
                         </div>
                     </div>
                     <div class="flex -mx-3">
-                        <div class="w-full px-3 mb-5">
+                        <div class="w-full px-3">
                             <label for="" class="text-xs font-semibold px-1">Email</label>
                             <div class="flex">
                                 <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i class="uil uil-envelope-alt"></i></div>
-                                <input type="email" id="email" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-[#0060a3]">
+                                <input type="email" id="registerEmail" class="w-full -ml-10 pl-10 pr-3 py-1 rounded-lg border-2 border-gray-200 outline-none focus:border-[#0060a3]">
                             </div>
-                            <span id="emailError" class="text-xs text-red-500 pt-2"></span>
+                            <span id="registerEmailError" class="text-xs text-red-500 pt-2"></span>
                         </div>
                     </div>
                     <div class="flex -mx-3">
-                        <div class="w-1/2 px-3 mb-5">
+                        <div class="w-1/2 px-3">
                             <label for="" class="text-xs font-semibold px-1">Password</label>
                             <div class="flex">
                                 <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i class="uil uil-lock-alt"></i></div>
-                                <input type="password" id="password" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-[#0060a3]">
+                                <input type="password" id="registerPassword" class="w-full -ml-10 pl-10 pr-3 py-1 rounded-lg border-2 border-gray-200 outline-none focus:border-[#0060a3]">
                             </div>
-                            <span id="passwordError" class="text-xs text-red-500 pt-2"></span>
+                            <span id="registerPasswordError" class="text-xs text-red-500 pt-2"></span>
                         </div>
-                        <div class="w-1/2 px-3 mb-5">
+                        <div class="w-1/2 px-3 pb-5">
                             <label for="" class="text-xs font-semibold px-1">Confirm Password</label>
                             <div class="flex">
                                 <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i class="uil uil-lock-alt"></i></div>
-                                <input type="password" id="conf-password" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-[#0060a3]">
+                                <input type="password" id="passwordConf" class="w-full -ml-10 pl-10 pr-3 py-1 rounded-lg border-2 border-gray-200 outline-none focus:border-[#0060a3]">
                             </div>
                             <span id="confPasswordError" class="text-xs text-red-500 pt-2"></span>
                         </div>
                     </div>
                     <div class="flex -mx-3">
-                        <div class="w-full px-3 mb-5">
-                            <button type="submit" id="submit-btn" class="block w-full mx-auto bg-[#0060a3] hover:bg-[#6e96b2] focus:bg-[#0060a3] text-white rounded-lg px-3 py-3 font-semibold">Register Now</button>
+                        <div class="w-full px-3">
+                            <button type="submit" id="submit-btn" class="block w-full mx-auto bg-[#0060a3] hover:bg-[#6e96b2] focus:bg-[#0060a3] text-white rounded-lg px-3 py-2 font-semibold">Register Now</button>
                         </div>
                     </div>
                 </div>
@@ -98,6 +139,7 @@
     </div>
 </div>
 
+<?= $this->include('partials/footer.php'); ?>
 
 <?= $this->endSection() ?>
 <?= $this->section("signup-content-script") ?>
@@ -105,17 +147,47 @@
 <script>
     $(document).ready(function (){
 
+        initializeDodFlatpickr();
+        function getRadioValue(){
+            let genderMale = document.getElementById('genderMale');
+            let genderFemale = document.getElementById('genderFemale');
+
+            if(genderMale.checked){
+                return genderMale.value;
+            }else if(genderFemale.checked){
+                return genderFemale.value;
+            }
+        }
+
+        let dateOfBirth = '';
+        function initializeDodFlatpickr() {
+            let dod = document.getElementById('dod');
+            flatpickr(dod, {
+                dateFormat: "Y-m-d",
+                maxDate: "today",
+                minDate: "1900-01-01",
+                defaultDate: "today",
+                disableMobile: true,
+                mode: "single",
+                onChange: function (selectedDates, dateStr, instance) {
+                    dateOfBirth = dateStr;
+                }
+            });
+        }
+
         let emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
 
             $("#submit-btn").on('click',function (e) {
                 e.preventDefault();
+                let gender = getRadioValue()
                 let fname = $("#fname").val();
                 let lname = $("#lname").val();
-                let email = $("#email").val();
+                let residence = $("#residence").val();
+                let email = $("#registerEmail").val();
                 let phone = $("#phone").val();
-                let password = $("#password").val();
-                let confPassword = $("#conf-password").val();
+                let password = $("#registerPassword").val();
+                let confPassword = $("#passwordConf").val();
 
                 if(fname === "") {
                     $('#fname').addClass('border-red-500');
@@ -135,6 +207,33 @@
                 }else{
                     $('#lname').removeClass('border-red-500');
                     $('#lnameError').text('');
+                }
+
+                if(dateOfBirth === "") {
+                    $('#dod').addClass('border-red-500');
+                    $('#dod').focus();
+                    $('#dodError').text('Date of birth is required');
+                    return false;
+                }else{
+                    $('#dod').removeClass('border-red-500');
+                    $('#dodError').text('');
+                }
+
+                if(residence === "") {
+                    $('#residence').addClass('border-red-500');
+                    $('#residence').focus();
+                    $('#residenceError').text('Residence is required');
+                    return false;
+                }else{
+                    $('#residence').removeClass('border-red-500');
+                    $('#residenceError').text('');
+                }
+
+                if(gender === undefined){
+                    $('#genderError').text('Gender is required');
+                    return false;
+                }else {
+                    $('#genderError').text('');
                 }
 
                 if (phone === "") {
@@ -168,71 +267,76 @@
                 }
 
                 if(email === "") {
-                    $('#email').addClass('border-red-500');
-                    $('#email').focus();
-                    $('#emailError').text('Email is required');
+                    $('#registerEmail').addClass('border-red-500');
+                    $('#registerEmail').focus();
+                    $('#registerEmailError').text('Email is required');
                     return false;
                 }else{
-                    $('#email').removeClass('border-red-500');
-                    $('#emailError').text('');
+                    $('#registerEmail').removeClass('border-red-500');
+                    $('#registerEmailError').text('');
                 }
 
                 if(!emailRegex.test(email)){
-                    $('#email').addClass('border-red-500');
-                    $('#email').focus();
-                    $('#emailError').text('Invalid email address');
+                    $('#registerEmail').addClass('border-red-500');
+                    $('#registerEmail').focus();
+                    $('#registerEmailError').text('Invalid email address');
                     return false;
                 }else{
-                    $('#email').removeClass('border-red-500');
-                    $('#emailError').text('');
+                    $('#registerEmail').removeClass('border-red-500');
+                    $('#registerEmailError').text('');
                 }
                 if (password === "") {
-                    $('#password').addClass('border-red-500');
-                    $('#password').focus();
-                    $('#passwordError').text('Password is required');
+                    $('#registerPassword').addClass('border-red-500');
+                    $('#registerPassword').focus();
+                    $('#registerPasswordError').text('Password is required')
                     return false;
                 }else{
-                    $('#password').removeClass('border-red-500');
+                    $('#registerPassword').removeClass('border-red-500');
                     $('#passwordError').text('');
                 }
 
                 if(password.length < 6) {
-                    $('#password').addClass('border-red-500');
-                    $('#password').focus();
-                    $('#passwordError').text('Password should be at least 6 characters');
+                    $('#registerPassword').addClass('border-red-500');
+                    $('#registerPassword').focus();
+                    $('#registerPasswordError').text('Password should be at least 6 characters');
                     return false;
                 }else {
-                    $('#password').removeClass('border-red-500');
-                    $('#passwordError').text('');
+                    $('#registerPassword').removeClass('border-red-500');
+                    $('#registerPasswordError').text('');
                 }
 
                 if(confPassword === ""){
-                    $('#conf-password').addClass('border-red-500');
-                    $('#conf-password').focus();
+                    $('#passwordConf').addClass('border-red-500');
+                    $('#passwordConf').focus();
                     $('#confPasswordError').text('Confirm password is required');
                     return false;
                 }else{
-                    $('#conf-password').removeClass('border-red-500');
+                    $('#passwordConf').removeClass('border-red-500');
                     $('#confPasswordError').text('');
                 }
                 // verify if the password and confPassword match
                 if(password !== confPassword){
-                    $('#conf-password').addClass('border-red-500');
+                    $('#passwordConf').addClass('border-red-500');
                     $('#conf-password').focus();
                     $('#confPasswordError').text('Password do not match!');
                     return false;
                 }else {
-                    $('#conf-password').removeClass('border-red-500');
+                    $('#passwordConf').removeClass('border-red-500');
                     $('#confPasswordError').text('');
                 }
 
-                $('#submit-btn').prop('disabled', true).html(' <span class="loading loading-dots loading-md pl-1"></span>');
+
+                $('#submit-btn').prop('disabled', true).html('<span class="loading loading-spinner loading-xs"></span>');
+                console.log('code reached here');
                 $.ajax({
                     url: "<?= base_url('api/register-patient') ?>",
                     type: "POST",
                     data: {
                         fname: fname,
                         lname: lname,
+                        dateOfBirth: dateOfBirth,
+                        residence: residence,
+                        gender: gender,
                         email: email,
                         phone: phone,
                         password: password
@@ -241,10 +345,8 @@
                         if (response.status === 200) {
                             $('#toast-success').removeClass('hidden');
                             $('#toast-success #toast-success-content').text(response.message);
-                            setTimeout(function () {
-                                window.location.href = "<?= base_url('customer/sign-in') ?>";
-                            }, 3000);
                         }  else if(response.status === 500) {
+                            console.log(response, '500')
                             $('#toast-danger').removeClass('hidden');
                             $('#toast-danger #toast-danger-content').text(response.message);
                         }

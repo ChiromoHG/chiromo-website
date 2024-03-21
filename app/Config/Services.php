@@ -5,6 +5,9 @@ namespace Config;
 use App\Services\GenerateRandomPassword;
 use App\Services\SendEmailService;
 use CodeIgniter\Config\BaseService;
+use App\Services\GenerateUHIDService;
+use App\Services\GenerateEncounterNumberService;
+
 
 class Services extends BaseService
 {
@@ -24,5 +27,32 @@ class Services extends BaseService
         }
 
         return new SendEmailService();
+    }
+
+    public static function generateUHID($getShared = true)
+    {
+        if ($getShared) {
+            return static::getSharedInstance('generateUHID');
+        }
+
+        return new GenerateUHIDService();
+    }
+
+    public static function generateEncounterNumber($getShared = true)
+    {
+        if ($getShared) {
+            return static::getSharedInstance('generateEncounterNumber');
+        }
+
+        return new GenerateEncounterNumberService();
+    }
+
+    public static function initiatePayment($getShared = true)
+    {
+        if ($getShared) {
+            return static::getSharedInstance('initiatePayment');
+        }
+
+        return new PaymentService();
     }
 }

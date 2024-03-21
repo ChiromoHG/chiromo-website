@@ -61,6 +61,7 @@ class ManageUsers extends BaseController
 
                 $data = [
                     'user_uuid' => Uuid::uuid4()->toString(),
+                    'title' => $this->request->getPost('title'),
                     'fname' => $this->request->getPost('firstName'),
                     'lname' => $this->request->getPost('lastName'),
                     'email' => $this->request->getPost('email'),
@@ -127,10 +128,13 @@ class ManageUsers extends BaseController
         $role_uuid = $data['role_uuid'];
         if($role == 'Admin') {
             $permissions = [
-                'create_therapist',
-                'edit_therapist',
-                'delete_therapist',
-                'view_therapist',
+                'create_psychologist',
+                'edit_psychologist',
+                'delete_psychologist',
+                'view_psychologist',
+                'create_psychiatrist',
+                'edit_psychiatrist',
+                'delete_psychiatrist',
                 'create_role',
                 'edit_role',
                 'delete_role',
@@ -142,7 +146,7 @@ class ManageUsers extends BaseController
                 'create_assessment',
                 'delete_assessment',
                 'view_patients',
-                'edit_patients',
+                'edit_patients'
             ];
 
             foreach($permissions as $permission) {
@@ -183,7 +187,7 @@ class ManageUsers extends BaseController
                 ];
 
                 try {
-                    $this->adminModel->assignPermissionAuth($data);
+                    $this->adminModel->assignPermissionPsychologist($data);
                 } catch (\Exception $e) {
                     var_dump($e->getMessage());
                 }
@@ -201,9 +205,7 @@ class ManageUsers extends BaseController
                 'create_assessment',
                 'delete_assessment',
                 'view_patients',
-                'edit_patients',
-                'update_profile',
-                'time_availability',
+                'edit_patients'
             ];
 
             foreach($permissions as $permission) {
@@ -214,7 +216,7 @@ class ManageUsers extends BaseController
                 ];
 
                 try {
-                    $this->adminModel->assignPermissionAuth($data);
+                    $this->adminModel->assignPermissionPsychiatric($data);
                 } catch (\Exception $e) {
                     var_dump($e->getMessage());
                 }

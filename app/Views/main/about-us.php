@@ -2,22 +2,27 @@
 <?= $this->section('content'); ?>
 <?= $this->include('partials/navbar.php'); ?>
 
+
+<div class="load"></div>
+
 <section class="mx-5 my-5">
     <div class="about-us">
-        <div class="flex flex-col h-[60vh] justify-center items-center">
-            <h1 class="text-3xl font-bold pb-[2rem] text-white">About Chiromo Hospital Group</h1>
+        <div class="flex flex-col h-[60vh] justify-center items-start pl-10">
+            <div class="w-full md:w-1/2">
+                <h2 class="text-3xl font-semibold pb-[2rem]">About Chiromo Hospital Group</h2>
 
-            <div class="flex items-center text-white text-xl">
-                <a href="<?= base_url('/') ?>" class="hover:text-gray-400">Home</a>
-                <i class="uil uil-angle-right-b"></i>
-                <a href="<?= base_url('about-us') ?>" class="hover:text-gray-400">About Us</a>
+                <div class="flex text-white text-lg">
+                    <a href="<?= base_url('/') ?>" class="hover:text-gray-400">Home</a>
+                    <i class="uil uil-angle-right-b"></i>
+                    <a href="<?= base_url('about-us') ?>" class="hover:text-gray-400">About Us</a>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
 <section class="my-5 px-10">
-    <div class="grid grid-cols-12">
+    <div class="grid grid-cols-12 gap-10">
         <div class="col-span-12 md:col-span-8 my-10">
             <div class="about-us-text">
                 <h1>
@@ -37,7 +42,7 @@
             </div>
             <div class="py-5 flex space-x-4 owl-carousel owl-theme owl-loaded owl-drag">
                 <div class="bg-blue-100 rounded-md p-4 flex-1 min-w-0 h-[10rem] flex space-x-5">
-                    <span class="w-[3rem] h-[3rem] bg-white rounded-full grid place-items-center shadow-md">
+                    <span class="flex items-center justify-center flex-shrink-0 h-[3rem] w-[3rem] rounded-full bg-white text-black shadow-md">
                         <i class="uil uil-minus-path text-[2rem] text-[#0060a3]"></i>
                     </span>
                     <div>
@@ -47,7 +52,7 @@
                 </div>
 
                 <div class="bg-blue-100 rounded-md p-5 flex-1 min-w-0 h-[10rem] flex space-x-5">
-                     <span class="bg-white w-[6rem] h-[3rem] rounded-full grid place-items-center shadow-md">
+                     <span class="flex items-center justify-center flex-shrink-0 h-[3rem] w-[3rem] rounded-full bg-white text-black shadow-md">
                         <i class="uil uil-minus-path text-[2rem] text-[#0060a3]"></i>
                     </span>
                     <div>
@@ -60,7 +65,7 @@
                 </div>
 
                 <div class="bg-blue-100 rounded-md p-5 flex-1 min-w-0 h-[10rem] flex space-x-5">
-                    <span class="w-[3rem] h-[3rem] bg-white rounded-full grid place-items-center shadow-md">
+                    <span class="flex items-center justify-center flex-shrink-0 h-[3rem] w-[3rem] rounded-full bg-white text-black shadow-md">
                         <i class="uil uil-minus-path text-[2rem] text-[#0060a3]"></i>
                     </span>
                     <div>
@@ -72,7 +77,7 @@
                 </div>
 
                 <div class="bg-blue-100 rounded-md p-5 flex-1 min-w-0 h-[10rem] flex space-x-5">
-                    <span class="w-[3rem] h-[3rem] bg-white rounded-full grid place-items-center shadow-md">
+                    <span class="flex items-center justify-center flex-shrink-0 h-[3rem] w-[3rem] rounded-full bg-white text-black shadow-md">
                         <i class="uil uil-minus-path text-[2rem] text-[#0060a3]"></i>
                     </span>
                     <div>
@@ -163,11 +168,11 @@
     </div>
 </section>
 
-<section class="my-5 px-10">
+<section class="px-10">
     <h1 class="text-2xl text-[#0060a3] pb-8 font-semibold">Our Services</h1>
     <div class="flex items-center justify-center">
         <div class="flex flex-wrap -mx-4">
-            <div class="w-full md:w-1/2 xl:w-1/3 px-4">
+            <div class="w-full md:w-1/3 xl:w-1/3 px-4">
                 <div class="bg-gray-50 rounded-[30px] overflow-hidden mb-10 h-[32rem]">
                     <div class="services-img--burnout">
 
@@ -191,7 +196,7 @@
             </div>
 
 
-            <div class="w-full md:w-1/2 xl:w-1/3 px-4">
+            <div class="w-full md:w-1/3 xl:w-1/3 px-4">
                 <div class="bg-gray-50 rounded-[30px] overflow-hidden mb-10 h-[32rem]">
                     <div class="services-img--anxiety">
 
@@ -215,7 +220,7 @@
             </div>
 
 
-            <div class="w-full md:w-1/2 xl:w-1/3 px-4">
+            <div class="w-full md:w-1/3 xl:w-1/3 px-4">
                 <div class="bg-gray-50 rounded-[30px] overflow-hidden mb-10 h-[32rem]">
                     <div class="services-img--depression">
 
@@ -239,7 +244,7 @@
             </div>
 
 
-            <div class="w-full md:w-1/2 xl:w-1/3 px-4">
+            <div class="w-full md:w-1/3 xl:w-1/3 px-4">
                 <div class="bg-gray-50 rounded-[30px] overflow-hidden h-[32rem]">
                     <div class="services-img--ptsd">
 
@@ -262,7 +267,7 @@
                 </div>
             </div>
 
-            <div class="w-full md:w-1/2 xl:w-1/3 px-4">
+            <div class="w-full md:w-1/3 xl:w-1/3 px-4">
                 <div class="bg-gray-50 rounded-[30px] overflow-hidden h-[32rem]">
                     <div class="services-img--suicide">
 
@@ -285,7 +290,7 @@
                 </div>
             </div>
 
-            <div class="w-full md:w-1/2 xl:w-1/3 px-4">
+            <div class="w-full md:w-1/3 xl:w-1/3 px-4">
                 <div class="bg-gray-50 rounded-[30px] overflow-hidden h-[32rem]">
                     <div class="services-img--alcohol">
 
@@ -312,10 +317,10 @@
 </section>
 
 <section>
-    <div class="container flex flex-col px-2 py-10 mx-auto space-y-6 lg:h-[32rem] lg:py-16 lg:flex-row lg:items-center">
+    <div class="container flex flex-col px-8 mx-auto py-10 space-y-6 lg:space-x-5 lg:h-[32rem] lg:py-16 lg:flex-row lg:items-center">
         <div class="w-full lg:w-1/2">
             <div class="lg:max-w-lg">
-                <h1 class="text-2xl font-bold tracking-wide text-gray-800 dark:text-white lg:text-3xl">
+                <h1 class="text-xl font-bold tracking-wide text-gray-800 dark:text-white lg:text-2xl">
                    Meet our leadership and management team who are backbone of our corporate values
                 </h1>
 
@@ -369,7 +374,7 @@
 </section>
 
 <section class="px-10 bg-blue-100 py-20">
-    <div class="grid grid-cols-12">
+    <div class="grid grid-cols-12 gap-10">
         <div class="col-span-12 md:col-span-4">
             <h1 class="text-2xl text-[#0060a3] font-semibold">Frequently Asked Question</h1>
             <p class="pt-5 text-md font-semibold">We have answers to common questions people ask</p>
@@ -565,7 +570,7 @@
                 });
         })
 
-
+        // owl-carousel
         $('.owl-carousel').owlCarousel({
             loop: true,
             margin: 10,
@@ -587,12 +592,29 @@
                 }
             }
         })
-
     });
+    //accordion alpine
+    document.addEventListener('alpine:init', () => {
+        Alpine.store('accordion', {
+            tab: 0
+        });
+
+        Alpine.data('accordion', (idx) => ({
+            init() {
+                this.idx = idx;
+            },
+            idx: -1,
+            handleClick() {
+                this.$store.accordion.tab = this.$store.accordion.tab === this.idx ? 0 : this.idx;
+            },
+            handleRotate() {
+                return this.$store.accordion.tab === this.idx ? 'rotate-180' : '';
+            },
+            handleToggle() {
+                return this.$store.accordion.tab === this.idx ? `max-height: ${this.$refs.tab.scrollHeight}px` : '';
+            }
+        }));
+    })
 </script>
 <?= $this->endSection(); ?>
 
-
-<!--<body class="h-screen bg-blue-50">-->
-<!---->
-<!--</body>-->

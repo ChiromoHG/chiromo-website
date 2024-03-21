@@ -5,7 +5,7 @@ namespace Modules\Admin\Models;
 use CodeIgniter\Model;
 
 class AdminModel extends Model{
-    public function checkRole($role)
+    public function checkRole($role): bool
     {
         $builder = $this->db->table('roles');
         $builder->select('*');
@@ -18,7 +18,7 @@ class AdminModel extends Model{
         }
     }
 
-    public function newRole($data)
+    public function newRole($data): bool
     {
         $builder = $this->db->table('roles');
         $builder->insert($data);
@@ -29,7 +29,7 @@ class AdminModel extends Model{
         }
     }
 
-    public function getRoles()
+    public function getRoles(): array
     {
         $builder = $this->db->table('roles');
         $builder->select('roles.role_uuid, roles.role_name, roles.role_description, roles.created_at, COUNT(users.role_uuid) as user_count');
@@ -40,7 +40,7 @@ class AdminModel extends Model{
         return $query->getResultArray();
     }
 
-    public function getRolesNames()
+    public function getRolesNames(): array
     {
         $builder = $this->db->table('roles');
         $builder->select('role_uuid, role_name');
@@ -49,8 +49,41 @@ class AdminModel extends Model{
         return $query->getResultArray();
     }
 
+//    sidebar seeder model functions
+    public function getAllSidebar(): array
+    {
+        $builder = $this->db->table('sidebar');
+        $builder->select('*');
+        $builder->orderBy('sidebar_order', 'ASC');
+        $query = $builder->get();
+        return $query->getResultArray();
+    }
+
+    public function deleteSidebar($id): bool
+    {
+        $builder = $this->db->table('sidebar');
+        $builder->where('sidebar_uuid', $id);
+        $builder->delete();
+        if ($this->db->affectedRows() == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function insertSidebar($data): bool
+    {
+        $builder = $this->db->table('sidebar');
+        $builder->insert($data);
+        if ($this->db->affectedRows() == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 //    permissions seeder model functions
-    public function getAllPermissions()
+    public function getAllPermissions(): array
     {
         $builder = $this->db->table('permissions');
         $builder->select('*');
@@ -58,7 +91,7 @@ class AdminModel extends Model{
         return $query->getResultArray();
     }
 
-    public function deletePermission($id)
+    public function deletePermission($id): bool
     {
         $builder = $this->db->table('permissions');
         $builder->where('permission_uuid', $id);
@@ -71,7 +104,7 @@ class AdminModel extends Model{
     }
 
 
-    public function insertPermission($data)
+    public function insertPermission($data): bool
     {
         $builder = $this->db->table('permissions');
         $builder->insert($data);
@@ -91,7 +124,7 @@ class AdminModel extends Model{
         return $query->getRow()->permission_uuid;
     }
 
-    public function assignPermissionAdmin($data)
+    public function assignPermissionAdmin($data): bool
     {
         $builder = $this->db->table('role_permission');
         $builder->insert($data);
@@ -102,7 +135,7 @@ class AdminModel extends Model{
         }
     }
 
-    public function assignPermissionAuth($data)
+    public function assignPermissionPsychologist($data): bool
     {
         $builder = $this->db->table('role_permission');
         $builder->insert($data);
@@ -113,7 +146,7 @@ class AdminModel extends Model{
         }
     }
 
-    public function assignPermissionSecurity($data)
+    public function assignPermissionPsychiatric($data): bool
     {
         $builder = $this->db->table('role_permission');
         $builder->insert($data);
@@ -124,7 +157,7 @@ class AdminModel extends Model{
         }
     }
 
-    public function createUser($data)
+    public function createUser($data): bool
     {
         $builder = $this->db->table('users');
         $builder->insert($data);
@@ -135,7 +168,8 @@ class AdminModel extends Model{
         }
     }
 
-    public function getUsers(){
+    public function getUsers(): array
+    {
         $builder = $this->db->table('users');
         $builder->select('users.user_uuid, users.fname, users.lname, users.email, users.created_at, roles.role_name');
         $builder->join('roles', 'roles.role_uuid = users.role_uuid', 'left');
@@ -144,7 +178,8 @@ class AdminModel extends Model{
         return $query->getResultArray();
     }
 
-    public function getUser($id){
+    public function getUser($id): ?array
+    {
         $builder = $this->db->table('users');
         $builder->select('users.user_uuid, users.fname, users.lname, users.email, roles.role_name');
         $builder->join('roles', 'roles.role_uuid = users.role_uuid', 'left');
@@ -153,7 +188,8 @@ class AdminModel extends Model{
         return $query->getRowArray();
     }
 
-    public function updateUser($data, $id){
+    public function updateUser($data, $id): bool
+    {
         $builder = $this->db->table('users');
         $builder->where('user_uuid', $id);
         $builder->update($data);
@@ -164,7 +200,8 @@ class AdminModel extends Model{
         }
     }
 
-    public function getUserByEmail($email){
+    public function getUserByEmail($email): ?array
+    {
         $builder = $this->db->table('users');
         $builder->select('users.user_uuid, users.fname, users.lname, users.email, users.password, roles.role_name, roles.role_uuid');
         $builder->join('roles', 'roles.role_uuid = users.role_uuid', 'left');
@@ -174,7 +211,8 @@ class AdminModel extends Model{
     }
 
 
-    public function createUserLoginActivity($data){
+    public function createUserLoginActivity($data): bool
+    {
         $builder = $this->db->table('user_login_activity');
         $builder->insert($data);
         if ($this->db->affectedRows() == 1) {
@@ -184,7 +222,8 @@ class AdminModel extends Model{
         }
     }
 
-    public function saveMessage($data){
+    public function saveMessage($data): bool
+    {
         $builder = $this->db->table('email_trail');
         $builder->insert($data);
         if ($this->db->affectedRows() == 1) {
@@ -194,7 +233,8 @@ class AdminModel extends Model{
         }
     }
 
-    public function getCurrentLoggedInUser($id){
+    public function getCurrentLoggedInUser($id): ?array
+    {
         $builder = $this->db->table('users');
         $builder->select('users.user_uuid, users.fname, users.lname, users.email, users.password');
         $builder->where('users.user_uuid', $id);
@@ -202,7 +242,8 @@ class AdminModel extends Model{
         return $query->getRowArray();
     }
 
-    public function updateUserPass($data, $id){
+    public function updateUserPass($data, $id): bool
+    {
         $builder = $this->db->table('users');
         $builder->where('user_uuid', $id);
         $builder->update($data);
@@ -213,7 +254,7 @@ class AdminModel extends Model{
         }
     }
 
-    public function updateLoginActivity($data, $id)
+    public function updateLoginActivity($data, $id): bool
     {
         $builder = $this->db->table('user_login_activity');
         $builder->where('user_uuid', $id);
@@ -225,25 +266,14 @@ class AdminModel extends Model{
             return false;
         }
     }
-
-    public function truncateNavbar()
+    public function getAllSidebarComponent($role_name): array
     {
-        $builder = $this->db->table('navbar');
-        if($builder->truncate()){
-            return true;
-        }else{
-            return false;
-        }
-    }
+        $builder = $this->db->table('sidebar');
+        $builder->select('sidebar.sidebar_label, sidebar.sidebar_url, sidebar.sidebar_icon, sidebar.owner');
+        $builder->where('owner', $role_name);
+        $builder->orderBy('sidebar.sidebar_order', 'ASC');
+        $query = $builder->get();
+        return $query->getResultArray();
 
-    public function insertNavbar($data)
-    {
-        $builder = $this->db->table('navbar');
-        $builder->insert($data);
-        if ($this->db->affectedRows() == 1) {
-            return true;
-        } else {
-            return false;
-        }
     }
 }

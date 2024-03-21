@@ -1,6 +1,9 @@
 <?= $this->extend('base/base.php') ?>
 <?= $this->section('content') ?>
 
+<div class="load">
+    <span class="loading loading-ring loading-lg text-white"></span>
+</div>
 
 <div class="h-screen flex">
     <div class="hidden lg:flex w-full lg:w-1/2 login_img_section

@@ -21,6 +21,7 @@ class Filters extends BaseConfig
         'honeypot'      => Honeypot::class,
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
+        'isPatientLoginFilter' => \App\Filters\PatientLoginFilter::class,
         'isLoggedInFilter' => \App\Filters\LoginFilter::class,
     ];
 

@@ -6,6 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Chiromo admin - Recovering in Dignity</title>
+    <link rel="icon" type="image/ico" href="<?= base_url('icon.ico') ?>">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
     <link rel="stylesheet" href="<?= base_url('css/jquery.dataTables.min.css') ?>">
     <link rel="stylesheet" href="<?= base_url('css/buttons.dataTables.min.css') ?>">
@@ -13,6 +14,8 @@
     <link rel="stylesheet" href="<?= base_url('css/rowReorder.dataTables.min.css') ?>">
     <link rel="stylesheet" href="<?= base_url('css/responsive.dataTables.min.css') ?>">
     <link rel="stylesheet" href="<?= base_url('css/select.dataTables.min.css') ?>">
+
+    <link rel="stylesheet" href="<?= base_url('css/flatpickr.min.css') ?>">
 
     <link rel="stylesheet" href="<?= base_url("css/app.css") ?>">
     <link rel="stylesheet" href="<?= base_url("css/admin.css") ?>">
@@ -76,6 +79,7 @@
 <script src="<?= base_url('js/dataTables.select.min.js')?>"></script>
 <script src="<?= base_url('js/chart.min.js')?>"></script>
 <script src="<?= base_url('js/anime.min.js')?>"></script>
+<script src="<?= base_url('js/flatpickr.js')?>"></script>
 
 <script type="text/javascript" src="<?= base_url("js/app.js") ?>"></script>
 <script type="text/javascript" src="<?= base_url("js/admin.js") ?>"></script>
@@ -84,7 +88,27 @@
 <?php $this->renderSection('edit-role-content-script'); ?>
 <?php $this->renderSection('dashboard-content-script'); ?>
 <?php $this->renderSection('profile-content-script'); ?>
-<?= $this->renderSection('login-content-script') ?>
+<?php $this->renderSection('login-content-script'); ?>
+<?php $this->renderSection('psychologist-content-script'); ?>
+<?php $this->renderSection('appointments-content-script'); ?>
+<?php $this->renderSection('patients-content-script'); ?>
+<?php $this->renderSection('patients-patient-content-script'); ?>
+<?php $this->renderSection('patients-history-content-script'); ?>
+<?php $this->renderSection('patients-patient-examination-content-script'); ?>
+<?php $this->renderSection('patients-patient-diagnosis-content-script'); ?>
+<?php $this->renderSection('patients-patient-services-content-script'); ?>
+<?php $this->renderSection('patients-patient-prescription-content-script'); ?>
+<?php $this->renderSection('patients-patient-consultation-content-script'); ?>
+<?php $this->renderSection('patients-patient-bill-content-script'); ?>
+<?php $this->renderSection('patients-patient-referral-content-script'); ?>
+<?php $this->renderSection('patients-patient-checkout-content-script'); ?>
+<?php $this->renderSection('roles-content-script'); ?>
+<?php $this->renderSection('assessments-group-content-script'); ?>
+<?php $this->renderSection('assessments-answers-content-script'); ?>
+<?php $this->renderSection('departments-content-script'); ?>
+<?php $this->renderSection('services-content-script'); ?>
+<?php $this->renderSection('create-carousel-content-script'); ?>
+<?php $this->renderSection('create-job-content-script'); ?>
 <script>
 
     $(document).ready(function (){

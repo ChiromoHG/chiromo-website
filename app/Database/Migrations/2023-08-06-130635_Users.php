@@ -11,6 +11,7 @@ class Users extends Migration
         $this->db->disableForeignKeyChecks();
         $this->forge->addField([
             'user_uuid'   => ['type' => 'varchar', 'constraint' =>255],
+            "title"             => ['type' => 'varchar', 'constraint' => 30, 'null' => true], // "Mr", "Mrs", "Miss", "Dr","Ms",
             'fname'             => ['type' => 'varchar', 'constraint' => 30, 'null' => true],
             'lname'             => ['type' => 'varchar', 'constraint' => 30, 'null' => true],
             'email'             => ['type' => 'varchar', 'constraint' => 255, 'unique' => true],

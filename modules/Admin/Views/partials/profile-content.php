@@ -6,7 +6,7 @@
             <span class="font-medium text-2xl ml-2">Update Profile</span>
         </div>
 
-        <div class="bg-blue-100 py-1 px-3 rounded-lg">
+        <div class="bg-blue-100 py-1 px-3 rounded-lg bg-blue-100">
             <ul>
                 <li class="inline-block">
                     <a href="<?= base_url('admin/dashboard') ?>" class="text-blue-700 hover:text-blue-900">Dashboard</a>

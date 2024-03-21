@@ -1,7 +1,9 @@
 <?= $this->extend('Modules\Admin\Views\base\base.php') ?>
 <?= $this->section('content') ?>
 
-<?= $this->include('Modules\Admin\Views\includes\sidebar.php') ?>
+<?=  view_cell('Modules\Admin\Cells\SideBarCell::display')?>
+
+
 <?= $this->include('Modules\Admin\Views\partials\dashboard-content.php') ?>
 
 <?= $this->endSection() ?>

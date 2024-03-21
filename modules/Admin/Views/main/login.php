@@ -3,13 +3,12 @@
 
 
 <div class="h-screen flex">
-    <div class="hidden lg:flex w-full lg:w-1/2 login_img_section
-          justify-around items-center">
+    <div class="hidden lg:flex w-full lg:w-1/2 login_img_section justify-around items-center">
         <div class="bg-black opacity-20 inset-0 z-0"></div>
         <div class="w-full mx-auto px-10 flex-col items-center space-y-6">
             <h1 class="text-white font-bold text-5xl font-sans">Welcome to Chiromo Hospital Group.</h1>
             <p class="text-red-600 mt-1 text-xl">Recovery in dignity</p>
-            <a href="" class="inline-block bg-white text-[#0060a3] mt-5 py-2 px-6 rounded-2xl font-bold mb-2">Read More</a>
+            <a href="" class="inline-block bg-white text-[#0060a3] py-2 px-6 rounded-2xl font-bold">Read More</a>
         </div>
     </div>
     <div class="flex w-full lg:w-1/2 justify-center items-center bg-white space-y-8">

@@ -1,7 +1,7 @@
 <?= $this->extend('Modules\Admin\Views\base\base.php') ?>
 <?= $this->section('content') ?>
 
-<?= $this->include('Modules\Admin\Views\includes\sidebar.php') ?>
+<?=  view_cell('Modules\Admin\Cells\SideBarCell::display')?>
 <?= $this->include('Modules\Admin\Views\partials\manage-users-content.php') ?>
 
 <?= $this->endSection() ?>
@@ -17,14 +17,6 @@
             $('#newUserModal').addClass('hidden');
         });
 
-        $('#openNewRoleModal').on('click', function () {
-            $('#newRoleModal').removeClass('hidden');
-        });
-
-        $('#closeNewRoleModal').on('click', function () {
-            $('#newRoleModal').addClass('hidden');
-        });
-
 
         createUser();
 
@@ -32,7 +24,7 @@
         // creating users dataTable function
         function createUser() {
             $('#manage-users-dataTable').DataTable({
-
+                
                 dom: 'lfBrtip',
                 buttons: [
                     {
@@ -131,7 +123,7 @@
                     {
                         data: null,
                         render: function (data) {
-                            return `<a href="<?= base_url('admin/dashboard/manage_users/edit_user/')?>${data.user_uuid}" class="border border-1 border-slate-500 text-white font-normal py-1 px-2 rounded-md hover:bg-[#0060a3] hover:border-[#0060a3] transition-colors">
+                            return `<a href="<?= base_url('admin/dashboard/manage_users/edit_user/')?>${data.user_uuid}" class="btn btn-sm btn-outline-danger">
                             <i class="uil uil-edit"></i>
                                 Edit
                             </a>`
@@ -147,11 +139,22 @@
 
         $('#new-user-btn').on('click', function () {
             const emailPattern = /^[a-zA-Z0-9._-]+@(chiromohospitalgroup\.co\.ke|gmail\.com)$/;
+            let title = $('#select-tittle').val();
             let firstName = $('#fname').val();
             let lastName = $('#lname').val();
             let email = $('#email').val();
             let role = $('#select-role').val();
 
+
+            if(title === ''){
+                $('#select-tittle').addClass('border-red-500');
+                $('#select-tittle').focus();
+                $('#selectTitle').text('Title is required');
+                return false;
+            }else{
+                $('#select-tittle').removeClass('border-red-500');
+                $('#selectTitle').text('');
+            }
             if (firstName === '') {
                 $('#fname').addClass('border-red-500');
                 $('#fname').focus();
@@ -208,6 +211,7 @@
                 type: 'POST',
                 dataType: 'json',
                 data: {
+                    title: title,
                     firstName: firstName,
                     lastName: lastName,
                     email: email,
@@ -243,185 +247,6 @@
             })
 
         })
-
-        //roles on_click roles button
-
-        $('#display-roles').on('click', function () {
-            if ($('#manage-roles-dataTable').length > 0) {
-                $('#manage-roles-dataTable').DataTable().destroy();
-                createRole();
-            }
-        });
-
-        //dataTable function for creating roles
-
-        function createRole() {
-
-            $('#manage-roles-dataTable').DataTable({
-
-                dom: 'lfBrtip',
-                buttons: [
-                    {
-                        extend: 'excelHtml5',
-                        text: '<i class="uil uil-file-exclamation-alt"></i> Excel',
-                        titleAttr: 'Transactions summery excel',
-                        exportOptions: {
-                            columns: [0, 1, 2]
-                        }
-                    },
-                    {
-                        extend: 'pdfHtml5',
-                        text: '<i class="uil uil-file-alt"></i> PDF',
-                        titleAttr: 'Transactions summery pdf',
-                        exportOptions: {
-                            columns: [0, 1, 2]
-                        }
-                    },
-                    {
-                        extend: 'print',
-                        text: '<i class="uil uil-document-info"></i> Print',
-                        titleAttr: 'Transactions summery print',
-                        exportOptions: {
-                            columns: [0, 1, 2]
-                        }
-                    },
-                ],
-                scrollCollapse: true,
-                paging: true,
-
-                "language": {
-                    "emptyTable": "No roles available in the table at the moment"
-                },
-
-                "responsive": true,
-
-                rowReorder: {
-                    selector: 'td:nth-child(2)'
-                },
-
-                columnDefs: [
-                    {
-                        orderable: false,
-                        className: 'select-checkbox',
-                        targets: 0
-                    }
-                ],
-
-                select: {
-                    style: 'os',
-                    selector: 'td:first-child'
-                },
-                order: [[1, 'asc']],
-
-
-
-                ajax: {
-                    url: '<?= base_url('admin/roles/getRoles') ?>',
-                    type: 'GET',
-                    dataType: 'json',
-                    dataSrc: function (response) {
-                        return response;
-
-                    }
-                },
-                columns: [
-                    {
-                        data: null,
-                        defaultContent: '',
-                        className: 'select-checkbox',
-                        orderable: false
-                    },
-
-                    {data: 'role_name'},
-                    {data: 'role_description'},
-                    {
-                        data: null,
-                        render: function (data) {
-                            return `<span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                            ${data.user_count}
-                            </span>`
-                        }
-                    },
-
-                    {
-                        data: null,
-                        render: function (data) {
-                            return `<a href="<?= base_url('admin/dashboard/manage_users/edit_role/')?>${data.role_uuid}" class="border border-1 border-slate-500 text-white font-normal py-1 px-2 rounded-md hover:bg-[#0060a3] hover:border-blue-600 transition-colors">
-                            <i class="uil uil-edit"></i>
-                                Edit
-                            </a>`
-                        }
-                    }
-                ],
-
-            })
-        }
-
-        // adding new role from the modal
-
-        $('#createRole').on('click', function () {
-            let roleName = $('#roleName').val();
-            let roleDescription = $('#roleDescription').val();
-
-            if (roleName === '') {
-                $('#roleName').addClass('border-red-500');
-                $('#roleName').focus();
-                $('#roleError').text('Role name is required');
-                return false;
-            } else {
-                $('#roleName').removeClass('border-red-500');
-                $('#roleError').text('');
-            }
-
-            if (roleName !== 'Admin' && roleName !== 'Psychologist' && roleName !== 'Psychiatric') {
-                $('#roleName').addClass('border-red-500');
-                $('#roleName').focus();
-                $('#roleError').text('Role name should be Admin, or Psychologist or Psychiatric');
-                return false;
-            } else {
-                $('#roleName').removeClass('border-red-500');
-                $('#roleError').text('');
-            }
-
-            $('#createRole').prop('disabled', true).html(' <span class="loading loading-dots loading-md pl-1"></span> creating role');
-
-            $.ajax({
-                url: '<?= base_url('admin/roles/create') ?>',
-                type: 'POST',
-                data: {
-                    roleName: roleName,
-                    roleDescription: roleDescription
-                },
-                success: function (response) {
-                    if (response.status === 200) {
-                        if ($('#manage-roles-dataTable').length > 0) {
-                            $('#manage-roles-dataTable').DataTable().destroy();
-                            createRole();
-                        }
-                        $('#newRoleModal').addClass('hidden');
-                        $('#roleName').val('');
-                        $('#roleDescription').val('');
-                        $('#roleError').text('');
-                        $('#toast-success').removeClass('hidden');
-                        $('#toast-success #toast-success-content').text(response.message);
-                    } else if (response.status === 500) {
-                        $('#roleName').addClass('border-red-500');
-                        $('#roleName').focus();
-                        $('#roleError').text(response.message);
-                    }
-                },
-
-                error: function (response) {
-                    $('#toast-danger').removeClass('hidden');
-                    $('#toast-danger #toast-danger-content').text('Internal server error, please try again later');
-                },
-
-                complete: function (response) {
-                    $('#createRole').prop('disabled', false).html('Create Role');
-                }
-            })
-        });
-
 
     })
 </script>

@@ -8,7 +8,7 @@
 
 }
 :root{
-    --primary-color: #0e48f1;
+    --primary-color: #0060a3;
     --panel-color: #FFF;
     --text-color: #000;
     --black-light-color: #707070;
@@ -497,13 +497,13 @@ nav.close ~ .dashboard .top{
 }
 
 .paginate_button .current{
-    background-color: var(--primary-color);
+    background-color: #0060a3;
 }
 
 .dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover{
-    background-color: var(--primary-color) !important;
-    border-color: var(--primary-color) !important;
-    color: var(--text-color) !important;
+    background-color: #0060a3 !important;
+    border-color: #0060a3 !important;
+    color: white !important;
     border-radius: 5px !important;
 }
 
@@ -518,7 +518,7 @@ nav.close ~ .dashboard .top{
 .dataTables_wrapper .dt-buttons button{
     background-color: white !important;
     border-radius: 5px !important;
-    color: var(--text-color) !important;
+    color: black !important;
 }
 
 .dataTables_wrapper .dataTables_filter input{
@@ -531,7 +531,7 @@ nav.close ~ .dashboard .top{
 
 /* client login section*/
 .login_img_section {
-    background-image: linear-gradient(rgba(2,2,2,.7),rgba(0,0,0,.7)),url("../images/carousel/bustani.jpeg");
+    background-image: linear-gradient(rgba(2,2,2,.7),rgba(0,0,0,.7)),url("../images/carousel/bustani.png");
     background-position: center;
     background-size: cover;
 }

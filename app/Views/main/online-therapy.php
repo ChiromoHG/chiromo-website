@@ -1,24 +1,16 @@
 <?= $this->extend('base/base.php'); ?>
 <?= $this->section('content'); ?>
+<?= $this->include('partials/navbar.php'); ?>
 
-<nav class="bg-white shadow">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-16">
-            <div class="flex-shrink-0">
-                <!-- Replace this with your logo -->
-                <img class="h-12 w-auto" src="<?= base_url('images/logo/chg-logo-1.png')?>" alt="Logo">
-            </div>
-        </div>
-    </div>
-</nav>
+<div class="load"></div>
 
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="absolute mt-0 left-0">
     <path fill="#f3f4f5" fill-opacity="1" d="M0,96L0,192L49.7,192L49.7,256L99.3,256L99.3,96L149,96L149,32L198.6,32L198.6,224L248.3,224L248.3,192L297.9,192L297.9,96L347.6,96L347.6,64L397.2,64L397.2,224L446.9,224L446.9,192L496.6,192L496.6,96L546.2,96L546.2,64L595.9,64L595.9,288L645.5,288L645.5,256L695.2,256L695.2,160L744.8,160L744.8,96L794.5,96L794.5,224L844.1,224L844.1,192L893.8,192L893.8,256L943.4,256L943.4,192L993.1,192L993.1,192L1042.8,192L1042.8,160L1092.4,160L1092.4,224L1142.1,224L1142.1,256L1191.7,256L1191.7,256L1241.4,256L1241.4,256L1291,256L1291,192L1340.7,192L1340.7,288L1390.3,288L1390.3,64L1440,64L1440,0L1390.3,0L1390.3,0L1340.7,0L1340.7,0L1291,0L1291,0L1241.4,0L1241.4,0L1191.7,0L1191.7,0L1142.1,0L1142.1,0L1092.4,0L1092.4,0L1042.8,0L1042.8,0L993.1,0L993.1,0L943.4,0L943.4,0L893.8,0L893.8,0L844.1,0L844.1,0L794.5,0L794.5,0L744.8,0L744.8,0L695.2,0L695.2,0L645.5,0L645.5,0L595.9,0L595.9,0L546.2,0L546.2,0L496.6,0L496.6,0L446.9,0L446.9,0L397.2,0L397.2,0L347.6,0L347.6,0L297.9,0L297.9,0L248.3,0L248.3,0L198.6,0L198.6,0L149,0L149,0L99.3,0L99.3,0L49.7,0L49.7,0L0,0L0,0Z">
     </path>
 </svg>
 
-<div class="flex justify-center items-center mt-10 relative">
-    <div class="min-w-0 w-2/5 mx-auto text-center">
+<div class="flex justify-center items-center my-10 relative">
+    <div class="min-w-0 md:w-2/5 lg:w-9/12 w-full mx-auto text-center">
 
         <div class="app">
             <h1>To begin, tell us why you're looking for help today.</h1>
@@ -30,8 +22,6 @@
 <!--                <button id="next-btn">next</button>-->
             </div>
         </div>
-
-
     </div>
 </div>
 
@@ -40,6 +30,8 @@
 </div>
 
 
+
+<?= $this->include('partials/footer.php'); ?>
 <?= $this->endSection(); ?>
 
 <?= $this->section('online-therapy-script'); ?>

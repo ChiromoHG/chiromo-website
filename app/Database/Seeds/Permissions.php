@@ -15,26 +15,46 @@ class Permissions extends Seeder
             //admin permissions
             [
                 'permission_uuid' => Uuid::uuid4()->toString(),
-                'permission_name' => 'create_therapist',
-                'permission_description' => 'Create a therapist',
+                'permission_name' => 'create_psychologist',
+                'permission_description' => 'Create a psychologist',
                 'created_at' => date('Y-m-d H:i:s'),
             ],
             [
                 'permission_uuid' => Uuid::uuid4()->toString(),
-                'permission_name' => 'edit_therapist',
-                'permission_description' => 'Edit a therapist',
+                'permission_name' => 'edit_psychologist',
+                'permission_description' => 'Edit a psychologist',
                 'created_at' => date('Y-m-d H:i:s'),
             ],
             [
                 'permission_uuid' => Uuid::uuid4()->toString(),
-                'permission_name' => 'delete_therapist',
-                'permission_description' => 'Delete a therapist',
+                'permission_name' => 'delete_psychologist',
+                'permission_description' => 'Delete a psychologist',
                 'created_at' => date('Y-m-d H:i:s'),
             ],
             [
                 'permission_uuid' => Uuid::uuid4()->toString(),
-                'permission_name' => 'view_therapist',
+                'permission_name' => 'view_psychologist',
                 'permission_description' => 'View a user',
+                'created_at' => date('Y-m-d H:i:s'),
+            ],
+            [
+                'permission_uuid' => Uuid::uuid4()->toString(),
+                'permission_name' => 'create_psychiatrist',
+                'permission_description' => 'Create a psychiatrist',
+                'created_at' => date('Y-m-d H:i:s'),
+            ],
+            //psychiatrist permissions
+            [
+                'permission_uuid' => Uuid::uuid4()->toString(),
+                'permission_name' => 'edit_psychiatrist',
+                'permission_description' => 'Edit a psychiatrist',
+                'created_at' => date('Y-m-d H:i:s'),
+            ],
+            //psychiatrist permissions
+            [
+                'permission_uuid' => Uuid::uuid4()->toString(),
+                'permission_name' => 'delete_psychiatrist',
+                'permission_description' => 'Delete a psychiatrist',
                 'created_at' => date('Y-m-d H:i:s'),
             ],
             [
@@ -110,17 +130,11 @@ class Permissions extends Seeder
                 'permission_description' => 'Edit patients details of patient',
                 'created_at' => date('Y-m-d H:i:s'),
             ],
-            //Therapist permissions
+            //Psychiatric and permissions
             [
                 'permission_uuid' => Uuid::uuid4()->toString(),
                 'permission_name' => 'view_payment',
                 'permission_description' => 'View payment details of patient',
-                'created_at' => date('Y-m-d H:i:s'),
-            ],
-            [
-                'permission_uuid' => Uuid::uuid4()->toString(),
-                'permission_name' => 'view_online_booking',
-                'permission_description' => 'View online booking details of patient',
                 'created_at' => date('Y-m-d H:i:s'),
             ],
             [
