@@ -73,7 +73,7 @@
                     <span><i class="uil uil-phone-alt"></i></span>
                     <?php if(session()->has('patient_details')) : ?>
                     <?php $patientDetails = session()->get('patient_details') ?>
-                    <h5 class="font-normal text-black ml-2"><?= !empty($patientDetails['mpesaNumber']) ? $patientDetails['mpesaNumber'] : '+254 700 000 000'?></h5>
+                    <h5 class="font-normal text-black ml-2"><?= !empty($patientDetails['phone_number']) ? $patientDetails['phone_number'] : '+254 700 000 000'?></h5>
                     <?php endif; ?>
                 </div>
                 <div class="pt-4">
@@ -110,6 +110,41 @@
             </div>
         </div>
     </div>
+
+
+
+<!-- stk confirmation model -->
+<div id="stkConfirmationModel" class="relative z-50 hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+    <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+    <div class="fixed inset-0 z-10 overflow-y-auto">
+        <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+            <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+                <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                    <div class="sm:flex sm:items-start">
+                        <div class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-green-100 sm:mx-0 sm:h-10 sm:w-10">
+                            <i class="uil uil-check text-green-800"></i>
+                        </div>
+                        <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
+                            <h3 class="text-base font-semibold leading-6 text-gray-900" id="modal-title">STK Confirmation</h3>
+                        </div>
+                    </div>
+
+                    <div class="" id="">
+                        <p class="text-md text-green-500 py-10 payment-message">
+                            
+                        </p>
+                        <p class="text-md text-red-500 py-8 payment-message-error">
+                            
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 </section>
 
 <?= $this->include('partials/footer.php'); ?>
@@ -137,12 +172,20 @@
            $.ajax({
                url: '<?= base_url('api/save_booked_appointment_payment') ?>',
                type: 'POST',
+               data: {},
                success: function (response){
-                   console.log(response);
+                if(response.status === 200){
+                    $('#stkConfirmationModel').removeClass('hidden');
+                    $('#stkConfirmationModel p.payment-message').text(response.message);
+                }else if(response.status === 500){
+                    $('#stkConfirmationModel').removeClass('hidden');
+                    $('#stkConfirmationModel p.payment-message-error').text(response.message);
+                }
                },
 
                 error: function (error){
-                     console.log(error);
+
+                    console.log(error);
                 },
 
                complete: function (){

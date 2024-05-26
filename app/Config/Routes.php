@@ -8,14 +8,31 @@ $routes = Services::routes();
 
 $routes->setDefaultNamespace('App\Controllers');
 $routes->setTranslateURIDashes(false);
-$routes->set404Override();
+$routes->set404Override(function (){
+    return view('404/error_404');
+});
 
 
 $routes->get('/', 'Home::home');
+$routes->get('/our-partners', 'Home::partners');
 
-$routes->get("/customer/sign-in", "Home::login");
-$routes->get("/customer/sign-up", "Home::signUp");
 $routes->get("/our-blog", "Home::blog");
+
+$routes->get('/our-blog/healing-the-mind', 'Home::healingTheMind');
+$routes->get('/our-blog/bustani-launch', 'Home::BustaniLaunch');
+$routes->get('/our-blog/nps-trainings', 'Home::npsTrainings');
+$routes->get('/our-blog/mental-health', 'Home::mentalHealth');
+$routes->get('/our-blog/eating-disorder', 'Home::eatingDisorder');
+$routes->get('/our-blog/adolescent', 'Home::adolescent');
+
+$routes->get('/treatments/anxiety', 'Home::anxiety');
+$routes->get('/treatments/ptsd', 'Home::ptsd');
+$routes->get('/treatments/bipolar', 'Home::bipolar');
+$routes->get('/treatments/schizophrenia', 'Home::schizophrenia');
+$routes->get('/treatments/burnout', 'Home::burnout');
+$routes->get('/treatments/depression', 'Home::depression');
+$routes->get('/treatments/substance-use', 'Home::substanceUse');
+
 $routes->get("/gift-member", "Home::giftMember");
 $routes->get("/gift-member/choose-packages", "Home::choosePackages");
 $routes->get("/gift-member/payment-kyc", "Home::paymentKYC");
@@ -28,6 +45,7 @@ $routes->get("/assessments", "Assessment::assessment");
 $routes->get("/book-appointment/online-therapy", "Appointment::onlineTherapy");
 $routes->match(['get', 'post'], "/patient-details", "Appointment::patientDetails");
 $routes->get("/review-and-pay", "Appointment::reviewAndPay");
+$routes->match(['get', 'post'], 'payment/payment_callback', 'Appointment::paymentCallback');
 
 $routes->post("api/verify_email", "Api::verifyEmail");
 $routes->post("api/register-patient", "Api::registerPatient");
@@ -38,9 +56,6 @@ $routes->post("api/save_booked_appointment_payment", "Api::saveBookedAppointment
 
 //google sitemap url
 
-$routes->get("sitemap.xml", "Home::sitemap");
-
-
 $routes->match(['get', 'post'], "/appointment_bookings", "Appointment::appointmentBookings");
 $routes->post("api/get_doctors", "Api::getDoctorsByType");
 $routes->post("api/get_doctor_date_time_slots", "Api::getDoctorDateTimeSlots");
@@ -48,6 +63,7 @@ $routes->post("api/save_booked_appointment", "Api::saveBookedAppointment");
 $routes->post("api/get_patient_appointments", "Api::getPatientAppointments");
 $routes->post("api/cancel_appointment", "Api::cancelAppointment");
 $routes->get("api/get_get_display_appointments", "Api::getGetDisplayAppointments");
+$routes->get("api/offer/get_all_offers", "Api::getAllOffers");
 
 
 //, ['filter' => 'isPatientLoginFilter']

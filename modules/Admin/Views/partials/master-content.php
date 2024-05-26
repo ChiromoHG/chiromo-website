@@ -21,8 +21,8 @@
         </div>
     </div>
     <div class="pt-16">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-4">
-            <div class="col-span-1 md:col-span-3 border border-slate-200 p-6 rounded-md">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 border border-slate-200 p-6 rounded-md">
+            <div class="col-span-1 md:col-span-2">
                 <h6 class="text-lg font-medium text-[#0060a3]">Useful Links</h6>
                 <h6 class="text-sm font-medium py-2">Groups and Roles</h6>
                 <div class="flex items-center space-x-1 text-[#0060a3] hover:text-black">
@@ -43,6 +43,21 @@
                     <span><i class="uil uil-history-alt"></i></span>
                     <a href="<?= base_url('admin/dashboard/services')?>">Create Hospital Service</a>
                 </div>
+
+
+                <h6 class="text-sm font-medium py-2">Web Components</h6>
+                <div class="flex items-center space-x-1 text-[#0060a3] hover:text-black">
+                    <span><i class="uil uil-history-alt"></i></span>
+                    <a href="<?= base_url('admin/dashboard/create_carousel')?>">Create Carousel</a>
+                </div>
+                <div class="flex items-center space-x-1 text-[#0060a3] hover:text-black">
+                    <span><i class="uil uil-history-alt"></i></span>
+                    <a href="<?= base_url('admin/dashboard/create_job')?>">Create Job</a>
+                </div>
+            </div>
+
+
+            <div class="col-span-1 md:col-span-2">
                 <h6 class="text-sm font-medium py-2">Assessments</h6>
                 <div class="flex items-center space-x-1 text-[#0060a3] hover:text-black">
                     <span><i class="uil uil-history-alt"></i></span>
@@ -56,16 +71,17 @@
                     <span><i class="uil uil-history-alt"></i></span>
                     <a href="<?= base_url('admin/dashboard/assessment_answers')?>">Create Assessment Answers</a>
                 </div>
-                <h6 class="text-sm font-medium py-2">Web Components</h6>
-                <div class="flex items-center space-x-1 text-[#0060a3] hover:text-black">
-                    <span><i class="uil uil-history-alt"></i></span>
-                    <a href="<?= base_url('admin/dashboard/create_carousel')?>">Create Carousel</a>
+
+                <div class="col-span-1 md:col-span-2">
+                    <h6 class="text-sm font-medium py-2">Hospital Offers</h6>
+                    <div class="flex items-center space-x-1 text-[#0060a3] hover:text-black">
+                        <span><i class="uil uil-history-alt"></i></span>
+                        <a href="<?= base_url('admin/dashboard/crete_offer')?>">Create Offer</a>
+                    </div>
                 </div>
-                <div class="flex items-center space-x-1 text-[#0060a3] hover:text-black">
-                    <span><i class="uil uil-history-alt"></i></span>
-                    <a href="<?= base_url('admin/dashboard/create_job')?>">Create Job</a>
-                </div>
+
             </div>
+
         </div>
     </div>
 </section>

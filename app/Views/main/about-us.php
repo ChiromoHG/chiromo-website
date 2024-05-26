@@ -1,15 +1,16 @@
 <?= $this->extend('base/base.php'); ?>
 <?= $this->section('content'); ?>
-<?= $this->include('partials/navbar.php'); ?>
+<?= view_cell('App\Cells\NavbarCell::display') ?>
+<?= view_cell('App\Cells\CookiesCell::display') ?>
 
 
 <div class="load"></div>
 
 <section class="mx-5 my-5">
     <div class="about-us">
-        <div class="flex flex-col h-[60vh] justify-center items-start pl-10">
+        <div class="flex flex-col h-[50vh] justify-center items-start pl-10">
             <div class="w-full md:w-1/2">
-                <h2 class="text-3xl font-semibold pb-[2rem]">About Chiromo Hospital Group</h2>
+                <h1 class="text-3xl font-semibold pb-[2rem]">About Chiromo Hospital Group</h1>
 
                 <div class="flex text-white text-lg">
                     <a href="<?= base_url('/') ?>" class="hover:text-gray-400">Home</a>
@@ -21,14 +22,12 @@
     </div>
 </section>
 
-<section class="my-5 px-10">
+<section class="px-10">
     <div class="grid grid-cols-12 gap-10">
-        <div class="col-span-12 md:col-span-8 my-10">
+        <div class="col-span-12 my-10">
             <div class="about-us-text">
-                <h1>
-                    <span>
+                <h1 class="">
                     Chiromo Hospital Group,
-                    </span>
                     <span class="text-[1.5rem]">
                         The leading private psychiatric service provider in Sub Sahara Africa.
                     </span>
@@ -36,140 +35,113 @@
             </div>
             <div class="pt-10 md:pt-5">
                 <p class="text-lg text-slate-600">
-                    Our group of psychiatric facilities have been in operation since 1997.
-                    We provide quality in and out patient services to individuals from all walks of life.
+                    Welcome to Chiromo Hospital Group, a distinguished Level Five psychiatric
+                    mental health facility that has been in operation since 1997 dedicated to providing compassionate care and support. 
+                    Specializing in PTSD, anxiety disorders, burnout, and more, our expert team offers 
+                    comprehensive services tailored to individual needs, fostering healing and empowerment 
+                    for every patient. Your journey to wellness starts here. 
                 </p>
             </div>
-            <div class="py-5 flex space-x-4 owl-carousel owl-theme owl-loaded owl-drag">
-                <div class="bg-blue-100 rounded-md p-4 flex-1 min-w-0 h-[10rem] flex space-x-5">
+
+
+            <div>
+                <h3 class="text-lg text-slate-600 pt-4">
+                    At Chiromo, our corporate values guide every interaction and decision. 
+                    We prioritize our corporate values to ensure highest standards of care 
+                    and fostering a culture of trust and collaboration.
+                </h3>
+                <div class="mt-8 space-y-5">
+                    <p class="flex items-center -mx-2 text-gray-700 dark:text-gray-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mx-2 text-[#0060a3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+
+                        <span class="mx-2">Respect</span>
+                    </p>
+
+                    <p class="flex items-center -mx-2 text-gray-700 dark:text-gray-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mx-2 text-[#0060a3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+
+                        <span class="mx-2">Honesty</span>
+                    </p>
+
+                    <p class="flex items-center -mx-2 text-gray-700 dark:text-gray-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mx-2 text-[#0060a3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+
+                        <span class="mx-2">Innovation</span>
+                    </p>
+
+                    <p class="flex items-center -mx-2 text-gray-700 dark:text-gray-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mx-2 text-[#0060a3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+
+                        <span class="mx-2">Reliability</span>
+                    </p>
+
+                </div>
+            </div>
+
+
+            <div class="py-5 flex space-x-4 owl-carousel owl-theme owl-loaded owl-drag my-8 md:my-10 ">
+                <div class="bg-blue-teal-gradient rounded-md p-4 flex-1 min-w-0 h-[10rem] flex space-x-5">
                     <span class="flex items-center justify-center flex-shrink-0 h-[3rem] w-[3rem] rounded-full bg-white text-black shadow-md">
-                        <i class="uil uil-minus-path text-[2rem] text-[#0060a3]"></i>
+                        <i class="uil uil-minus-path text-[2rem] text-[#ac8342]"></i>
                     </span>
                     <div>
-                        <h3 class="text-[#0060a3] font-semibold text-lg pb-2">Our Vision</h3>
-                        <span>To provide dignified, quality mental healthcare in Africa</span>
+                        <h3 class="text-[#ac8342] font-semibold text-lg pb-2">Our Vision</h3>
+                        <span class="text-white">To provide dignified, quality mental healthcare in Africa</span>
                     </div>
                 </div>
 
-                <div class="bg-blue-100 rounded-md p-5 flex-1 min-w-0 h-[10rem] flex space-x-5">
+                <div class="bg-blue-teal-gradient rounded-md p-5 flex-1 min-w-0 h-[10rem] flex space-x-5">
                      <span class="flex items-center justify-center flex-shrink-0 h-[3rem] w-[3rem] rounded-full bg-white text-black shadow-md">
-                        <i class="uil uil-minus-path text-[2rem] text-[#0060a3]"></i>
+                        <i class="uil uil-compress-arrows text-[2rem] text-[#ac8342]"></i>
                     </span>
                     <div>
-                        <h3 class="text-[#0060a3] font-semibold text-lg pb-2">Our Mission</h3>
-                        <span>
+                        <h3 class="text-[#ac8342] font-semibold text-lg pb-2">Our Mission</h3>
+                        <span class="text-white">
                          To pursue excellence in the delivery of mental health
                          services by adhering to evidence-based practices.
                         </span>
                     </div>
                 </div>
 
-                <div class="bg-blue-100 rounded-md p-5 flex-1 min-w-0 h-[10rem] flex space-x-5">
+                <div class="bg-blue-teal-gradient rounded-md p-5 flex-1 min-w-0 h-[10rem] flex space-x-5">
                     <span class="flex items-center justify-center flex-shrink-0 h-[3rem] w-[3rem] rounded-full bg-white text-black shadow-md">
-                        <i class="uil uil-minus-path text-[2rem] text-[#0060a3]"></i>
+                        <i class="uil uil-apps text-[2rem] text-[#ac8342]"></i>
                     </span>
                     <div>
-                        <h3 class="text-[#0060a3] font-semibold text-lg pb-2">Our Core Values</h3>
-                        <span>
+                        <h3 class="text-[#ac8342] font-semibold text-lg pb-2">Our Core Values</h3>
+                        <span class="text-white">
                        Respect, Honesty, Innovation, Reliability
                     </span>
                     </div>
                 </div>
 
-                <div class="bg-blue-100 rounded-md p-5 flex-1 min-w-0 h-[10rem] flex space-x-5">
+                <div class="bg-blue-teal-gradient rounded-md p-5 flex-1 min-w-0 h-[10rem] flex space-x-5">
                     <span class="flex items-center justify-center flex-shrink-0 h-[3rem] w-[3rem] rounded-full bg-white text-black shadow-md">
-                        <i class="uil uil-minus-path text-[2rem] text-[#0060a3]"></i>
+                        <i class="uil uil-compress text-[2rem] text-[#ac8342]"></i>
                     </span>
                     <div>
-                        <h3 class="text-[#0060a3] font-semibold text-lg pb-2">Our Corporate Tagline</h3>
-                        <span>
+                        <h3 class="text-[#ac8342] font-semibold text-lg pb-2">Our Corporate Tagline</h3>
+                        <span class="text-white">
                         Recovery in dignity.
                     </span>
                     </div>
                 </div>
             </div>
 
-            <div class="border border-[#ac8342] rounded-lg py-[2rem] px-[2rem]">
-                <div class="flex justify-between items-center">
-                    <div>
-                        <h4 class="text-xl text-black font-semibold">Call us 24/7 on</h4>
-                        <span class="inline-block pt-5 text-md text-[#ac8342]"><i class="uil uil-incoming-call"></i> 0800 220 000</span>
-                    </div>
-                    <div>
-                        <div class="border border-[#ac8342] rounded-full w-[8rem] h-[8rem] grid place-items-center p-5">
-                            <h4 class="text-[1.2rem] font-semibold text-[#ac8342] relative">9650 <span class="absolute -top-3 -right-3">+</span></h4>
-                            <span class="text-[12px] font-semibold text-[#ac8342]">clients trust us</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
-
-        <div class="col-span-12 md:col-span-4">
-
-            <div class="container mx-auto">
-                <div class="max-w-md mx-auto my-10 bg-blue-100 dark:bg-gray-800 p-5 rounded-lg shadow-md">
-                    <div class="text-center mt-5">
-                        <p class="text-gray-600 text-lg font-semibold dark:text-gray-400">Fill up the form below to
-                            request a callback.</p>
-                    </div>
-                    <div class="m-7">
-                        <form action="https://api.web3forms.com/submit" method="POST" id="form">
-
-                            <input type="hidden" name="apikey" value="YOUR_ACCESS_KEY_HERE">
-                            <input type="hidden" name="subject" value="New Submission from Web3Forms">
-                            <input type="checkbox" name="botcheck" id="" style="display: none;">
-
-
-                            <div class="mb-6">
-                                <label for="name"
-                                       class="block mb-2 text-md font-semibold text-gray-600 dark:text-gray-400">Full
-                                    Name</label>
-                                <input type="text" name="name" id="name" placeholder="John Doe" required
-                                       class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"/>
-                            </div>
-                            <div class="mb-6">
-                                <label for="email" class="block text-md font-semibold text-gray-600 dark:text-gray-400">Email
-                                    Address</label>
-                                <input type="email" name="email" id="email" placeholder="you@company.com" required
-                                       class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"/>
-                            </div>
-                            <div class="mb-6">
-
-                                <label for="phone" class="text-md font-semibold text-gray-600 dark:text-gray-400">Phone
-                                    Number</label>
-                                <input type="text" name="phone" id="phone" placeholder="+254 71234-567" required
-                                       class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"/>
-                            </div>
-                            <div class="mb-6">
-                                <label for="message"
-                                       class="block mb-2 text-md font-semibold text-gray-600 dark:text-gray-400">Your
-                                    Message</label>
-
-                                <textarea rows="3" name="message" id="message" placeholder="Your Message"
-                                          class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
-                                          required></textarea>
-                            </div>
-                            <div class="mb-6">
-                                <button
-                                   class="py-3 mt-4 border w-full border-gray-600 rounded-full text-base text-body-color font-medium hover:border-[#0060a3] hover:bg-[#0060a3] hover:text-white transition">
-                                    Submit
-                                </button>
-                            </div>
-                            <p class="text-base text-center text-gray-400" id="result">
-                            </p>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-
     </div>
 </section>
 
 <section class="px-10">
-    <h1 class="text-2xl text-[#0060a3] pb-8 font-semibold">Our Services</h1>
+    <h1 class="text-2xl text-[#0060a3] pb-8 font-semibold">Mental Health Services that We Provide</h1>
     <div class="flex items-center justify-center">
         <div class="flex flex-wrap -mx-4">
             <div class="w-full md:w-1/3 xl:w-1/3 px-4">
@@ -316,68 +288,11 @@
     </div>
 </section>
 
-<section>
-    <div class="container flex flex-col px-8 mx-auto py-10 space-y-6 lg:space-x-5 lg:h-[32rem] lg:py-16 lg:flex-row lg:items-center">
-        <div class="w-full lg:w-1/2">
-            <div class="lg:max-w-lg">
-                <h1 class="text-xl font-bold tracking-wide text-gray-800 dark:text-white lg:text-2xl">
-                   Meet our leadership and management team who are backbone of our corporate values
-                </h1>
-
-                <div class="mt-8 space-y-5">
-                    <p class="flex items-center -mx-2 text-gray-700 dark:text-gray-200">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mx-2 text-[#0060a3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-
-                        <span class="mx-2">Respect</span>
-                    </p>
-
-                    <p class="flex items-center -mx-2 text-gray-700 dark:text-gray-200">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mx-2 text-[#0060a3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-
-                        <span class="mx-2">Honesty</span>
-                    </p>
-
-                    <p class="flex items-center -mx-2 text-gray-700 dark:text-gray-200">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mx-2 text-[#0060a3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-
-                        <span class="mx-2">Innovation</span>
-                    </p>
-
-                    <p class="flex items-center -mx-2 text-gray-700 dark:text-gray-200">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mx-2 text-[#0060a3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-
-                        <span class="mx-2">Reliability</span>
-                    </p>
-
-                </div>
-            </div>
-
-            <a href="<?= base_url('gift-member/choose-packages') ?>"
-               class="inline-block py-3 px-8 mt-10 border border-[#E5E7EB] rounded-full text-base text-body-color font-medium hover:border-[#0060a3] hover:bg-[#0060a3] hover:text-white transition">
-                Meet the team
-            </a>
-        </div>
-
-        <div class="flex items-center justify-center w-full h-96 lg:w-1/2">
-            <img class="leadership object-cover w-full h-full mx-auto lg:max-w-2xl" src="https://images.unsplash.com/photo-1543269664-7eef42226a21?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="glasses photo">
-        </div>
-    </div>
-
-</section>
-
-<section class="px-10 bg-blue-100 py-20">
+<section class="px-10 bg-blue-teal-gradient py-20 md:py-30 mt-10">
     <div class="grid grid-cols-12 gap-10">
         <div class="col-span-12 md:col-span-4">
-            <h1 class="text-2xl text-[#0060a3] font-semibold">Frequently Asked Question</h1>
-            <p class="pt-5 text-md font-semibold">We have answers to common questions people ask</p>
+            <h1 class="text-2xl text-[#ac8342] font-semibold">Frequently Asked Question</h1>
+            <p class="pt-5 text-md font-semibold text-white">We have answers to common questions people ask</p>
         </div>
         <div class="col-span-12 md:col-span-8">
                 <div class="flex justify-center items-start my-2">
@@ -387,10 +302,12 @@
                                         @click="handleClick()"
                                         class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
                                 >
-                                    <span>What is mental health treatment?</span>
+                                    <span>
+                                    What does “mental health” mean?
+                                    </span>
                                     <svg
                                             :class="handleRotate()"
-                                            class="fill-current text-[#0060a3] h-6 w-6 transform transition-transform duration-500"
+                                            class="fill-current text-[#ac8342] h-6 w-6 transform transition-transform duration-500"
                                             viewBox="0 0 20 20"
                                     >
                                         <path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path>
@@ -399,11 +316,10 @@
                                 <div
                                         x-ref="tab"
                                         :style="handleToggle()"
-                                        class="border-l-2 border-[#0060a3] overflow-hidden max-h-0 duration-500 transition-all"
+                                        class="border-l-2 border-[#ac8342] overflow-hidden max-h-0 duration-500 transition-all"
                                 >
                                     <p class="p-3 text-gray-900">
-                                        Treatment depends on the type of mental health concern that you have, its severity and what works best for you.
-                                        In many cases, a combination of treatments works best.
+                                    Mental health is more than just the absence of mental illness. It encompasses an individual’s subjective well-being, positive feelings, and positive functioning in life.
                                     </p>
                                 </div>
                             </li>
@@ -412,22 +328,50 @@
                                         @click="handleClick()"
                                         class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
                                 >
-                                    <span>Who can benefit from mental health treatment?</span>
+                                    <span>
+                                    What is a psychiatric hospital?
+                                    </span>
                                     <svg
                                             :class="handleRotate()"
-                                            class="fill-current text-[#0060a3] h-6 w-6 transform transition-transform duration-500"
+                                            class="fill-current text-[#ac8342] h-6 w-6 transform transition-transform duration-500"
                                             viewBox="0 0 20 20"
                                     >
                                         <path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path>
                                     </svg>
                                 </h2>
                                 <div
-                                        class="border-l-2 border-[#0060a3] overflow-hidden max-h-0 duration-500 transition-all"
+                                        class="border-l-2 border-[#ac8342] overflow-hidden max-h-0 duration-500 transition-all"
                                         x-ref="tab"
                                         :style="handleToggle()"
                                 >
                                     <p class="p-3 text-gray-900">
-                                        Anyone struggling with thoughts, feelings or behaviors and anyone living with a mental health concern, whether short or long term.
+                                    A psychiatric hospital, also known as a mental health or behavioral health unit, specializes in treating serious mental disorders such as schizophrenia, bipolar disorder, major depressive disorder, and PTSD.
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="bg-white my-2 shadow-lg rounded-md" x-data="accordion(3)">
+                                <h2
+                                        @click="handleClick()"
+                                        class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
+                                >
+                                    <span>
+                                    Can children have mental health difficulties?
+                                    </span>
+                                    <svg
+                                            :class="handleRotate()"
+                                            class="fill-current text-[#ac8342] h-6 w-6 transform transition-transform duration-500"
+                                            viewBox="0 0 20 20"
+                                    >
+                                        <path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path>
+                                    </svg>
+                                </h2>
+                                <div
+                                        class="border-l-2 border-[#ac8342] overflow-hidden max-h-0 duration-500 transition-all"
+                                        x-ref="tab"
+                                        :style="handleToggle()"
+                                >
+                                    <p class="p-3 text-gray-900">
+                                    Yes, children can experience mental health challenges. It’s essential to pay attention to signs such as changes in behavior, mood, or social interactions. If a child expresses thoughts of self-harm, seek professional help immediately.
                                     </p>
                                 </div>
                             </li>
@@ -436,31 +380,24 @@
                                         @click="handleClick()"
                                         class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
                                 >
-                                    <span>How do I know when to seek for mental health treatment for me or loved one?</span>
+                                    <span>
+                                    How can I find a therapist off-campus?
+                                    </span>
                                     <svg
                                             :class="handleRotate()"
-                                            class="fill-current text-[#0060a3] h-6 w-6 transform transition-transform duration-500"
+                                            class="fill-current text-[#ac8342] h-6 w-6 transform transition-transform duration-500"
                                             viewBox="0 0 20 20"
                                     >
                                         <path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path>
                                     </svg>
                                 </h2>
                                 <div
-                                        class="border-l-2 border-[#0060a3] overflow-hidden max-h-0 duration-500 transition-all"
+                                        class="border-l-2 border-[#ac8342] overflow-hidden max-h-0 duration-500 transition-all"
                                         x-ref="tab"
                                         :style="handleToggle()"
                                 >
                                     <p class="p-3 text-gray-900">
-                                        Each mental health condition has its own set of signs and symptoms. In general, however, professional help may be warranted if you or a loved one experiences:
-                                        Marked change in personality, eating or sleeping patterns.
-                                        Inability to cope with problems or daily activities.
-                                        Strange or extreme ideas.
-                                        Excessive anxiety.
-                                        Prolonged depression or loss of interest or enjoyment.
-                                        Thinking or talking about suicide.
-                                        Substance abuse.
-                                        Extreme mood swings or excessive anger, hostility or violent behavior.
-                                        Many people who have mental health conditions consider their signs and symptoms a normal part of life or avoid treatment out of shame or fear. If you're concerned about your mental health or a loved one's mental health, don't hesitate to seek advice.
+                                    Chiromo Hospital Group may assist you in finding a therapist outside of their facility. It’s worth asking if they can provide recommendations or resources.
                                     </p>
                                 </div>
                             </li>
@@ -469,50 +406,165 @@
                                         @click="handleClick()"
                                         class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
                                 >
-                                    <span>Who can come with me to mental appointment?</span>
+                                    <span>
+                                    What types of mental health conditions do you treat?
+                                    </span>
                                     <svg
                                             :class="handleRotate()"
-                                            class="fill-current text-[#0060a3] h-6 w-6 transform transition-transform duration-500"
+                                            class="fill-current text-[#ac8342] h-6 w-6 transform transition-transform duration-500"
                                             viewBox="0 0 20 20"
                                     >
                                         <path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path>
                                     </svg>
                                 </h2>
                                 <div
-                                        class="border-l-2 border-[#0060a3] overflow-hidden max-h-0 duration-500 transition-all"
+                                        class="border-l-2 border-[#ac8342] overflow-hidden max-h-0 duration-500 transition-all"
                                         x-ref="tab"
                                         :style="handleToggle()"
                                 >
                                     <p class="p-3 text-gray-900">
-                                        You can decide who you want to bring with you for support.
+                                    We specialize in treating a wide range of mental health conditions, including but not limited to depression, anxiety disorders, bipolar disorder, schizophrenia, post-traumatic stress disorder (PTSD), obsessive-compulsive disorder (OCD), and personality disorders.
                                     </p>
                                 </div>
                             </li>
+
+
                             <li class="bg-white my-2 shadow-lg rounded-md" x-data="accordion(6)">
                                 <h2
                                         @click="handleClick()"
                                         class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
                                 >
-                                    <span>Where do I begin to get started with mental healthcare?</span>
+                                    <span>
+                                    How do I know if I need to seek treatment at a mental health hospital?
+                                    </span>
                                     <svg
                                             :class="handleRotate()"
-                                            class="fill-current text-[#0060a3] h-6 w-6 transform transition-transform duration-500"
+                                            class="fill-current text-[#ac8342] h-6 w-6 transform transition-transform duration-500"
                                             viewBox="0 0 20 20"
                                     >
                                         <path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path>
                                     </svg>
                                 </h2>
                                 <div
-                                        class="border-l-2 border-[#0060a3] overflow-hidden max-h-0 duration-500 transition-all"
+                                        class="border-l-2 border-[#ac8342] overflow-hidden max-h-0 duration-500 transition-all"
                                         x-ref="tab"
                                         :style="handleToggle()"
                                 >
                                     <p class="p-3 text-gray-900">
-                                        You can call the Chiromo Mental Health Hospital (CMHH) Access Line at 0800 220 000. We accepts many forms of insurance
-                                        however; you may want to check with your insurance company regarding coverage for behavioral health services.
+                                    If you're experiencing symptoms such as persistent sadness, overwhelming worry, extreme mood swings, hallucinations, delusions, or difficulty coping with daily life, it may be time to seek professional help. Our team of experts can assess your symptoms and recommend the appropriate level of care.
                                     </p>
                                 </div>
                             </li>
+
+
+                            <li class="bg-white my-2 shadow-lg rounded-md" x-data="accordion(7)">
+                                <h2
+                                        @click="handleClick()"
+                                        class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
+                                >
+                                    <span>
+                                    What types of services do you offer for individuals with mental health conditions?
+                                    </span>
+                                    <svg
+                                            :class="handleRotate()"
+                                            class="fill-current text-[#ac8342] h-6 w-6 transform transition-transform duration-500"
+                                            viewBox="0 0 20 20"
+                                    >
+                                        <path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path>
+                                    </svg>
+                                </h2>
+                                <div
+                                        class="border-l-2 border-[#ac8342] overflow-hidden max-h-0 duration-500 transition-all"
+                                        x-ref="tab"
+                                        :style="handleToggle()"
+                                >
+                                    <p class="p-3 text-gray-900">
+                                    We offer a comprehensive range of services, including psychiatric evaluations, medication management, psychotherapy and counseling, inpatient and outpatient treatment programs, dual diagnosis treatment for co-occurring disorders, supportive care, rehabilitation services, and telepsychiatry services.
+                                    </p>
+                                </div>
+                            </li>
+
+                            <li class="bg-white my-2 shadow-lg rounded-md" x-data="accordion(8)">
+                                <h2
+                                        @click="handleClick()"
+                                        class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
+                                >
+                                    <span>
+                                    How do I schedule an appointment or consultation?
+                                    </span>
+                                    <svg
+                                            :class="handleRotate()"
+                                            class="fill-current text-[#ac8342] h-6 w-6 transform transition-transform duration-500"
+                                            viewBox="0 0 20 20"
+                                    >
+                                        <path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path>
+                                    </svg>
+                                </h2>
+                                <div
+                                        class="border-l-2 border-[#ac8342] overflow-hidden max-h-0 duration-500 transition-all"
+                                        x-ref="tab"
+                                        :style="handleToggle()"
+                                >
+                                    <p class="p-3 text-gray-900">
+                                    Scheduling an appointment or consultation is easy. You can contact our hospital directly via phone or email, or visit our website to fill out an online appointment request form. Our friendly staff will assist you in scheduling a convenient time for your visit.
+                                    </p>
+                                </div>
+                            </li>
+
+                            <li class="bg-white my-2 shadow-lg rounded-md" x-data="accordion(9)">
+                                <h2
+                                        @click="handleClick()"
+                                        class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
+                                >
+                                    <span>
+                                    Do you accept insurance for mental health services?
+                                    </span>
+                                    <svg
+                                            :class="handleRotate()"
+                                            class="fill-current text-[#ac8342] h-6 w-6 transform transition-transform duration-500"
+                                            viewBox="0 0 20 20"
+                                    >
+                                        <path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path>
+                                    </svg>
+                                </h2>
+                                <div
+                                        class="border-l-2 border-[#ac8342] overflow-hidden max-h-0 duration-500 transition-all"
+                                        x-ref="tab"
+                                        :style="handleToggle()"
+                                >
+                                    <p class="p-3 text-gray-900">
+                                    Yes, we work with a variety of insurance providers to ensure that our services are accessible and affordable for our patients. We recommend contacting your insurance provider to verify coverage and eligibility prior to scheduling an appointment.
+                                    </p>
+                                </div>
+                            </li>
+
+                            <li class="bg-white my-2 shadow-lg rounded-md" x-data="accordion(10)">
+                                <h2
+                                        @click="handleClick()"
+                                        class="flex flex-row justify-between items-center font-semibold p-3 cursor-pointer"
+                                >
+                                    <span>
+                                    What can I expect during my first visit to your mental health hospital?
+                                    </span>
+                                    <svg
+                                            :class="handleRotate()"
+                                            class="fill-current text-[#ac8342] h-6 w-6 transform transition-transform duration-500"
+                                            viewBox="0 0 20 20"
+                                    >
+                                        <path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path>
+                                    </svg>
+                                </h2>
+                                <div
+                                        class="border-l-2 border-[#ac8342] overflow-hidden max-h-0 duration-500 transition-all"
+                                        x-ref="tab"
+                                        :style="handleToggle()"
+                                >
+                                    <p class="p-3 text-gray-900">
+                                    During your first visit, you will undergo a comprehensive evaluation conducted by one of our experienced psychiatrists or psychologists. This assessment will involve discussing your medical history, current symptoms, and treatment goals. Based on this evaluation, a personalized treatment plan will be developed to address your unique needs.
+                                    </p>
+                                </div>
+                            </li>
+
                         </ul>
                 </div>
         </div>
@@ -524,52 +576,6 @@
 <?= $this->section('about-section-script'); ?>
 <script>
     $(document).ready(function () {
-        const form = document.getElementById('form');
-        const result = document.getElementById('result');
-
-        form.addEventListener('submit', function (e) {
-            const formData = new FormData(form);
-            e.preventDefault();
-            var object = {};
-            formData.forEach((value, key) => {
-                object[key] = value
-            });
-            var json = JSON.stringify(object);
-            result.innerHTML = "Please wait..."
-
-            fetch('https://api.web3forms.com/submit', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: json
-            })
-                .then(async (response) => {
-                    let json = await response.json();
-                    if (response.status == 200) {
-                        result.innerHTML = json.message;
-                        result.classList.remove('text-gray-500');
-                        result.classList.add('text-green-500');
-                    } else {
-                        console.log(response);
-                        result.innerHTML = json.message;
-                        result.classList.remove('text-gray-500');
-                        result.classList.add('text-red-500');
-                    }
-                })
-                .catch(error => {
-                    console.log(error);
-                    result.innerHTML = "Something went wrong!";
-                })
-                .then(function () {
-                    form.reset();
-                    setTimeout(() => {
-                        result.style.display = "none";
-                    }, 5000);
-                });
-        })
-
         // owl-carousel
         $('.owl-carousel').owlCarousel({
             loop: true,

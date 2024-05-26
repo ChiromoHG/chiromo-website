@@ -315,4 +315,26 @@ class ApiModel extends Model
         }
     }
 
+    public function getAllOffers(){
+        $builder = $this->db->table('offers');
+        $builder->select('*');
+        $builder->limit(1);
+        $result = $builder->get();
+        if($result !== false && $result->getNumRows() > 0) {
+            return $result->getResultArray();
+        }else{
+            return [];
+        }
+    }
+
+    public function savePayment($payment){
+        $builder = $this->db->table('payments');
+        $builder->insert($data);
+        if ($this->db->affectedRows() == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }

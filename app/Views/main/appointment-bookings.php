@@ -11,7 +11,7 @@
                 <i class="uil uil-link-h bg-[#0060a3] px-1.5 py-0.5 text-lg md:text-xl rounded-md text-white"></i>
                 <span class="font-medium text-[#0060a3] text-md md:text-xl">Book An Appointment</span>
             </div>
-            <div class="icon-color py-1 px-3 rounded-lg bg-blue-100">
+            <div class="icon-color py-1 px-3 rounded-lg bg-blue-100 hidden md:block">
                 <ul>
                     <li class="inline-block">
                         <a href="<?= base_url('') ?>" class="hover:text-blue-900">Home</a>
@@ -33,6 +33,8 @@
                 <span class="absolute inset-x-0 top-0 h-2 bg-gradient-to-r from-[#0060a3] via-blue-500 to-[#ac8342]"></span>
 
                 <form method="post" action="">
+
+                    <?= csrf_field() ?>
                     <div class="">
                         <label for="service" class="w-full text-slate-500">Select hospital service</label>
                         <select id="service" name="hospital_service" class="w-full py-1 rounded-lg border-gray-200 outline-none focus:border-[#0060a3] pt-2">
@@ -40,6 +42,8 @@
                                 <?php foreach ($services as $service): ?>
                                     <option value="<?= $service['service_uuid'] ?>"><?= $service['service_name'] ?></option>
                                 <?php endforeach; ?>
+                            <?php else: ?>
+                                <option value="">No services available</option> 
                             <?php endif; ?>
                         </select>
                         <?php if(isset($validation)) : ?>

@@ -6,7 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Chiromo admin - Recovering in Dignity</title>
-    <link rel="icon" type="image/ico" href="<?= base_url('icon.ico') ?>">
+    <link rel="icon" type="image/ico" href="<?= base_url('favicon.ico') ?>">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
     <link rel="stylesheet" href="<?= base_url('css/jquery.dataTables.min.css') ?>">
     <link rel="stylesheet" href="<?= base_url('css/buttons.dataTables.min.css') ?>">
@@ -109,6 +109,7 @@
 <?php $this->renderSection('services-content-script'); ?>
 <?php $this->renderSection('create-carousel-content-script'); ?>
 <?php $this->renderSection('create-job-content-script'); ?>
+<?php $this->renderSection('create-offer-content-script'); ?>
 <script>
 
     $(document).ready(function (){

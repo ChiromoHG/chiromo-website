@@ -34,7 +34,8 @@
         </div>
     </div>
     <div class="mx-2 md:mx-10 py-4 md:py-5">
-        <form action="" method="post">
+        <form action="<?= base_url('patient-details') ?>" method="post">
+            <?= csrf_field() ?>
             <div class="grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-4">
                 <div class="col-span-1 md:col-span-3 bg-white p-6 rounded-md shadow-md relative overflow-hidden">
                     <span class="absolute inset-x-0 top-0 h-2 bg-gradient-to-r from-[#0060a3] via-blue-500 to-[#ac8342]"></span>
@@ -134,6 +135,12 @@
                                 <span class="text-slate-500 px-1">Female</span>
                             </label>
                         </div>
+
+                        <?php if (isset($validation)) : ?>
+                                <?php if ($validation->hasError('gender')) : ?>
+                                    <span class="text-red-500 text-sm"><?= $validation->getError('gender') ?></span>
+                                <?php endif; ?>
+                            <?php endif; ?>
 
                     </div>
 

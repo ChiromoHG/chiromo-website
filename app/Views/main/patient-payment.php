@@ -16,7 +16,7 @@
 <?= $this->section('patient-payment-script') ?>
 <script>
     $(document).ready(function(){
-        console.log('working')
+
     })
 </script>
 <?= $this->endSection() ?>

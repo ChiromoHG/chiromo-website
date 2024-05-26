@@ -1,6 +1,6 @@
 <?= $this->extend('base/base.php'); ?>
 <?= $this->section('content'); ?>
-<?= $this->include('partials/navbar.php'); ?>
+<?= view_cell('App\Cells\NavbarCell::display') ?>
 
 <div class="load"></div>
 <section>
@@ -16,21 +16,18 @@
         </div>
         <div class="hero-container">
             <div class="hero-row">
-                <div class="landing-page-text-wrap">
-                    <div class="landing-page-text bg-white p-5">
-                        <h1>
+                <div class="landing-page-text-wrap bg-slate-50 rounded-md shadow-md">
+                    <div class="landing-page-text p-5">
+                        <h1 class="leading-loose">
                             WellnessPro;
                             <span>Your Comprehensive</span>
                             Mental Wellness program
                         </h1>
-                        <h5>
+                        <h5 class="text-lg leading-loose">
                             The program aims to promote mental health awareness in order to
                             reduce the stigma associated with mental illness and to create a
                             community where mental health is valued.
                         </h5>
-                        <a href="#categories"
-                           style="cursor: pointer; text-decoration: none; color: rgb(255, 255, 255);">Take
-                            Assessment</a>
                     </div>
                 </div>
             </div>
@@ -39,25 +36,19 @@
 </section>
 
 <section class="bg-gray-50">
-    <div class="mx-auto w-[60%] text-center py-16">
-        <h4 class="text-[#0060a3] text-[40px] font-semibold">
+    <div class="mx-auto w-full px-4 md:px-8 2xl:px-5 pt-10 md:pt-10">
+        <h1 class="text-[#0060a3] text-[2rem] text-center">
             Get A Mental Wellness Package From As Low As KES 3,000/- Annually
-        </h4>
-        <p class="mt-10 text-2xl text-slate-500">
+        </h1>
+        <p class="mt-6 text-lg leading-loose">
             Wellness is an active lifestyle that incorporates several components that affect health (physical, mental
-            and social wellbeing)
-            on a holistic level.
-        </p>
-        <p class="mt-4 text-2xl text-slate-500">
-            We would like to curate a specialized program for you; to get started, take a free self assessment from the
-            categories below;
+            and social wellbeing) on a holistic level. We would like to curate a specialized program for you; to get started, take a free self assessment from the categories below;
         </p>
     </div>
 
-    <div class="lg:pt-[20px] pb-10 lg:pb-10 flex items-center justify-center">
-        <div class="container">
+    <div class="px-4 md:px-8 2xl:px-5 py-10 md:py-10 flex items-center justify-center">
             <div class="flex flex-wrap -mx-4">
-                <div class="w-full md:w-1/2 xl:w-1/3 px-4">
+                <div class="w-full md:w-1/3 px-4">
                     <div class="bg-white rounded-[30px] overflow-hidden mb-10">
                         <img
                                 src="<?= base_url('images/disorders/image-1.jpg')?>" alt="image" class="w-full"
@@ -74,15 +65,12 @@
                             <a href="<?= base_url('gift-member/choose-packages')?>" class="inline-block py-2 px-7 border border-[#E5E7EB] rounded-full text-base text-body-color font-medium hover:border-[#0060a3] hover:bg-[#0060a3] hover:text-white transition">
                                 Buy Now
                             </a>
-                            <a href="<?= base_url('gift-member/choose-packages')?>" class="inline-block py-2 px-7 border border-[#E5E7EB] rounded-full text-base text-body-color font-medium hover:border-[#0060a3] hover:bg-[#0060a3] hover:text-white transition">
-                                Buy for Someone
-                            </a>
                         </div>
                     </div>
                 </div>
 
 
-                <div class="w-full md:w-1/2 xl:w-1/3 px-4">
+                <div class="w-full md:w-1/3 px-4">
                     <div class="bg-white rounded-[30px] overflow-hidden mb-10">
                         <img
                                 src="<?= base_url('images/disorders/image-3.jpg')?>" alt="image" class="w-full"
@@ -99,15 +87,12 @@
                             <a href="<?= base_url('gift-member/choose-packages')?>" class="inline-block py-2 px-7 border border-[#E5E7EB] rounded-full text-base text-body-color font-medium hover:border-[#0060a3] hover:bg-[#0060a3] hover:text-white transition">
                                 Buy Now
                             </a>
-                            <a href="<?= base_url('gift-member/choose-packages')?>" class="inline-block py-2 px-7 border border-[#E5E7EB] rounded-full text-base text-body-color font-medium hover:border-[#0060a3] hover:bg-[#0060a3] hover:text-white transition">
-                                Buy for Someone
-                            </a>
                         </div>
                     </div>
                 </div>
 
 
-                <div class="w-full md:w-1/2 xl:w-1/3 px-4">
+                <div class="w-full md:w-1/3 px-4">
                     <div class="bg-white rounded-[30px] overflow-hidden mb-10">
                         <img
                                 src="<?= base_url('images/disorders/image-4.jpg')?>" alt="image" class="w-full"
@@ -124,15 +109,12 @@
                             <a href="<?= base_url('gift-member/choose-packages')?>" class="inline-block py-2 px-7 border border-[#E5E7EB] rounded-full text-base text-body-color font-medium hover:border-[#0060a3] hover:bg-[#0060a3] hover:text-white transition">
                                 Buy Now
                             </a>
-                            <a href="<?= base_url('gift-member/choose-packages')?>" class="inline-block py-2 px-7 border border-[#E5E7EB] rounded-full text-base text-body-color font-medium hover:border-[#0060a3] hover:bg-[#0060a3] hover:text-white transition">
-                                Buy for Someone
-                            </a>
                         </div>
                     </div>
                 </div>
 
 
-                <div class="w-full md:w-1/2 xl:w-1/3 px-4">
+                <div class="w-full md:w-1/3 px-4">
                     <div class="bg-white rounded-[30px] overflow-hidden mb-10">
                         <img
                                 src="<?= base_url('images/disorders/image-5.jpg')?>" alt="image" class="w-full"
@@ -149,14 +131,11 @@
                             <a href="<?= base_url('gift-member/choose-packages')?>" class="inline-block py-2 px-7 border border-[#E5E7EB] rounded-full text-base text-body-color font-medium hover:border-[#0060a3] hover:bg-[#0060a3] hover:text-white transition">
                                 Buy Now
                             </a>
-                            <a href="<?= base_url('gift-member/choose-packages')?>" class="inline-block py-2 px-7 border border-[#E5E7EB] rounded-full text-base text-body-color font-medium hover:border-[#0060a3] hover:bg-[#0060a3] hover:text-white transition">
-                                Buy for Someone
-                            </a>
                         </div>
                     </div>
                 </div>
 
-                <div class="w-full md:w-1/2 xl:w-1/3 px-4">
+                <div class="w-full md:w-1/3 px-4">
                     <div class="bg-white rounded-[30px] overflow-hidden mb-10">
                         <img
                                 src="<?= base_url('images/disorders/image-6.jpg')?>" alt="image" class="w-full"
@@ -173,14 +152,11 @@
                             <a href="<?= base_url('gift-member/choose-packages')?>" class="inline-block py-2 px-7 border border-[#E5E7EB] rounded-full text-base text-body-color font-medium hover:border-[#0060a3] hover:bg-[#0060a3] hover:text-white transition">
                                 Buy Now
                             </a>
-                            <a href="" class="inline-block py-2 px-7 border border-[#E5E7EB] rounded-full text-base text-body-color font-medium hover:border-[#0060a3] hover:bg-[#0060a3] hover:text-white transition">
-                                Buy for Someone
-                            </a>
                         </div>
                     </div>
                 </div>
 
-                <div class="w-full md:w-1/2 xl:w-1/3 px-4">
+                <div class="w-full md:w-1/3 px-4">
                     <div class="bg-white rounded-[30px] overflow-hidden mb-10">
                         <img
                                 src="<?= base_url('images/disorders/image-7.png')?>" alt="image" class="w-full"
@@ -197,16 +173,10 @@
                             <a href="<?= base_url('gift-member/choose-packages')?>" class="inline-block py-2 px-7 border border-[#E5E7EB] rounded-full text-base text-body-color font-medium hover:border-[#0060a3] hover:bg-[#0060a3] hover:text-white transition">
                                 Buy Now
                             </a>
-                            <a href="<?= base_url('gift-member/choose-packages')?>" class="inline-block py-2 px-7 border border-[#E5E7EB] rounded-full text-base text-body-color font-medium hover:border-[#0060a3] hover:bg-[#0060a3] hover:text-white transition">
-                                Buy for Someone
-                            </a>
                         </div>
                     </div>
                 </div>
-
-
             </div>
-        </div>
     </div>
 
 </section>

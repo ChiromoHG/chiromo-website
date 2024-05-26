@@ -3,15 +3,18 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Model\ApiModel;
 use Modules\Admin\Models\ServicesModel;
 
 class Appointment extends BaseController
 {
     private $servicesModel;
+    private $apiModel;
     public function __construct()
     {
 
         $this->servicesModel = model(ServicesModel::class);
+        $this->apiModel = model(ApiModel::class);
     }
     public function appointment()
     {
@@ -128,8 +131,15 @@ class Appointment extends BaseController
 
     public function patientDetails(){
 
-        $data = [];
+        if(!session()->has('appointment_bookings')){
+            return redirect()->to('appointment_bookings');
+        }
+
+        $data = []; 
+
         if($this->request->getMethod() == 'post'){
+
+            
             $rules = [
                 'first_name' => [
                     'rules' => 'required',
@@ -177,12 +187,12 @@ class Appointment extends BaseController
                     ]
                 ],
                 'mpesaNumber' => [
-                    'rules' => 'required|numeric|min_length[10]|max_length[12]',
+                    'rules' => 'required|numeric|min_length[10]|max_length[10]',
                     'errors' => [
                         'required' => 'Mpesa number is required',
                         'numeric' => 'Mpesa number must be numeric',
-                        'min_length' => 'Mpesa number must be at least 10 characters',
-                        'max_length' => 'Mpesa number must be at most 12 characters'
+                        'min_length' => 'Mpesa number must be at least 10 digits',
+                        'max_length' => 'Mpesa number must be at most 10 digits'
                     ]
                 ],
             ];
@@ -211,7 +221,7 @@ class Appointment extends BaseController
                     'gender' => $gender,
                     'email' => $email,
                     'full_name' => $fullName,
-                    'mpesaNumber' => $mpesaNumber
+                    'phone_number' => $mpesaNumber
                 ];
 
 
@@ -226,12 +236,75 @@ class Appointment extends BaseController
                 }
 
                 return redirect()->to('review-and-pay');
-
             }
         }
 
         return view('main/patient-details', $data);
     }
+
+    public function paymentCallback()
+    {
+        $response = file_get_contents('php://input');
+        log_message("error", "Response: " . $response);
+    
+        $json = json_decode($response, true);
+    
+        if (!isset($json['Body']['stkCallback']['ResultCode']) || $json['Body']['stkCallback']['ResultCode'] !== 0) {
+            return false; // return false
+        }
+    
+        $merchantRequestID = $json['Body']['stkCallback']['MerchantRequestID'];
+        $checkoutRequestID = $json['Body']['stkCallback']['CheckoutRequestID'];
+        
+        $callbackData = [
+            'callback_uuid' => Uuid::uuid4()->toString(),
+            'merchantRequestID' => $merchantRequestID,
+            'checkoutRequestID' => $checkoutRequestID,
+            'amount' => 0,
+            'mpesaReceiptNumber' => '',
+            'phoneNumber' => '',
+            'transactionDate' => '',
+        ];
+    
+        if (isset($json['Body']['stkCallback']['CallbackMetadata']['Item'])) {
+            foreach ($json['Body']['stkCallback']['CallbackMetadata']['Item'] as $params) {
+                switch ($params['Name']) {
+                    case 'Amount':
+                        $callbackData['amount'] = $params['Value'];
+                        break;
+                    case 'MpesaReceiptNumber':
+                        $callbackData['mpesaReceiptNumber'] = $params['Value'];
+                        break;
+                    case 'PhoneNumber':
+                        $callbackData['phoneNumber'] = $params['Value'];
+                        break;
+                    case 'TransactionDate':
+                        $callbackData['transactionDate'] = $params['Value'];
+                        break;
+                }
+            }
+        }
+    
+        try {
+            if($this->apiModel->savePayment($callbackData)){
+                return $this->response->setJSON([
+                    'status' => 200,
+                    'message' => 'Payment was successful. Thank you'
+                ]);
+            }else{
+                return $this->response->setJSON([
+                    'status' => 500,
+                    'message' => 'Please try again later'
+                ]);
+            }
+
+        } catch (\CodeIgniter\Database\Exceptions\DataBaseException $e) {
+            $data = ['error' => $e];
+            return $data;
+        }
+    
+    }
+    
 
     public function reviewAndPay()
     {
@@ -240,4 +313,5 @@ class Appointment extends BaseController
         }
         return view('main/review-and-pay');
     }
+
 }

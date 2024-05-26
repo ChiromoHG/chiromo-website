@@ -33,6 +33,7 @@ class AppointmentPayments extends Migration
             'appointment_description' => [
                 'type' => 'varchar',
                 'constraint' => 255,
+                'null' => true,
             ],
             'first_name' => [
                 'type' => 'varchar',
@@ -49,6 +50,7 @@ class AppointmentPayments extends Migration
             'email' => [
                 'type' => 'varchar',
                 'constraint' => 255,
+                'null' => true,
             ],
             'mpesa_number' => [
                 'type' => 'varchar',

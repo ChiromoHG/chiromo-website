@@ -9,9 +9,12 @@
     <meta name="description" content="Chiromo hospital group a legacy for mental health care">
     <meta name="csrf-token" content="<?= csrf_hash() ?>">
 
+    <meta name="google-site-verification" content="IjF8yOEQPQGQq8NoemIim2A08pMaubh_FF4yfS7bT-8" />
+
     <link rel="icon" type="image/ico" href="<?= base_url('favicon.ico') ?>">
 
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
     <link rel="stylesheet" href="<?= base_url('css/jquery.dataTables.min.css') ?>">
     <link rel="stylesheet" href="<?= base_url('css/buttons.dataTables.min.css') ?>">
@@ -133,6 +136,8 @@
 <script src="<?= base_url('js/dataTables.responsive.min.js') ?>"></script>
 <script src="<?= base_url('js/dataTables.select.min.js') ?>"></script>
 
+
+
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 
@@ -151,6 +156,13 @@
 <?= $this->renderSection('navbar-section-script') ?>
 <?= $this->renderSection('bookings-patient-details-script') ?>
 <?= $this->renderSection('review-and-pay') ?>
+<?= $this->renderSection('cookies-section-script') ?>
+<?= $this->renderSection('slider-section-script') ?>
+<?= $this->renderSection('offers-section-script') ?>
+<?= $this->renderSection('youtube-section-script') ?>
+<?= $this->renderSection('treatments-section-script') ?>
+<?= $this->renderSection('feedback-section-script') ?>
+<?= $this->renderSection('partners-section-script') ?>
 
 <script>
     //loading
@@ -173,85 +185,6 @@
             loader.classList.remove("spinner");
         })
     })
-    $(document).ready(function () {
-
-        //sticky navbar
-        $(window).scroll(function () {
-            if (this.scrollY > 400) {
-                $('.nav').addClass("is-sticky");
-            } else {
-                $('.nav').removeClass("is-sticky");
-            }
-        });
-
-        //active navbar
-        const navLink = window.location.pathname;
-        const allNavLink = document.querySelectorAll('nav ul li a');
-        allNavLink.forEach((link) => {
-            if (link.href.includes(navLink)) {
-                if (navLink === '/') {
-                    link.classList.remove('active');
-                } else {
-                    link.classList.add('active');
-                }
-            }
-        });
-
-        //session handling
-        let idleTime = 0;
-        setInterval(timerIncrement, 60000);
-
-        function timerIncrement() {
-            idleTime = idleTime + 1;
-            if (idleTime > 29) {
-                window.location.href = '/';
-                $('#toast-default').removeClass('hidden');
-                $('#toast-default-content').text('You have been logged out due to inactivity');
-            }
-        }
-
-        $(document).on('mousemove keydown', function () {
-            idleTime = 0;
-        });
-
-
-        // show the current date and month
-        $(document).ready(function () {
-            let timeElement = document.getElementById('time');
-
-            function updateTime() {
-                timeElement.innerText = moment().format('Do YYYY');
-            }
-
-            setInterval(updateTime, 1000);
-        });
-
-        //owl carousel for patient dashboard
-
-        $('.owl-carousel').owlCarousel({
-            loop: true,
-            margin: 10,
-            autoplay: true,
-            autoplayTimeout: 3000,
-            autoplayHoverPause: true,
-            dots: false,
-            nav: false,
-            animateIn: 'fadeIn',
-            animateOut: 'fadeOut',
-            responsive: {
-                0: {
-                    items: 1
-                },
-                1024: {
-                    items: 1
-                },
-                1280: {
-                    items: 1
-                }
-            }
-        });
-    })
-
 </script>
 </body>
 </html>

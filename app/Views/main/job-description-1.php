@@ -1,6 +1,7 @@
 <?= $this->extend('base/base.php'); ?>
 <?= $this->section('content'); ?>
 <?= view_cell('App\Cells\NavbarCell::display') ?>
+<?= view_cell('App\Cells\CookiesCell::display') ?>
 
 <div class="load"></div>
 
@@ -10,7 +11,7 @@
     <div class="grid grid-cols-12 md:grid-cols-12 gap-2 md:gap-6 bg-white p-4 rounded-md shadow-md my-4">
         <div class="col-span-12 md:col-span-8 border border-slate-200 rounded-md p-4">
             <div>
-                <a href="" class="text-[#0060a3] text-md font-semibold hover:text-blue-800 transition ease-out duration-700 hover:opacity-50"><i class="uil uil-angle-left"></i> Back to job listing</a>
+                <a href="<?= base_url('careers') ?>" class="text-[#0060a3] text-md font-semibold hover:text-blue-800 transition ease-out duration-700 hover:opacity-50"><i class="uil uil-angle-left"></i> Back to job listing</a>
             </div>
             <div class="pt-4 md:pt-8">
                 <h5 class="font-semibold text-lg md:text-xl text-[#0060a3]">Data Analyst </h5>
@@ -36,7 +37,7 @@
                     <div class="font-semibold text:sm md:text-md">Closing Date</div>
                 </div>
                 <div class="col-span-1">
-                    <div class="text-left text:sm md:text-md text-slate-500">: 20/3/2024</div>
+                    <div class="text-left text:sm md:text-md text-slate-500">: </div>
                 </div>
             </div>
             <div class="grid grid-cols-2 gap-x-4 pt-2 w-full md:w-2/5">
@@ -122,7 +123,7 @@
             </div>
 
             <div class="py-4">
-                <a href="" class="text-[#0060a3] text-md font-semibold hover:text-blue-800 transition ease-out duration-700 hover:opacity-50"><i class="uil uil-angle-left"></i> Back to job listing</a>
+                <a href="<?= base_url('careers') ?>" class="text-[#0060a3] text-md font-semibold hover:text-blue-800 transition ease-out duration-700 hover:opacity-50"><i class="uil uil-angle-left"></i> Back to job listing</a>
             </div>
 
         </div>

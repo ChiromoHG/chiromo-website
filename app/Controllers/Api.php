@@ -129,8 +129,6 @@ class Api extends BaseController
 
         $getSelectedDoctorType = $this->request->getPost('selectedDoctorType');
 
-        log_message('info', 'Selected doctor type: ' . $getSelectedDoctorType);
-
         if (!in_array($getSelectedDoctorType, ['1', '2',])) {
             return $this->response->setJSON(['status' => 500, 'message' => 'Invalid doctor type, please try again.']);
         }
@@ -406,87 +404,137 @@ class Api extends BaseController
 
     public function saveFeedback(){
 
-        $feedbackRangeValue = $this->request->getPost('feedbackRangeValue');
-        $feedbackName = $this->request->getPost('feedbackName');
-        $feedbackEmail = $this->request->getPost('feedbackEmail');
-        $feedbackPhone = $this->request->getPost('feedbackPhone');
-        $feedbackMessage = $this->request->getPost('feedbackMessage');
 
-        $data = [
-            'feedback_uuid' => Uuid::uuid4()->toString(),
-            'feedback_user_choice' => $feedbackRangeValue,
-            'feedback_user_name' => $feedbackName,
-            'feedback_user_email' => $feedbackEmail,
-            'feedback_user_phone' => $feedbackPhone,
-            'feedback_user_message' => $feedbackMessage,
-        ];
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-        log_message('info', 'Feedback data: ' . json_encode($data));
-
-        try {
-
-            if($this->apiModel->saveFeedback($data)){
-                return $this->response->setJSON(['status' => 200, 'message' => 'Feedback submitted successfully. Thank you']);
-            }else{
-                return $this->response->setJSON(['status' => 500, 'message' => 'An error has occurred, please try again.']);
+            $feedbackRangeValue = $this->request->getPost('feedbackRangeValue');
+            $feedbackName = $this->request->getPost('feedbackName');
+            $feedbackEmail = $this->request->getPost('feedbackEmail');
+            $feedbackPhone = $this->request->getPost('feedbackPhone');
+            $feedbackMessage = $this->request->getPost('feedbackMessage');
+    
+            $data = [
+                'feedback_uuid' => Uuid::uuid4()->toString(),
+                'feedback_user_choice' => $feedbackRangeValue,
+                'feedback_user_name' => $feedbackName,
+                'feedback_user_email' => $feedbackEmail,
+                'feedback_user_phone' => $feedbackPhone,
+                'feedback_user_message' => $feedbackMessage,
+            ];
+    
+            try {
+    
+                if($this->apiModel->saveFeedback($data)){
+                    $response = [
+                        'status' => 200,
+                        'message' => 'Feedback submitted successfully. Thank you'
+                    ];
+                    
+                }else{
+                    return $this->response->setJSON(['status' => 500, 'message' => 'An error has occurred, please try again.']);
+                }
+    
+            }catch (\Exception $ex){
+                log_message('info', json_encode($e->getMessage()));
+                $response = [
+                    'status' => 500,
+                    'message' => 'Internal server error occurred'
+                ];
+                
             }
-
-        }catch (\Exception $ex){
-            return $ex;
+            return $this->response->setJSON($response);
+        }else{
+            return $this->response->setStatusCode(405)->setJSON(['message' =>'Method not allowed']);
         }
     }
 
 
     public function saveBookedAppointmentPayment(){
 
-        if(session()->has('patient_details') && session()->has('appointment_bookings')){
-            $patientDetails = session()->get('patient_details');
-            $appointmentBookings = session()->get('appointment_bookings');
-
-            $sessionData = [
-                'service_id' => $appointmentBookings['service_id'],
-                'service_price' => $appointmentBookings['service_price'],
-                'doctor_type' => $appointmentBookings['doctor_type'],
-                'appointment_time' => $appointmentBookings['time'],
-                'appointment_date' => $appointmentBookings['date'],
-                'appointment_description' => $appointmentBookings['description'],
-                'first_name' => $patientDetails['first_name'],
-                'last_name' => $patientDetails['last_name'],
-                'dob' => $patientDetails['dob'],
-                'phone' => $patientDetails['phone'],
-                'email' => $patientDetails['email'],
-                'mpesa_number' => $patientDetails['mpesaNumber'],
-                'residency' => $patientDetails['residence'],
-                'nationality' => $patientDetails['nationality'],
-                'gender' => $patientDetails['gender'],
-            ];
-
-
-            log_message('info', 'some message');
-            try{
-                $payment = $this->paymentService->get_accesstoken();
-            }
-            catch (\Exception $ex){
-                return $this->response->setJSON(['status' => 500, 'message' => 'error message' . $ex]);
-            }
-//            session()->remove('patient_details');
-//            session()->remove('appointment_bookings');
-
-
-            return $this->response->setJSON($payment);
-
-
-        } else {
-            $payment = [
+        if ($_SERVER['REQUEST_METHOD'] != 'POST') {
+            return $this->response->setJSON([
                 'status' => 400,
-                'message' => 'Required session data missing'
-            ];
+                'message' => 'Bad request'
+            ]);
         }
 
-        return $this->response->setJSON($payment);
+        $patientDetails = session()->get('patient_details');
+        $appointmentBookings = session()->get('appointment_bookings');
+
+        if(!$patientDetails || !$appointmentBookings){
+            return $this->response->setJSON([
+                'status' => 404,
+                'message' => 'Patient session data not found'
+            ]);
+        }
+
+        $sessionData = [
+            'service_id' => $appointmentBookings['service_id'],
+            'service_price' => $appointmentBookings['service_price'],
+            'doctor_type' => $appointmentBookings['doctor_type'],
+            'appointment_time' => $appointmentBookings['time'],
+            'appointment_date' => $appointmentBookings['date'],
+            'appointment_description' => $appointmentBookings['description'],
+            'first_name' => $patientDetails['first_name'],
+            'last_name' => $patientDetails['last_name'],
+            'dob' => $patientDetails['dob'],
+            'phone' => $patientDetails['phone'],
+            'email' => $patientDetails['email'],
+            'residency' => $patientDetails['residence'],
+            'nationality' => $patientDetails['nationality'],
+            'gender' => $patientDetails['gender'],
+            'phone_number' => $patientDetails['phone_number'],
+        ];
+
+            $result = $this->paymentService->payment($sessionData);
+            if($result){
+                $response = [
+                    'status' => 200,
+                    'message' => 'Please check your phone to complete payment.'
+                ];
+            }else{
+                $response = [
+                    'status' => 500,
+                    'message' => 'An error occurred while processing your payment.'
+                ];
+            } 
+            
+            return $this->response->setJSON($response);
+            
     }
 
 
+    public function getAllOffers(){
+        if($_SERVER['REQUEST_METHOD'] == 'GET'){
+            try{
+                $offers = $this->apiModel->getAllOffers();
+                
+                if($offers){
+                    $response = [
+                        'status' => 200,
+                        'data' => $offers
+                    ];
+                } else {
+                    $response = [
+                        'status' => 404,
+                        'message' => 'No offers found',
+                    ];
+                }
+    
+            } catch(\Exception $e){
+                // Log the error for debugging
+                error_log('Error in getAllOffers: ' . $e->getMessage());
+                $response = [
+                    'status' => 500,
+                    'message' => 'Internal server error occurred',
+                ];
+            }
+    
+            return $this->response->setJSON($response);
+        } else {
+            return $this->response->setStatusCode(405)->setJSON(['message' => 'Method Not Allowed']);
+        }
+    }
 
     public function logout()
     {

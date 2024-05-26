@@ -1,6 +1,6 @@
 
 <header class="w-full main-bg px-4 sm:px-8 lg:px-16 xl:px-20 2xl:px-20 nav">
-    <div class="flex flex-wrap items-center justify-between py-3">
+    <div class="flex flex-wrap items-center justify-between">
         <div class="w-1/2 md:w-auto">
             <a href="<?= base_url('/') ?>"
                class="text-white font-bold text-2xl rounded-lg focus:outline-none focus:shadow-outline">
@@ -24,13 +24,13 @@
                 <nav class="w-full bg-white md:bg-transparent rounded shadow-lg px-6 py-4 mt-4 text-center md:p-0 md:mt-0 md:shadow-none">
                     <ul class="md:flex items-center">
                         <li class="md:ml-4">
-                            <a class="py-2 inline-block md:text-white md:px-2 font-semibold pointer-events-none cursor-not-allowed" href="<?= base_url('about-us')?>">About Us</a>
+                            <a class="py-2 inline-block md:text-white md:px-2 font-semibold" href="<?= base_url('about-us')?>">About Us</a>
                         </li>
                         <li class="md:ml-4">
-                            <a class="py-2 inline-block md:text-white md:px-2 font-semibold pointer-events-none cursor-not-allowed" href="<?= base_url('our-blog'); ?>">Our Blogs</a>
+                            <a class="py-2 inline-block md:text-white md:px-2 font-semibold" href="<?= base_url('our-blog'); ?>">Blogs</a>
                         </li>
                         <li class="md:ml-4">
-                            <a class="py-2 inline-block md:text-white md:px-2 font-semibold pointer-events-none cursor-not-allowed" href="<?= base_url('treatments')?>">Treatments</a>
+                            <a class="py-2 inline-block md:text-white md:px-2 font-semibold" href="<?= base_url('treatments')?>">Treatments</a>
                         </li>
                         <li class="md:ml-4">
                             <span class="py-2 inline-block md:text-white md:px-2 font-semibold cursor-pointer" id="openLoginModel">Log in</span>
@@ -56,7 +56,7 @@
 
                         </li>
                         <li class="md:ml-6 mt-3 md:mt-0">
-                            <a class="inline-block font-semibold px-4 py-2 text-black md:text-white  md:bg-transparent border border-gradient rounded-lg hover:border-none"
+                            <a class="inline-block font-semibold px-4 py-2 text-black md:text-white"
                                href="<?= base_url('assessments') ?>">
                                 Assessments</a>
                         </li>
@@ -151,7 +151,31 @@
 
 <?php $this->section('navbar-section-script') ?>
 <script>
+
    $(document).ready(function () {
+
+
+        //sticky navbar
+        $(window).scroll(function () {
+            if (this.scrollY > 400) {
+                $('.nav').addClass("is-sticky");
+            } else {
+                $('.nav').removeClass("is-sticky");
+            }
+        });
+
+        //active navbar
+        const navLink = window.location.pathname;
+        const allNavLink = document.querySelectorAll('nav ul li a');
+        allNavLink.forEach((link) => {
+            if (link.href.includes(navLink)) {
+                if (navLink === '/') {
+                    link.classList.remove('active');
+                } else {
+                    link.classList.add('active');
+                }
+            }
+        });
 
        $('#openLoginModel').on('click', function () {
            $('#verifyUserModel').removeClass('hidden');

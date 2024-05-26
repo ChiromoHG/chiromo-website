@@ -9,6 +9,7 @@ module.exports = {
     "./app/Views/**/**/**/**/**/*.php",
     "./modules/Admin/Views/*.php",
     "./modules/Admin/Views/**/*.php",
+    "./modules/Admin/Views/**/**/*.php",
     "./node_modules/flowbite/**/*.js",
   ],
   theme: {

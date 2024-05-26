@@ -8,7 +8,7 @@ $routes->group('admin', ['namespace' => 'Modules\Admin\Controllers'], function($
 
 //, 'filter' => 'isLoggedInFilter'
 
-$routes->group('admin', ['namespace' => 'Modules\Admin\Controllers' ,'filter' => 'isLoggedInFilter'], function($routes){
+$routes->group('admin', ['namespace' => 'Modules\Admin\Controllers', 'filter' => 'isLoggedInFilter'], function($routes){
     $routes->get('dashboard', 'Admin::dashboard');
     $routes->get('dashboard/manage_users', 'ManageUsers::manageUsers');
     $routes->get('dashboard/manage_users/edit_user/(:segment)', 'ManageUsers::editUser/$1');
@@ -18,7 +18,8 @@ $routes->group('admin', ['namespace' => 'Modules\Admin\Controllers' ,'filter' =>
     $routes->get('dashboard/assessment_questions', 'Assessments::assessmentQuestions');
     $routes->get('dashboard/assessment_answers', 'Assessments::assessmentAnswers');
     $routes->get('dashboard/create_carousel', 'Web::createCarousel');
-    $routes->get('dashboard/create_job', 'Web::createJob');
+    $routes->get('dashboard/create_job', 'Jobs::createJob');
+    $routes->get('dashboard/crete_offer', 'Web::createOffer');
 
     $routes->get('dashboard/time_slots', 'Admin::timeSlots');
     $routes->get('dashboard/appointments', 'Admin::appointments');
@@ -69,10 +70,13 @@ $routes->group('admin', ['namespace' => 'Modules\Admin\Controllers' ,'filter' =>
     $routes->get('department/get_department_by_id', 'Departments::getDepartmentById');
     $routes->post('carousel/create_carousel', 'Web::saveCarousel');
     $routes->get('carousel/get_carousel', 'Web::getCarousel');
-    $routes->get('jobs/get_jobs', 'Web::getJobs');
-    $routes->post('jobs/save_job', 'Web::saveJob');
-
-
+    $routes->get('jobs/get_jobs', 'Jobs::getJobs');
+    $routes->post('jobs/save_job', 'Jobs::saveJob');
+    $routes->post('offer/create_offer', 'Web::saveOffer');
+    $routes->get('offer/get_offers', 'Web::getOffer');
+    $routes->post('offer/delete_offer', 'Web::deleteOffer');
+    $routes->post('offer/end_offer', 'Web::endOffer');
+    $routes->post('offer/get_offers_id', 'Web::getOffersId');
 
     $routes->post('doctor/save-time-slots', 'ManageDoctor::timeSlot');
     $routes->get('doctor/get-time-slots', 'ManageDoctor::getTimeSlots');

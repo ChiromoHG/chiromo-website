@@ -14,85 +14,9 @@ class Home extends BaseController
     {
         $this->apiModel = model(ApiModel::class);
     }
-
-
-    /**
-     * @throws Exception
-     */
-    public function sitemap()
-    {
-
-        $xml = '<?xml version="1.0" encoding="UTF-8"?>';
-        $xml .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">';
-
-
-        $urls = [
-            [
-                'url' => base_url('careers'),
-                'lastmod' => $this->getLastModifiedDate('careers'),
-            ],
-            [
-                'url' => base_url('appointment_bookings'),
-                'lastmod' => $this->getLastModifiedDate('appointment_bookings'),
-            ],
-            [
-                'url' => base_url('treatments'),
-                'lastmod' => $this->getLastModifiedDate('treatments'),
-            ],
-            [
-                'url' => base_url('assessment'),
-                'lastmod' => $this->getLastModifiedDate('assessment'),
-            ],
-            [
-                'url' => base_url('our-blog'),
-                'lastmod' => $this->getLastModifiedDate('our-blog'),
-            ],
-            [
-                'url' => base_url('about-us'),
-                'lastmod' => $this->getLastModifiedDate('about-us'),
-            ],
-            [
-                'url' => base_url('gift-member'),
-                'lastmod' => $this->getLastModifiedDate('gift-member'),
-            ]
-
-        ];
-
-
-        foreach ($urls as $data) {
-            $xml .= '<url>';
-            $xml .= '<loc>' . htmlspecialchars($data['url'], ENT_QUOTES, 'UTF-8') . '</loc>';
-            $xml .= '<lastmod>' . htmlspecialchars($data['lastmod'], ENT_QUOTES, 'UTF-8') . '</lastmod>'; // Include lastmod
-            $xml .= '<changefreq>weekly</changefreq>'; // You can set the change frequency
-            $xml .= '</url>';
-        }
-
-        $xml .= '</urlset>';
-
-        header('Content-type: application/xml');
-
-        $sitemapPath = WRITEPATH . 'sitemap.xml'; // Path to the sitemap file
-        file_put_contents($sitemapPath, $xml);
-
-    }
-
-    /**
-     * @throws Exception
-     */
-    public function getLastModifiedDate($url)
-    {
-        $now = new DateTime('now', new DateTimeZone('UTC'));
-        return $now->format('Y-m-d');
-    }
     public function home()
     {
-        $data =[];
-        try{
-            $data['carousel'] = $this->apiModel->getCarousel();
-        }catch(Exception $e){
-            log_message('error', $e->getMessage());
-        }
-        return view('main/home', $data);
+        return view('main/home');
     }
     public function index()
     {
@@ -145,5 +69,62 @@ class Home extends BaseController
     public function jobDescription1()
     {
         return view('main/job-description-1');
+    }
+
+
+    public function healingTheMind(){
+        return view('blogs/healing-the-mind');
+    }
+
+    public function BustaniLaunch(){
+        return view('blogs/bustani-launch');
+    }
+
+    public function npsTrainings(){
+        return view('blogs/npsTraining');
+    }
+
+    public function eatingDisorder(){
+        return view('blogs/eating-disorder');
+    }
+
+    public function mentalHealth(){
+        return view('blogs/mental-health');
+    }
+
+    public function adolescent(){
+        return view('blogs/adolescent');
+    }
+
+    public function anxiety(){
+        return view('treatments/anxiety');
+    }
+
+    public function ptsd(){
+        return view('treatments/ptsd');
+    }
+
+    public function bipolar(){
+        return view('treatments/bipolar');
+    }
+
+    public function schizophrenia(){
+        return view('treatments/schizophrenia');
+    }
+
+    public function burnout(){
+        return view('treatments/burnout');
+    }
+
+    public function depression(){
+        return view('treatments/depression');
+    }
+
+    public function substanceUse(){
+        return view('treatments/substance-use');
+    }
+
+    public function partners(){
+        return view('main/partners');
     }
 }

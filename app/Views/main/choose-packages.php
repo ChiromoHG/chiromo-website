@@ -1,27 +1,25 @@
 <?= $this->extend('base/base.php'); ?>
 <?= $this->section('content'); ?>
-<?= $this->include('partials/navbar.php'); ?>
+<?= view_cell('App\Cells\NavbarCell::display') ?>
 
 <div class="load"></div>
 
 <section>
     <div class="site-landing-page-alt">
         <div class="hero-container">
-            <div class="landing-page-text-wrap">
+            <div class="landing-page-text-wrap bg-slate-50 rounded-md shadow-md">
                 <div class="logo">
-                    <div class="landing-page-text">
-                        <h1>
+                    <div class="landing-page-text p-5">
+                        <h1 class="leading-loose">
                             WellnessPro,
                             <span>Your comprehensive</span>
                             mental Wellness Program.
                         </h1>
-                        <h5>
+                        <h5 class="leading-loose">
                             The program aims to promote mental health awareness in order to
                             reduce the stigma associated with mental illness and to create a
                             community where mental health is valued.
                         </h5>
-                        <a href="#products" class="cursor: pointer; text-decoration: none; color: rgb(255, 255, 255);">Choose
-                            package</a>
                     </div>
                 </div>
             </div>

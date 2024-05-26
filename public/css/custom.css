@@ -7,24 +7,6 @@ body {
 .bg-cream {
     background-color: #FFF2E1;
 }
-
-#loading-bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 3px;
-    background-color: red; /* Use your desired background color */
-
-}
-
-.bg-yellow-500 {
-    background-color: #F48C06;
-}
-
-.text-yellow-500 {
-    color: #F48C06;
-}
-
 .floating {
     animation-name: floating;
     animation-duration: 3s;
@@ -65,14 +47,6 @@ body {
 
 .text-darken {
     color: #2F327D;
-}
-
-.bg-yellow-500 {
-    background-color: #F48C06;
-}
-
-.text-yellow-500 {
-    color: #F48C06;
 }
 
 .floating {
@@ -441,29 +415,10 @@ span.arrow:hover .arrow_icon svg {
 }
 
 .card-picture {
-    background-image: linear-gradient(to right bottom, #ac8342, #d28c24), url("../images/carousel/launching.jpg");
     height: 16rem;
     background-size: cover;
     background-position: top;
     background-blend-mode: screen;
-    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
-}
-.card-picture-1 {
-    background-image: linear-gradient(to right bottom, #41789f, #0060a3), url("../images/carousel/frank.jpg");
-    height: 16rem;
-    background-size: cover;
-    background-position: top;
-    background-blend-mode: screen;
-    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
-}
-
-.card-picture-2 {
-    background-image: linear-gradient(to right bottom, #881919, #931616), url("../images/carousel/police.jpg");
-    height: 16rem;
-    background-size: cover;
-    background-position: top;
-    background-blend-mode: screen;
-    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
 }
 
 /*end*/
@@ -638,8 +593,9 @@ span.arrow:hover .arrow_icon svg {
 }
 
 .landing-page-text-wrap {
+    margin-top: 100px;
     width: 50%;
-    padding-top: 8em;
+    padding-top: 1rem;
     padding-bottom: 1em;
     z-index: 10;
     position: static;
@@ -647,10 +603,9 @@ span.arrow:hover .arrow_icon svg {
 }
 
 .landing-page-text h1 {
-    padding-bottom: 0.5em;
-    font-size: 3.6em;
+    padding-bottom: 5rem;
+    font-size: 2rem;
     color: #0060a3;
-    line-height: 1.2;
 }
 
 .landing-page-text h1 span {
@@ -658,35 +613,6 @@ span.arrow:hover .arrow_icon svg {
     display: inline;
 }
 
-.landing-page-text h5 {
-    padding-bottom: 1em;
-    font-size: 21px;
-    color: #5b6770;
-    line-height: 1.2;
-}
-
-.btn-danger, .bg-danger {
-    background-color: #ba0c2f !important;
-
-}
-
-.text-danger {
-    color: #ba0c2f !important;
-
-}
-
-.payment .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-    color: #fff;
-    background-color: #ba0c2f;
-}
-
-.nav-pills .nav-link {
-    background: 0 0;
-    border: 0;
-    color: white;
-    background: #6c757d;
-    border-radius: 0;
-}
 
 .landing-page-text a {
     background-color: var(--main-color);
@@ -881,7 +807,15 @@ span.arrow:hover .arrow_icon svg {
 
 .about-us {
     background: linear-gradient(to right bottom, rgba(171, 195, 215, 0.63), rgba(0, 96, 163, 0.73)), url('../images/carousel/bustani.png'), center center/cover no-repeat;
-    border-radius: 10px 10px 10px 120px;
+    border-radius: 10px 10px 100px 10px; 
+}
+.treatments-section{
+    background: linear-gradient(to right bottom, rgba(171, 195, 215, 0.63), rgba(0, 96, 163, 0.73)), url('../images/carousel/Nyali.png'), bottom/cover no-repeat;
+    border-radius: 10px 10px 100px 10px; 
+}
+.blog-section{
+    background: linear-gradient(to right bottom, rgba(171, 195, 215, 0.63), rgba(0, 96, 163, 0.73)), url('../images/carousel/image1.jpg'), bottom/cover no-repeat;
+    border-radius: 10px 10px 100px 10px;
 }
 
 .about-us-text h1 {
@@ -895,7 +829,7 @@ span.arrow:hover .arrow_icon svg {
 .about-us-text h1 span {
     color: #ac8342;
     display: block;
-    padding-bottom: 1rem;
+    padding-top: 1rem;
 }
 
 .services-img--burnout {
@@ -1120,7 +1054,7 @@ nav ul li a:hover::after{
     transition: 300ms ease-out;
 }
 nav ul li a.active{
-    color: black !important;
+    color: #ac8342 !important;
 }
 /*end*/
 
@@ -1136,3 +1070,15 @@ nav ul li a.active{
     background-color: #0060a3 !important;
 }
 /*career section*/
+
+/* owl slider */
+
+.owl-theme .owl-nav.disabled+.owl-dots{
+    margin-top: -30px;
+    display: flex;
+    flex-direction: row;
+    flex: start;
+}
+.owl-dot{
+    background: #0060a3;
+}

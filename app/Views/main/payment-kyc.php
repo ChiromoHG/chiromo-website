@@ -1,6 +1,6 @@
 <?= $this->extend('base/base.php'); ?>
 <?= $this->section('content'); ?>
-<?= $this->include('partials/navbar.php'); ?>
+<?= view_cell('App\Cells\NavbarCell::display') ?>
 
 <div class="load"></div>
 <!-- start main content -->

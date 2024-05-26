@@ -1,12 +1,13 @@
 <?= $this->extend('base/base.php'); ?>
 <?= $this->section('content'); ?>
-<?= $this->include('partials/navbar.php'); ?>
+<?= view_cell('App\Cells\NavbarCell::display') ?>
+<?= view_cell('App\Cells\CookiesCell::display') ?>
 
 <div class="load"></div>
 
 <section class="mx-5 my-5">
-    <div class="about-us">
-        <div class="flex flex-col h-[60vh] justify-center items-start pl-10">
+    <div class="blog-section">
+        <div class="flex flex-col h-[50vh] justify-center items-start pl-10">
             <div class="w-full md:w-1/2">
                 <h2 class="text-3xl font-semibold pb-[2rem]">What is going on in our blog</h2>
                 <p class="text-white text-lg">
@@ -18,112 +19,174 @@
 </section>
 
 <!-- start blog -->
-<section class="relative bg-white px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 pb-20">
-    <div class="flex md:justify-between items-center flex-col md:flex-row">
-        <h1 class="text-2xl font-semibold sm:text-3xl pt-4">Our Blog and Latest News</h1>
-        <div class="hidden md:block">
-            <label for="sort-date" class="text-slate-500 text-lg block">Filter by Date:</label>
-            <select id="sort-date" class="w-60 h-10 rounded-md border-2 border-[#0060a3]">
-                <option value="volvo">Volvo</option>
-                <option value="saab">Saab</option>
-                <option value="mercedes">Mercedes</option>
-                <option value="audi">Audi</option>
-            </select>
-        </div>
-    </div>
-    <div class="md:flex mt-12 md:-mx-4">
-        <div class="md:px-4 md:w-1/2 xl:w-1/4">
-            <div class="bg-white rounded border border-gray-300">
-                <div class="w-full h-48 overflow-hidden bg-gray-300">
-                    <img src="<?= base_url('images/blog/blog-1.jpg')?>" alt="" class="w-full h-full object-cover">
-                </div>
-                <div class="p-4">
-                    <div class="flex items-center text-sm">
-                        <span class="text-teal-500 font-semibold">#Mental Health</span>
-                        <span class="ml-4 text-gray-600">14 Feb, 2023</span>
-                    </div>
-                    <p class="text-lg font-semibold leading-tight mt-4 custom-text">My Stay in Chiromo Hospital Group</p>
-                    <p class="text-gray-600 mt-1">
-                        In the year 2012, I was diagnosed with a mental disorder known as bipolar mood disorder. An illness associated with…
-                    </p>
-                    <div class="flex items-center mt-4">
-                        <div class="w-8 h-8 rounded-full overflow-hidden bg-gray-300">
-                            <img src="<?= base_url('images/blog/author-1.jpeg')?>" alt="" class="w-full h-full object-cover">
-                        </div>
-                        <div class="ml-4 flex-grow">
-                            <p class="text-gray-600">By <span class="text-gray-900 font-semibold">Janet Monda</span></p>
-                        </div>
-                        <div class="ml-auto">
-                            <a class="custom-text font-semibold" href="">Read More</a>
-                        </div>
-                    </div>
+     <section class="top-stories">
+        <div class="pb-10 pt-5 px-4 md:px-16">
+            <div class="flex md:justify-between items-center flex-col md:flex-row space-y-6">
+            <h1 class="text-2xl font-semibold sm:text-3xl pt-4">Our Blog and Latest News</h1>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-6 py-10">
+                <div class="stories-card">
+                    <div class="stories-card--side-front shadow-xl rounded-xl overflow-hidden">
+                        <div class="card-picture" style='background-image: linear-gradient(to right bottom, #ac8342, #d28c24), url("../images/carousel/launching.jpg"); clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);'>
 
+                        </div>
+                        <div class="py-10 px-8">
+                            <span class="text-slate-600 text-[0.8rem]">August 30, 2023</span>
+                            <h4 class="pt-[.8rem] text-[1.2rem] font-semibold">CHG Bustani Branch Launching</h4>
+                            <a href="" class="pt-[1.5rem] inline-block font-semibold text-[#0060a3] text-[1rem]">Read
+                                More</a>
+                        </div>
+                    </div>
+                    <div class="stories-card--side-back shadow-xl rounded-xl">
+                        <div class="flex flex-col justify-center items-center h-[30rem]">
+                            <h4 class="pt-[.8rem] text-[1.2rem] font-semibold text-white">CHG Bustani Branch
+                                Launching</h4>
+                            <a href="<?= base_url('our-blog/bustani-launch'); ?>"
+                               class="inline-block mt-[2.0rem] py-2 px-7 border border-[#E5E7EB] rounded-full text-white text-body-color font-medium hover:border-[#0060a3] hover:bg-[#0060a3] hover:text-white transition">
+                                Read More
+                            </a>
+                        </div>
+                    </div>
                 </div>
+
+
+                <div class="stories-card">
+                    <div class="stories-card--side-front shadow-xl rounded-xl overflow-hidden">
+                        <div class="card-picture" style=' background-image: linear-gradient(to right bottom, #41789f, #0060a3), url("../images/carousel/frank.jpg"); clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);'>
+
+                        </div>
+                        <div class="py-10 px-8">
+                            <span class="text-slate-600 text-[0.8rem]">October 9, 2023</span>
+                            <h4 class="pt-[.8rem] text-[1.2rem] font-semibold">Healing the Mind: A Journey to Mental Wellness</h4>
+                            <a href="" class="pt-[1.5rem] inline-block font-semibold text-[#0060a3] text-[1rem]">Read
+                                More</a>
+                        </div>
+                    </div>
+                    <div class="stories-card--side-back shadow-xl rounded-xl">
+                        <div class="flex flex-col justify-center items-center h-[30rem]">
+                            <h4 class="pt-[.8rem] text-[1.2rem] font-semibold text-white">Healing the Mind: A Journey to Mental Wellness</h4>
+                            <a href="<?= base_url('our-blog/healing-the-mind');?>"
+                               class="inline-block mt-[2.0rem] py-2 px-7 border border-[#E5E7EB] rounded-full text-white text-body-color font-medium hover:border-[#0060a3] hover:bg-[#0060a3] hover:text-white transition">
+                                Read More
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stories-card">
+                    <div class="stories-card--side-front shadow-xl rounded-xl overflow-hidden">
+                        <div class="card-picture" style='background-image: linear-gradient(to right bottom, #881919, #931616), url("../images/carousel/police.jpg"); clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);'>
+
+                        </div>
+                        <div class="py-10 px-8">
+                            <span class="text-slate-600 text-[0.8rem]">October 9, 2023</span>
+                            <h4 class="pt-[.8rem] text-[1.2rem] font-semibold">Training NPS on Mental Health</h4>
+                            <a href="" class="pt-[1.5rem] inline-block font-semibold text-[#0060a3] text-[1rem]">Read
+                                More</a>
+                        </div>
+                    </div>
+                    <div class="stories-card--side-back shadow-xl rounded-xl">
+                        <div class="flex flex-col justify-center items-center h-[30rem]">
+                            <h4 class="pt-[.8rem] text-[1.2rem] font-semibold text-white">Training NPS on Mental
+                                Health</h4>
+                            <a href="<?= base_url('our-blog/nps-trainings'); ?>"
+                               class="inline-block mt-[2.0rem] py-2 px-7 border border-[#E5E7EB] rounded-full text-white text-body-color font-medium hover:border-[#0060a3] hover:bg-[#0060a3] hover:text-white transition">
+                                Read More
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stories-card">
+                    <div class="stories-card--side-front shadow-xl rounded-xl overflow-hidden">
+                        <div class="card-picture" style='background-image: linear-gradient(to right bottom, #881919, #931616), url("../images/carousel/yoga.jpg"); clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);'>
+
+                        </div>
+                        <div class="py-10 px-8">
+                            <span class="text-slate-600 text-[0.8rem]">October 9, 2023</span>
+                            <h4 class="pt-[.8rem] text-[1.2rem] font-semibold">
+                                Living Mentally Healthy: Strategies for a Fulfilling and Balanced Life
+                            </h4>
+                            <a href="" class="pt-[1.5rem] inline-block font-semibold text-[#0060a3] text-[1rem]">Read
+                                More</a>
+                        </div>
+                    </div>
+                    <div class="stories-card--side-back shadow-xl rounded-xl">
+                        <div class="flex flex-col justify-center items-center h-[30rem]">
+                            <h4 class="pt-[.8rem] text-[1.2rem] font-semibold text-white">
+                                Living Mentally Healthy: Strategies for a Fulfilling and Balanced Life
+                            </h4>
+                            <a href="<?= base_url('our-blog/mental-health'); ?>"
+                               class="inline-block mt-[2.0rem] py-2 px-7 border border-[#E5E7EB] rounded-full text-white text-body-color font-medium hover:border-[#0060a3] hover:bg-[#0060a3] hover:text-white transition">
+                                Read More
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="stories-card">
+                    <div class="stories-card--side-front shadow-xl rounded-xl overflow-hidden">
+                        <div class="card-picture" style='background-image: linear-gradient(to right bottom, #41789f, #0060a3), url("../images/carousel/eating.png"); clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);'>
+
+                        </div>
+                        <div class="py-10 px-8">
+                            <span class="text-slate-600 text-[0.8rem]">October 9, 2023</span>
+                            <h4 class="pt-[.8rem] text-[1.2rem] font-semibold">
+                                Beyond the Scale: Understanding Eating Disorders
+                            </h4>
+                            <a href="" class="pt-[1.5rem] inline-block font-semibold text-[#0060a3] text-[1rem]">Read
+                                More</a>
+                        </div>
+                    </div>
+                    <div class="stories-card--side-back shadow-xl rounded-xl">
+                        <div class="flex flex-col justify-center items-center h-[30rem]">
+                            <h4 class="pt-[.8rem] text-[1.2rem] font-semibold text-white">
+                                Beyond the Scale: Understanding Eating Disorders
+                            </h4>
+                            <a href="<?= base_url('our-blog/eating-disorder'); ?>"
+                               class="inline-block mt-[2.0rem] py-2 px-7 border border-[#E5E7EB] rounded-full text-white text-body-color font-medium hover:border-[#0060a3] hover:bg-[#0060a3] hover:text-white transition">
+                                Read More
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="stories-card">
+                    <div class="stories-card--side-front shadow-xl rounded-xl overflow-hidden">
+                        <div class="card-picture" style='background-image: linear-gradient(to right bottom, #881919, #931616), url("../images/carousel/adolecent.png"); clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);'>
+
+                        </div>
+                        <div class="py-10 px-8">
+                            <span class="text-slate-600 text-[0.8rem]">October 9, 2023</span>
+                            <h4 class="pt-[.8rem] text-[1.2rem] font-semibold">
+                                Children & Adolescent Mental Health
+                                Awareness
+                            </h4>
+                            <a href="" class="pt-[1.5rem] inline-block font-semibold text-[#0060a3] text-[1rem]">Read
+                                More</a>
+                        </div>
+                    </div>
+                    <div class="stories-card--side-back shadow-xl rounded-xl">
+                        <div class="flex flex-col justify-center items-center h-[30rem]">
+                            <h4 class="pt-[.8rem] text-[1.2rem] font-semibold text-white">
+                                Children & Adolescent Mental Health
+                                Awareness
+                            </h4>
+                            <a href="<?= base_url('our-blog/adolescent'); ?>"
+                               class="inline-block mt-[2.0rem] py-2 px-7 border border-[#E5E7EB] rounded-full text-white text-body-color font-medium hover:border-[#0060a3] hover:bg-[#0060a3] hover:text-white transition">
+                                Read More
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
         </div>
-
-        <div class="md:px-4 md:w-1/2 xl:w-1/4 mt-4 md:mt-0">
-            <div class="bg-white rounded border border-gray-300 ">
-                <div class="w-full h-48 overflow-hidden bg-gray-300">
-                    <img src="<?= base_url('images/blog/blog-2.png')?>" alt="" class="w-full h-full object-cover">
-                </div>
-                <div class="p-4">
-                    <div class="flex items-center text-sm">
-                        <span class="text-teal-500 font-semibold">#Mental Health</span>
-                        <span class="ml-4 text-gray-600">02 Feb, 2023</span>
-                    </div>
-                    <p class="text-lg font-semibold leading-tight mt-4 custom-text">How to make new year resolutions</p>
-                    <p class="text-gray-600 mt-1">Majority of us look forward to a new year. In January, there is this one thing which many of us…
-                    </p>
-                    <div class="flex items-center mt-4">
-                        <div class="w-8 h-8 rounded-full overflow-hidden bg-gray-300">
-                            <img src="<?= base_url('images/blog/author-2.png')?>" alt="" class="w-full h-full object-cover">
-                        </div>
-                        <div class="ml-4 flex-grow">
-                            <p class="text-gray-600">By <span class="text-gray-900 font-semibold">Faith Titus</span></p>
-                        </div>
-                        <div class="ml-auto">
-                            <a class="custom-text font-semibold" href="">Read More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="md:px-4 md:w-1/2 xl:w-1/4 mt-4 md:mt-0">
-            <div class="bg-white rounded border border-gray-300 ">
-                <div class="w-full h-48 overflow-hidden bg-gray-300">
-                    <img src="<?= base_url('images/blog/blog-3.png')?>" alt="" class="w-full h-full object-cover">
-                </div>
-                <div class="p-4">
-                    <div class="flex items-center text-sm">
-                        <span class="text-teal-500 font-semibold">#Mental Health</span>
-                        <span class="ml-4 text-gray-600">20 Jan, 2023</span>
-                    </div>
-                    <p class="text-lg font-semibold leading-tight mt-4 custom-text">Risk Factors For Substance Abuse</p>
-                    <p class="text-gray-600 mt-1">
-                        Drug abuse has become a major problem in Kenya today especially among the teenagers and young adults...
-                    </p>
-                    <div class="flex items-center mt-4">
-                        <div class="w-8 h-8 rounded-full overflow-hidden bg-gray-300">
-                            <img src="<?= base_url('images/blog/author-3.png')?>" alt="" class="w-full h-full object-cover">
-                        </div>
-                        <div class="ml-4 flex-grow">
-                            <p class="text-gray-600">By <span class="text-gray-900 font-semibold">Caroline Muthoni</span></p>
-                        </div>
-                        <div class="ml-auto">
-                            <a class="custom-text font-semibold" href="">Read More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-    </div>
-</section>
-<!-- end blog -->
+    </section>
+    <!--end of stories section-->
 
 <?= $this->include('partials/footer.php'); ?>
 

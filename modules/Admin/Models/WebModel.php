@@ -31,18 +31,6 @@ class WebModel extends Model
         }
     }
 
-    public function getJobs()
-    {
-        $builder = $this->db->table('jobs');
-        $builder->select('jobs.job_title, COUNT(jobs.job_title) as job_count');
-        $result = $builder->get();
-        if($result){
-            return $result->getResultArray();
-        }else{
-            return [];
-        }
-    }
-
     public function getRoles(): array
     {
         $builder = $this->db->table('roles');
@@ -54,14 +42,88 @@ class WebModel extends Model
         return $query->getResultArray();
     }
 
-    public function saveJob($data)
-    {
-        $builder = $this->db->table('jobs');
+    public function saveOffer($data){
+        $builder = $this->db->table('offers');
         $result = $builder->insert($data);
         if($result){
             return $this->db->insertID();
         }else{
             return false;
+        }
+    }
+
+    public function getOffers(): Array
+    {
+
+        $builder = $this->db->table('offers');
+        $builder->select('offers.offer_uuid, offers.offer_title, offers.offer, offers.offer_start_date, offers.offer_end_date');
+        $builder->where('offers.status', '0');
+        $result = $builder->get();
+        if($result){
+            return $result->getResultArray();
+        }else{
+            return array();
+        }
+    }
+
+    public function checkOffer($offerId){
+
+        $builder = $this->db->table('offers');
+        $builder->select('offers.offer_uuid');
+        $builder->where('offers.offer_uuid', $offerId);
+        $result = $builder->get();
+        if ($result !== false && $result->getNumRows() > 0) {
+            return true; // Offer exists
+        } else {
+            return false; // Offer not found
+        }
+    }
+
+    function deleteOffer($offerId){
+        $builder = $this->db->table('offers');
+        $builder->where('offers.offer_uuid', $offerId);
+        $builder->delete();
+        $result = $builder->get();
+        if($result){
+            return true; // Offer deleted
+        }else{
+            return false; // Offer not found
+        }
+    }
+
+    public function endOffer($offerId){
+        $builder = $this->db->table('offers');
+        $builder->where('offers.offer_uuid', $offerId);
+        $builder->update(['offers.status' => 1]);
+        $result = $builder->get();
+        if($result !== false  && $result->getNumRows() > 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function editOffer($data, $offerId){
+        $builder = $this->db->table('offers');
+        $builder->where('offers.offer_uuid', $offerId);
+        $builder->update($data);
+        $result = $builder->get();
+        if($result !== false  && $result->getNumRows() > 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function getOfferId($offerId){
+        $builder = $this->db->table('offers');
+        $builder->select('offers.offer_uuid, offers.offer_title, offers.offer, offers.offer_start_date, offers.offer_end_date');
+        $builder->where('offers.offer_uuid', $offerId);
+        $result = $builder->get();
+        if($result !== false  && $result->getNumRows() > 0){
+            return $result->getResultArray();
+        }else{
+            return [];
         }
     }
 }

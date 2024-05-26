@@ -99,35 +99,30 @@
             <h5 class="tracking-wider font-semibold custom-text text-2xl">Our Social Links</h5>
             <ul class="mt-4 flex text-black">
                 <li>
-                    <a href="#" target="_blank">
+                    <a href="https://www.facebook.com/ChiromoHospGrp/" target="_blank">
                         <i class="uil uil-facebook-f w-6 h-6 rounded-full bg-[#ac8342] text-white flex justify-center items-center"></i>
                     </a>
                 </li>
 
                 <li class="ml-6">
-                    <a href="#" target="_blank">
+                    <a href="https://twitter.com/chiromohospgrp?lang=en" target="_blank">
                         <i class="uil uil-twitter-alt w-6 h-6 rounded-full bg-[#ac8342] text-white flex justify-center items-center"></i>
                     </a>
                 </li>
 
                 <li class="ml-6">
-                    <a href="#" target="_blank">
+                    <a href="https://www.instagram.com/chiromohospgrp/" target="_blank">
                         <i class="uil uil-instagram w-6 h-6 rounded-full bg-[#ac8342] text-white flex justify-center items-center"></i>
                     </a>
                 </li>
 
                 <li class="ml-6">
-                    <a href="#" target="_blank">
+                    <a href="https://ke.linkedin.com/company/cmhh" target="_blank">
                         <i class="uil uil-linkedin w-6 h-6 rounded-full bg-[#ac8342] text-white flex justify-center items-center"></i>
                     </a>
                 </li>
                 <li class="ml-6">
-                    <a href="#" target="_blank">
-                        <i class="uil uil-telegram-alt w-6 h-6 rounded-full bg-[#ac8342] text-white flex justify-center items-center"></i>
-                    </a>
-                </li>
-                <li class="ml-6">
-                    <a href="#" target="_blank">
+                    <a href="https://www.youtube.com/@chiromohospgrp" target="_blank">
                         <i class="uil uil-youtube w-6 h-6 rounded-full bg-[#ac8342] text-white flex justify-center items-center"></i>
                     </a>
                 </li>

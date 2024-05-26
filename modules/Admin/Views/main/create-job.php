@@ -60,10 +60,7 @@
                     },
 
                     "responsive": true,
-
-                    rowReorder: {
-                        selector: 'td:nth-child(2)'
-                    },
+                    "rowReorder": true,
 
                     order: [[1, 'asc']],
 
@@ -85,16 +82,33 @@
                             render: function (data, type, row){
                                 let length = data.length;
                                 if(length > 20) {
-                                    return `<span class="text-sm font-semibold">${data.substring(0, 20)}...</span>`;
+                                    return `<span class="text-sm font-semibold text-black">${data.substring(0, 20)}...</span>`;
                                 }else {
-                                    return `<span class="text-sm font-semibold">${data}</span>`
+                                    return `<span class="text-sm font-semibold text-black">${data}</span>`
                                 }
+                            }
+                        },
+                        {
+                            data: null,
+                            render: function (data, type, row){
+                                return `<span data-id="${row.job_uuid}" class="text-sm font-semibold text-black cursor-pointer editResponsibility">Add responsibility <i class="uil uil-plus text-[#0060a3]"></i></span>`;
+                            }
+                        },
+                        {
+                            data: null,
+                            render: function (data, type, row){
+                                return `<span data-id="${row.job_uuid}" class="text-sm font-semibold text-black cursor-pointer add-requirement">Add requirement <i class="uil uil-plus text-[#0060a3]"></i></span>`;
                             }
                         },
                         {
                             data: 'job_closing_date',
                             render: function (data, type, row){
-                                return `<span class="text-sm font-semibold">${data}</span>`;
+                                let date = new Date(data);
+                                let year = date.getFullYear();
+                                let month = (date.getMonth() + 1).toString().padStart(2, '0');
+                                let day = date.getDate().toString().padStart(2, '0');
+                                let formatedDate = `${day}-${month}-${year}`
+                                return `<span class="text-sm font-semibold text-black">${formatedDate}</span>`;
                             }
                         },
                         {
@@ -103,9 +117,7 @@
                                 return `<button class="bg-[#0060a3] text-white hover:bg-[#0060a3] font-normal py-1 px-2 rounded" onclick="editCarousel('${data}')">
                                         <i class="uil uil-edit"></i>
                                     </button>
-                                    <button class="bg-red-500 text-white hover:bg-red-600 font-normal py-1 px-2 rounded" onclick="deleteCarousel('${data}')">
-                                        <i class="uil uil-trash-alt"></i>
-                                    </button>`;
+                                   `;
                             }
                         }
                     ]
@@ -113,7 +125,7 @@
 
             }
 
-        //     validations
+         //     validations
 
             function validateTitle(){
 
@@ -318,8 +330,10 @@
                         processData: false,
                         success: function (response){
                             if(response.status === 200){
-                                $('#jobDataTable').DataTable().ajax.reload();
-                                createJob();
+                                if($('#jobDataTable').length > 0){
+                                    $('#jobDataTable').DataTable().destroy();
+                                    createJob();
+                                } 
                                 $('#jobTitle').val('');
                                 $('#jobType').val('');
                                 $('#category').val('');
@@ -352,6 +366,83 @@
                     return false;
                 }
             });
+
+            //add responsibilities 
+            $(document).on('click', '#jobDataTable tbody tr td span.editResponsibility', function(){
+                
+                $('#responsibilityModel').removeClass('hidden');
+                
+            });
+
+            $('#closeResponsibilityModal').on('click', function () {
+                    $('#responsibilityModel').addClass('hidden');
+             });
+             createResponsibilityInputField();
+
+             function createResponsibilityInputField() {
+                let inputField = $('<input type="text" class="input input-bordered w-full my-3 job_responsibility" placeholder="Enter responsibility">');
+                let inputHeader = $('<span class="block text-sm font-medium text-slate-700 pb-2">Add Job Responsibility</span>');
+                let inputError = $('<span class="text-xs text-red-500 py-1 job_responsibility_error"></span>');
+                $('#inputResponsibilityContainer').append(inputHeader);
+                $('#inputResponsibilityContainer').append(inputField);
+                $('#inputResponsibilityContainer').append(inputError);
+            }
+
+            $('#addResponsibility').click(function() {
+                createResponsibilityInputField();
+            });
+
+            function validateInput() {
+                let input = $('#inputResponsibilityContainer input[type="text"].job_responsibility');
+                input.each(function() {
+                    if($(this).val() == '') {
+                        $('#inputResponsibilityContainer span.job_responsibility_error').text('This field id required');
+                        return false;
+                    }else{
+                        $('#inputResponsibilityContainer span.job_responsibility_error').text('');
+                        return true;
+                    }
+                })
+            }
+
+            $('#inputResponsibilityContainer input.job_responsibility').on('keyup', validateInput);
+
+            $('#createResponsibility').on('click', function(){
+                if(validateInput()){
+                    let inputFields = [];
+                    let input = $('#inputResponsibilityContainer input[type="text"].job_responsibility');
+                    input.each(function(){
+                        inputFields.push($(this).val());
+                    });
+                    saveResponsibility(inputField);
+                }else{
+                    return false;
+                }
+            })
+
+            function saveResponsibility(inputField){
+                $('#createResponsibility').prop('disabled', true).html('<span class="loading loading-spinner loading-sm"></span>');
+                $.ajax({
+                    url: '<?= base_url('admin/jobs/save_responsibility') ?>',
+                    type: 'POST',
+                    data: inputField,
+                    success: function (response) {
+                        console.log(response);
+                        $('#responsibilityModel').addClass('hidden');
+                        $('#toast-danger').removeClass('hidden');
+                        $('#toast-success #toast-success-content').text(response.message);
+                        createResponsibilityInputField();
+                    },
+                    error: function (error){
+                        $('#responsibilityModel').addClass('hidden');
+                        $('#toast-danger').removeClass('hidden');
+                        $('#toast-danger #toast-danger-content').text('Internal server error, please try again');
+                    },
+                    complete: function (){
+                        $('#createResponsibility').prop('disabled', false).html('Save');
+                    }
+                });
+            }
 
         })
     </script>

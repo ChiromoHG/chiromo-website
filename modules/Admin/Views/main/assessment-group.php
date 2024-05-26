@@ -57,7 +57,7 @@
                 paging: true,
 
                 "language": {
-                    "emptyTable": "No assessments category available at the moment"
+                    "emptyTable": "No assessments category available"
                 },
 
                 "responsive": true,
